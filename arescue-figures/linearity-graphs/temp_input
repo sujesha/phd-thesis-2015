@@ -1,0 +1,10 @@
+rdonly-ordered-benchmark-metrics
+rdblks
+VM1
+diffdiff
+cpu
+VM1
+samediff
+Correlation of dispersed disk read to colocated DomU CPU
+Dispersed DomU disk read rate (blocks/sec)
+Colocated DomU CPU (%)

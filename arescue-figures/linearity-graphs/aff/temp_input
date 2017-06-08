@@ -1,0 +1,10 @@
+bytetcp-affonly-highrates-benchmark-final-metrics
+aff_rxkbps
+VM1
+samediff
+cpu
+VM1
+diffdiff
+Correlation of colocated affine Rx to dispersed DomU CPU
+Colocated DomU affine Rx (Mbps)
+Dispersed DomU CPU (%)

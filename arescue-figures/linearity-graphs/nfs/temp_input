@@ -1,0 +1,10 @@
+wronly-by-rate-lowrates-benchmark-final-metrics
+wrblks
+VM1
+diffdiff
+peth0_txkbps
+PM1
+diffdiff
+Correlation of dispersed disk write (blocks/s) to Dom0 peth0 Tx
+DomU disk write (blocks/s)
+Dom0 peth0 Tx (Kbps)

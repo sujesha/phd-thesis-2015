@@ -1,0 +1,5 @@
+./scripted.combine_4_nonaff_plot_files_and_plot.sh
+mv bytetcp.forward-linearity-nonaff-rx-tx.eps bytetcp-forward-linearity-nonaff-rx-tx.eps
+
+./scripted.combine_4_nonaff_plot_files_and_plot.rev.sh
+mv bytetcp.reverse-linearity-nonaff-rx-tx.eps bytetcp-reverse-linearity-nonaff-rx-tx.eps

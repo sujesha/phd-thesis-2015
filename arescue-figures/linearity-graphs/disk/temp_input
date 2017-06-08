@@ -1,0 +1,10 @@
+rdonly-by-rate-lowrates-benchmark-final-metrics
+rdblks
+VM1
+diffdiff
+cpu
+PM1
+samediff
+Correlation of dispersed disk read (blocks/s) to colocated Dom0 CPU
+Dispersed DomU disk write (blocks/s)
+Colocated Dom0 CPU (%)

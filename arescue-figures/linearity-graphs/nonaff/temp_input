@@ -1,0 +1,10 @@
+bytetcp-nonaffonly-highrates-benchmark-VM2-10Mbps-Rx-final-metrics
+nonaff_rxkbps
+VM1
+diffdiff
+cpu
+VM1
+samediff
+Correlation of dispersed non-affine Rx to colocated DomU CPU
+Dispersed DomU non-affine Rx (Mbps)
+Colocated DomU CPU (%)
