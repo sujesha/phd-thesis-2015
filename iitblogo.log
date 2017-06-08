@@ -1,0 +1,3067 @@
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian) (base=mf 2014.2.14)  31 AUG 2014 18:12
+**\mode:=dpdfezzz; mag:=1+0/(2*4000); nonstopmode; input iitblogo
+(/home/intern/wdmycloud/work/APS/sixth-aps-2014/iitblogo.mf
+! Value is too large (7970.11194).
+<for(logo_width)> (SUFFIX0):=(SUFFIX0)#*hppp;
+                                              ENDFOR
+define_pixels->...ixes$=(TEXT0):$:=$ #*hppp;endfor
+                                                  
+l.13  define_pixels(logo_width,logo_height)
+                                           ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7970.11194).
+<for(logo_height)> (SUFFIX0):=(SUFFIX0)#*hppp;
+                                               ENDFOR
+l.13  define_pixels(logo_width,logo_height)
+                                           ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7970).
+<recently read> ;
+                 
+beginchar->...rdp:=(EXPR3);w:=hround(charwd*hppp);
+                                                  h:=vround(charht*hppp);d:=...
+l.15   beginchar("a",logo_width#,logo_height#,0)
+                                                ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7970).
+<recently read> ;
+                 
+beginchar->...charwd*hppp);h:=vround(charht*hppp);
+                                                  d:=vround(chardp*hppp);cha...
+l.15   beginchar("a",logo_width#,logo_height#,0)
+                                                ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+The IIT Bombay Logo
+The gear outline
+! Value is too large (5675.71133).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6294.55525).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4603.84392).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6294.55525).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5675.71133).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5675.71133).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6294.55525).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4603.84392).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6294.55525).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5675.71133).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4603.84392).
+<recently read> ;
+                 
+<for(8)> ...ar_radius[(1)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(1)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5844.77386).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6525.49902).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4665.72516).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6525.49902).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5844.77386).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5844.77386).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6525.49902).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4665.72516).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6525.49902).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5844.77386).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4665.72516).
+<recently read> ;
+                 
+<for(8)> ...ar_radius[(2)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(2)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6070.16191).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6833.3849).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4748.22299).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6833.3849).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6070.16191).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6070.16191).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6833.3849).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4748.22299).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6833.3849).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6070.16191).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4748.22299).
+<recently read> ;
+                 
+<for(8)> ...ar_radius[(3)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(3)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6239.22446).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7064.32869).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4810.10423).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7064.32869).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6239.22446).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6239.22446).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7064.32869).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4810.10423).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7064.32869).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6239.22446).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4810.10423).
+<recently read> ;
+                 
+<for(8)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-45);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-45);endfor
+                                                  ; ENDFOR
+l.73             endfor
+                       
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6745.8546).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7172.95135).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5578.97568).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6745.8546).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6745.8546).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5578.97568).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7172.95135).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6745.8546).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5578.97568).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[(4)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(4)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7229.06209).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7730.90973).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5857.95486).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7229.06209).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7229.06209).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5857.95486).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7730.90973).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7229.06209).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5857.95486).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[(5)]*dir(((EXPR0)-1)*30-30);
+                                                   ENDFOR
+<for(5)> ...adius[(EXPR0)]*dir((i-1)*30-30);endfor
+                                                  ; ENDFOR
+l.80                   endfor
+                             
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6951.13345).
+<recently read> ;
+                 
+<for(1)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6479.91634).
+<recently read> ;
+                 
+<for(1)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7407.05223).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7015.51962).
+<recently read> ;
+                 
+<for(1)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4456.21712).
+<recently read> ;
+                 
+<for(2)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7137.92747).
+<recently read> ;
+                 
+<for(2)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7137.92747).
+<recently read> ;
+                 
+<for(2)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4376.53262).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7710.38998).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7710.38998).
+<recently read> ;
+                 
+<for(2)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5969.54057).
+<recently read> ;
+                 
+<for(3)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6479.91634).
+<recently read> ;
+                 
+<for(3)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5153.3869).
+<recently read> ;
+                 
+<for(3)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6951.13345).
+<recently read> ;
+                 
+<for(3)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6186.78511).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7015.51962).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5508.60489).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7407.05223).
+<recently read> ;
+                 
+<for(3)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6951.13345).
+<recently read> ;
+                 
+<for(4)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5153.3869).
+<recently read> ;
+                 
+<for(4)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6479.91634).
+<recently read> ;
+                 
+<for(4)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5969.54057).
+<recently read> ;
+                 
+<for(4)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7407.05223).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5508.60489).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7015.51962).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6186.78511).
+<recently read> ;
+                 
+<for(4)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7137.92747).
+<recently read> ;
+                 
+<for(5)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7137.92747).
+<recently read> ;
+                 
+<for(5)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4456.21712).
+<recently read> ;
+                 
+<for(5)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7710.38998).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7710.38998).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4376.53262).
+<recently read> ;
+                 
+<for(5)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6479.91634).
+<recently read> ;
+                 
+<for(6)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6951.13345).
+<recently read> ;
+                 
+<for(6)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7015.51962).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (7407.05223).
+<recently read> ;
+                 
+<for(6)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5153.3869).
+<recently read> ;
+                 
+<for(7)> ..._radius[4]*dir(((EXPR0)-1)*30-30+8.5);
+                                                  tooth_right[4][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5969.54057).
+<recently read> ;
+                 
+<for(7)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5508.60489).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30+6);
+                                                  tooth_right[5][(EXPR0)]=ge...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6186.78511).
+<recently read> ;
+                 
+<for(7)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4456.21712).
+<recently read> ;
+                 
+<for(8)> ..._radius[4]*dir(((EXPR0)-1)*30-30-8.5);
+                                                  tooth_left[5][(EXPR0)]=gea...
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4376.53262).
+<recently read> ;
+                 
+<for(8)> ...ar_radius[5]*dir(((EXPR0)-1)*30-30-6);
+                                                   ENDFOR
+l.91                                     endfor
+                                               ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.93 ...            draw wheel[4][1]..wheel[1][1];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.95 ...]..wheel[1][8]..wheel[1][9]..wheel[1][10];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.116 ...                             wheel[4][1];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+The writing in the gear: INDIAN INSTITUTE OF TECHNOLOGY BOMBAY 
+! Curve out of range.
+<to be read again> 
+                   ;
+l.169 ...                     draw bot(t)--top(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.172 ...p(t)--bot(t+char_size)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.183 ...                        top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.186 ...w bot(t+.5char_size)--top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.187 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.190 ...                     draw bot(t)--top(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.193 ...w bot(t+.5char_size)--top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.194 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.198 ...)}..{myup(t+char_size)} top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.201 ...w bot(t+.5char_size)--top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.202 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.205 ...                     draw bot(t)--top(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.206 ...           draw bot(t)--bot(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.207 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.208 ...]--.5[bot(t+char_size),top(t+char_size)];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.220 ...                      top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.223 ...                     draw bot(t)--top(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.224 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.225 ...]--.5[bot(t+char_size),top(t+char_size)];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.229 ...w bot(t+.5char_size)--top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.230 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.233 ...                     draw bot(t)--top(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.234 ...           draw bot(t)--bot(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.235 ...           draw top(t)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.236 ...]--.5[bot(t+char_size),top(t+char_size)];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.243 ...                        bot(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.246 ...                     draw bot(t)--top(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.247 ... draw bot(t+char_size)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.248 ...]--.5[bot(t+char_size),top(t+char_size)];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.251 ...p(t)--bot(t+char_size)--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.262 ...                      top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.265 ...   draw top(t)--bot(t)--bot(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.276 ...                      top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.283 ...-(.4[bot(t+char_size),top(t+char_size)]);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.286 ...p(t),bot(t+char_size)]--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.287 ...t),bot(t+char_size)]--bot(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.299 ...                                  bot(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.310 ...                      top(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.314 ...    --top(t+char_size)--bot(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.325 ...                                  bot(t);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.328 ...t)--top(t+.5char_size)--bot(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.329 ... .4[bot(t+char_size),top(t+.5char_size)];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.332 ...p(t),bot(t+char_size)]--top(t+char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.333 ...t),bot(t+char_size)]--bot(t+.5char_size);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+The Banner Outline
+! Value is too large (4351.60396).
+l.347 ...       ban_rad2 := ban_rad1 + flap_space;
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4590.69423).
+l.348 ...              ban_rad3 := ban_rad2 + hbs;
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4909.44072).
+l.349 ...              ban_rad4 := ban_rad3 + hch;
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5148.53099).
+l.350 ...              ban_rad5 := ban_rad4 + hbs;
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6078.52162).
+<recently read> ;
+                 
+<for(1)> ...enter+ban_rad[(EXPR0)]*dir(90-18-8-5);
+                                                  ban_rim[(EXPR0)][2]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5766.85646).
+<recently read> ;
+                 
+<for(1)> ..._center+ban_rad[(EXPR0)]*dir(90-18-8);
+                                                  ban_rim[(EXPR0)][3]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5241.08817).
+<recently read> ;
+                 
+<for(1)> ...er_center+ban_rad[(EXPR0)]*dir(90-18);
+                                                  ban_rim[(EXPR0)][4]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6226.27258).
+<recently read> ;
+                 
+<for(2)> ...enter+ban_rad[(EXPR0)]*dir(90-18-8-5);
+                                                  ban_rim[(EXPR0)][2]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5892.61154).
+<recently read> ;
+                 
+<for(2)> ..._center+ban_rad[(EXPR0)]*dir(90-18-8);
+                                                  ban_rim[(EXPR0)][3]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5329.73698).
+<recently read> ;
+                 
+<for(2)> ...er_center+ban_rad[(EXPR0)]*dir(90-18);
+                                                  ban_rim[(EXPR0)][4]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6349.41487).
+<recently read> ;
+                 
+<for(3)> ...enter+ban_rad[(EXPR0)]*dir(90-18-8-5);
+                                                  ban_rim[(EXPR0)][2]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5997.4215).
+<recently read> ;
+                 
+<for(3)> ..._center+ban_rad[(EXPR0)]*dir(90-18-8);
+                                                  ban_rim[(EXPR0)][3]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5403.62091).
+<recently read> ;
+                 
+<for(3)> ...er_center+ban_rad[(EXPR0)]*dir(90-18);
+                                                  ban_rim[(EXPR0)][4]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6513.58371).
+<recently read> ;
+                 
+<for(4)> ...enter+ban_rad[(EXPR0)]*dir(90-18-8-5);
+                                                  ban_rim[(EXPR0)][2]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6137.1503).
+<recently read> ;
+                 
+<for(4)> ..._center+ban_rad[(EXPR0)]*dir(90-18-8);
+                                                  ban_rim[(EXPR0)][3]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5502.12025).
+<recently read> ;
+                 
+<for(4)> ...er_center+ban_rad[(EXPR0)]*dir(90-18);
+                                                  ban_rim[(EXPR0)][4]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6636.726).
+<recently read> ;
+                 
+<for(5)> ...enter+ban_rad[(EXPR0)]*dir(90-18-8-5);
+                                                  ban_rim[(EXPR0)][2]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (6241.96025).
+<recently read> ;
+                 
+<for(5)> ..._center+ban_rad[(EXPR0)]*dir(90-18-8);
+                                                  ban_rim[(EXPR0)][3]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5576.00418).
+<recently read> ;
+                 
+<for(5)> ...er_center+ban_rad[(EXPR0)]*dir(90-18);
+                                                  ban_rim[(EXPR0)][4]:=banne...
+l.363 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.366 ..._rim[1][2]..ban_rim[1][3]--ban_rim[2][3];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(1)> ...*0.33of(ban_rim[4][1]..ban_rim[4][2]);
+                                                   ENDFOR
+l.371 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(2)> ...*0.33of(ban_rim[4][1]..ban_rim[4][2]);
+                                                   ENDFOR
+l.371 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(0)> ...)*0.2of(ban_rim[2][2]..ban_rim[2][3]);
+                                                   ENDFOR
+l.375 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(1)> ...)*0.2of(ban_rim[2][2]..ban_rim[2][3]);
+                                                   ENDFOR
+l.375 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(2)> ...)*0.2of(ban_rim[2][2]..ban_rim[2][3]);
+                                                   ENDFOR
+l.375 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(3)> ...)*0.2of(ban_rim[2][2]..ban_rim[2][3]);
+                                                   ENDFOR
+l.375 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(4)> ...)*0.2of(ban_rim[2][2]..ban_rim[2][3]);
+                                                   ENDFOR
+l.375 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.390 ..._rim[2][4]..ban_rim[2][5]..ban_rim[2][6];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.391 ..._rim[5][4]..ban_rim[5][5]..ban_rim[5][6];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.392 ...       draw ban_rim[5][2]--ban_rim[2][2];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+The Hindi writing in the Banner: KNOWLEDGE IS SUPREME
+! Curve out of range.
+<to be read again> 
+                   ;
+l.461 ...                draw mid(0,1)--mid(0,11);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.462 ...                draw mid(0,8)--mid(10,8);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.466 ...                      mid(5,4)--mid(0,4);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.469 ...                draw mid(0,1)--mid(0,11);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.470 ...    draw mid(0,8)--mid(10,8)--mid(12,10);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.474 ...                      mid(5,4)--mid(0,4);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.477 ...{hdown}mid(1,0){hdown}..{hright}mid(4,6);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.478 ...{hdown}mid(6,0){hdown}..{hright}mid(8,6);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.482 ...id(5,0){hdown}..tension 5..{hup}mid(5,7);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.483 ...                 draw mid(0,0)--mid(0,8);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.484 ...mid(10,7)--mid(0,7)..{curl 100}mid(-4,0);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.488 ...id(5,0){hdown}..tension 5..{hup}mid(5,7);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.489 ...                 draw mid(0,0)--mid(0,8);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.490 ...                draw mid(10,7)--mid(0,7);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.493 ...                draw mid(0,1)--mid(0,11);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.494 ...    draw mid(0,8)--mid(10,8)--mid(12,10);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.498 ...                      mid(5,4)--mid(0,4);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+The Book Outline
+! Value is too large (4941.39514).
+l.508 ...          book[2] :=book[1]+(ra*2.4/6,0);
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5140.63501).
+l.510 ...(xpart(book[2])+ra*.5/6,ypart(book[10]));
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5140.63501).
+l.512 ...ook[4] :=(xpart(book[3]),ypart(book[5]));
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.518 ...            ..{dir -30}book[1]--book[10];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.519 ...ir -35}book[10]{dir 30}..{dir 30}book[3];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.520 ...d 1 ..book[5].. tension 1 and 4 .. cycle;
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.520 ...d 1 ..book[5].. tension 1 and 4 .. cycle;
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(1)> ...EXPR0)/4)[book[2],book[3]]+(-ra/10,0);
+                                                   ENDFOR
+l.529 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(2)> ...EXPR0)/4)[book[2],book[3]]+(-ra/10,0);
+                                                   ENDFOR
+l.529 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+<for(3)> ...EXPR0)/4)[book[2],book[3]]+(-ra/10,0);
+                                                   ENDFOR
+l.529 ...                                   endfor
+                                                  ;
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+The Flower Outline
+! Value is too large (4383.50406).
+l.536 ...  flower_center:= gear_center + (0,ra/6);
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4888.75461).
+<recently read> ;
+                 
+l.538 ...tal_tip[1]:=flower_center+ra/2*dir( 25 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5068.50586).
+<recently read> ;
+                 
+l.538 ...tal_tip[1]:=flower_center+ra/2*dir( 25 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5151.9694).
+<recently read> ;
+                 
+l.539 ..._tip[2]:=flower_center+ra/2*dir( 25+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4900.80653).
+<recently read> ;
+                 
+l.539 ..._tip[2]:=flower_center+ra/2*dir( 25+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5362.81123).
+<recently read> ;
+                 
+l.540 ...p[3]:=flower_center+ra/2*dir( 25+15+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4670.71933).
+<recently read> ;
+                 
+l.540 ...p[3]:=flower_center+ra/2*dir( 25+15+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5506.92357).
+<recently read> ;
+                 
+l.541 ...]:=flower_center+ra/2*dir( 25+15+15+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4393.89595).
+<recently read> ;
+                 
+l.541 ...]:=flower_center+ra/2*dir( 25+15+15+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5579.01622).
+<recently read> ;
+                 
+l.542 ...tal_tip[5]:=flower_center+ra/2*dir( 90 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5506.92357).
+<recently read> ;
+                 
+l.543 ..._tip[6]:=flower_center+ra/2*dir( 90+20 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5362.81123).
+<recently read> ;
+                 
+l.544 ...p[7]:=flower_center+ra/2*dir( 90+20+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (5151.9694).
+<recently read> ;
+                 
+l.545 ...]:=flower_center+ra/2*dir( 90+20+15+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4888.75461).
+<recently read> ;
+                 
+l.546 ...flower_center+ra/2*dir( 90+20+15+15+15 );
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(1)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4463.20486).
+<for(1)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(2)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4343.65366).
+<for(2)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(3)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4224.10243).
+<for(3)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(4)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4104.55122).
+<for(4)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(5)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(6)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(7)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(8)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4383.50406).
+<for(9)> ...:=flower_center+((5-(EXPR0))*ra/20,0);
+                                                   ENDFOR
+l.551 ...                                   endfor
+                                                  ;
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.554 ..._base[1]{dir   0}..{dir   0}petal_tip[1];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.556 ...ase[2]{dir  10}..{dir  60}petal_tip[2] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.557 ..._base[2]{dir  10}..{dir  60}petal_tip[2];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.559 ...ase[3]{dir  10}..{dir  60}petal_tip[3] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.560 ..._base[3]{dir  20}..{dir  70}petal_tip[3];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.562 ...ase[4]{dir  10}..{dir  60}petal_tip[4] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.563 ..._base[4]{dir  20}..{dir  80}petal_tip[4];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.565 ...ase[5]{dir 40}..{dir  130}petal_tip[5] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.566 ...ase[5]{dir  40}...{dir  130}petal_tip[5];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.568 ...ase[5]{dir  140}...{dir  50}petal_tip[5];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.570 ...base[5]{dir 140}..{dir 50}petal_tip[5] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.571 ...ase[6]{dir  160}..{dir  100}petal_tip[6];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.573 ...ase[6]{dir 160}..{dir 100}petal_tip[6] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.574 ..._base[7]{dir 160}..{dir 110}petal_tip[7];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.576 ...ase[7]{dir 160}..{dir 100}petal_tip[7] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.577 ..._base[8]{dir 170}..{dir 120}petal_tip[8];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.579 ...ase[8]{dir 170}..{dir 120}petal_tip[8] );
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.580 ..._base[9]{dir 180}..{dir 180}petal_tip[9];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Value is too large (4900.80653).
+l.586 ...(xpart(petal_tip[2]),ypart(gear_center));
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4184.25203).
+l.587 ... petal_base[8],ypart(gear_center)+ra/12);
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4184.25203).
+l.588 ... petal_base[2],ypart(gear_center)+ra/12);
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Value is too large (4343.65366).
+l.588 ... petal_base[2],ypart(gear_center)+ra/12);
+                                                  
+The equation I just processed has given some variable
+a value of 4096 or more. Continue and I'll try to cope
+with that big value; but it might be dangerous.
+(Set warningcheck:=0 to suppress this message.)
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.590 ...0}..petal_mid_r ..{dir 140}petal_tip[11];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.591 ...0} ..petal_mid_l ..{dir 40}petal_tip[11];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.593 ...tal_mid_l ... flower_low ... petal_mid_r;
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.594 ...raw petal_mid_l ..{dir 160}petal_tip[10];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.595 ...draw petal_mid_r ..{dir 20}petal_tip[12];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.597 ...er_center{right}..{dir -60}petal_tip[12];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.598 ...wer_center{left}..{dir 240}petal_tip[10];
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+! Curve out of range.
+<to be read again> 
+                   ;
+l.602 ...al_mid_l ... flower_low ... petal_mid_r);
+                                                  
+At least one of the coordinates in the path I'm about to
+digitize was really huge (potentially bigger than 4095).
+So I've cut it back to the maximum size.
+The results will probably be pretty wild.
+
+[97] )
+Font metrics written on iitblogo.tfm.
+Output written on iitblogo.8000gf (1 character, 91832 bytes).
