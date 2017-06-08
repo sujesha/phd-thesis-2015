@@ -1,0 +1,84 @@
+
+This section presents an overview
+of existing techniques for I/O reduction in virtualized data centers,
+then presents other page cache management techniques and their
+shortcomings in virtualized environment.
+
+\subsection{Virtualization-based I/O Reduction Techniques}
+Reduction of disk read accesses can be achieved by 
+better host cache usage (for example, use as a content-cache~\cite{iodedup}),
+better cache management 
+(insertion and eviction) policies~\cite{outperforming-LRU}, 
+and content-based deduplication techniques.
+Prior work~\cite{cooperative, VMAR, capo} to achieve I/O reduction in 
+virtualized data centers focusses on content-based deduplication techniques.
+SeaCache\cite{cooperative} deploys a de-duplication
+system on the shared storage server in a virtualized data center, and
+designs efficient cache eviction algorithms to aggregate distributed
+host caches as a unified cache. Thus, it can be used
+complementarily with host cache management techniques.
+
+VMAR\cite{VMAR} builds a deduplication map at VM instantiation
+time, and redirects read requests for I/O reduction.
+Since a long-running application will write many blocks and subsequently
+read them again, the deduplication map should ideally be updated for
+higher efficiency. However, VMAR's choice to not gather the deduplication 
+map dynamically, implies that many
+%write requests by
+%VMs are not captured on-the-fly,
+% for deduplication, hence 
+deduplication opportunities may be lost in a long-running application.
+Capo\cite{capo} expoits the fact that all VMs are instantiated
+from a relatively small number of ``golden images'' and generates a bitmap,
+which is then used to eliminate duplicate read requests. However, it
+can not detect duplicate requests for data outside of golden images,
+for example, customized VMs and workloads of
+virtualized applications.
+In our work, we build metadata regarding virtual disk data while
+the virtual machine (and its hosted application) is executing, and hence
+the resulting I/O deduplication can detect duplicates in customized
+VM workloads as well.
+
+\subsection{Host Cache Management Techniques}
+Memory deduplication~\cite{satori, memorybuddies, difference-engine, singleton}
+refers to storing only one copy of duplicate content in memory to 
+save memory space and improve cache effectiveness. 
+In I/O deduplication~\cite{iodedup}, the aim is to avoid disk I/O requests
+that fetch duplicate content into cache. Hence, though both
+memory deduplication and I/O deduplication are basically host cache
+management techniques\cite{cooperative}, the difference is that
+memory deduplication is performed after multiple blocks with duplicate
+content have been fetched into memory, whereas I/O deduplication seeks to
+avoid block fetches altogether if the same content is already present
+in memory. In our work, we seek to improve host cache management via
+I/O redirection \& deduplication strategies.
+
+%\subsubsection{Memory Deduplication}
+The work in \cite{iodedup} demonstrates that a content-cache 
+is better than a block-cache for read-only workloads,
+due to the inherent content similarity.
+However, it does not present any study of the effects of the above
+split-cache approach on overall cache effectiveness.
+Specifically,
+write requests attain a higher number of cache hits in a block-cache rather
+than a content-cache~\cite{iodedup} whereas read requests attain more 
+cache hits in a content-cache. 
+Since IODEDUP has both a \textit{block-cache} and a \textit{content-cache}, 
+it is essential to explore the holistic effects of reserving a fraction of the
+block-cache to be used as a content-cache. This is especially
+crucial because content-cache benefits may be read/write 
+request-mix dependent, as explained next.
+
+The split-cache approach of \cite{iodedup} introduces two problems:
+(i)~cache inclusiveness problem, i.e.,
+same block present in both the block-cache and the content-cache, and
+(ii)~content-cache sizing problem, i.e., determining what portion of 
+the host's cache should be maintained as a content-cache
+for maximum performance benefits.
+
+To demonstrate these problems, we present results from a simulation experiment
+using the traces from two virtualized web-servers hosting 
+webmail proxy and course management system (called \textit{webvm}),
+available at~\cite{iodedup-online}. This study is presented in the next 
+section.
+

@@ -1,0 +1,395 @@
+\documentclass[12pt, a4paper, twoside]{report}
+%\documentclass[12pt, a4paper]{article}
+\usepackage[toc, page]{appendix}
+\usepackage{iitbtitle}
+%\usepackage{a4wide}
+\usepackage{anysize}
+\usepackage{iitbcs}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tabls}
+\usepackage{environ}
+\usepackage{color}
+\usepackage{url}
+\usepackage[caption=false,font=footnotesize]{subfig}
+%\usepackage[T1]{fontenc}
+%\usepackage{glosstex}
+
+%%http://tex.stackexchange.com/questions/36880/insert-a-blank-page-after-current-page
+%\usepackage{afterpage}
+%
+%\newcommand\blankpage{%
+%    \null
+%    \thispagestyle{empty}%
+%    \addtocounter{page}{-1}%
+%    \newpage}
+
+
+\usepackage{geometry}
+\geometry{
+%tmargin=15mm, %Top Margin 15 mm
+tmargin=30mm, %When header is not used the top margin shall be 30 mm.
+headheight=3mm, %Head Height 3 mm
+headsep=12mm, %Head Separation 12 mm
+bmargin=22mm, %Bottom Margin 22 mm
+foot=3mm, %Footer   3 mm
+%footsep=10mm, %Foot Separation 10  mm
+footskip=10mm, %Foot Separation 10  mm
+textheight=245mm, %Text Height 245 mm 
+textwidth=160mm, %Text Width 160 mm
+%Single sided/odd number page (in double sided printing)
+left=30mm, %Left Margin 30mm
+right=20mm,%Right Margin 20 mm
+%Double sided­ even numbered page
+%Left Margin  20mm
+%Right Margin  30mm
+}
+
+%http://tex.stackexchange.com/questions/67768/times-new-roman-font
+\usepackage{fontspec}
+%%%%%%%%%%%%\setmainfont{Times New Roman}	dint work!
+%looks like TNR %http://tex.stackexchange.com/questions/161973/which-texlive-package-has-times-new-roman-for-xelatex
+\setmainfont[Mapping=tex-text]{TeX Gyre Termes}	
+%http://tex.stackexchange.com/questions/174943/why-arent-backtics-giving-me-curly-quotes
+\setsansfont[Mapping=tex-text]{TeX Gyre Termes}
+
+\usepackage{floatrow}
+% Table float box with bottom caption, box width adjusted to content
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+
+%http://tex.stackexchange.com/questions/22751/how-to-force-table-caption-on-top
+\floatsetup[table]{capposition=top}
+
+%http://tex.stackexchange.com/questions/61869/latex-bibtex-not-arranging-citations-by-order-of-appearance
+\usepackage{notoccite}
+
+%http://tex.stackexchange.com/questions/134031/how-to-adjust-the-size-and-placement-of-chapter-heading-in-report-class
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\filcenter}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}
+  {0pt}{50pt}{40pt}
+
+%http://tex.stackexchange.com/questions/146884/remove-page-number-from-chapter-title-page
+\usepackage{titlesec}
+\assignpagestyle{\chapter}{empty}
+\usepackage{etoolbox}
+\patchcmd{\chapter}{plain}{empty}{}{}
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                \thispagestyle{empty}% original style: plain
+                \global\@topnum\z@
+               \@afterindentfalse
+                \secdef\@chapter\@schapter}
+\makeatother
+%\renewcommand*\chapterpagestyle{empty}  	%gave some error
+
+%http://en.wikibooks.org/wiki/LaTeX/Indexing
+\usepackage{makeidx}  
+\makeindex
+
+%http://en.wikibooks.org/wiki/LaTeX/Indexing
+\usepackage{nomencl}
+%The title of the list can be changed using the following command:
+\renewcommand{\nomname}{List of Abbreviations}
+\makenomenclature
+
+\usepackage{setspace}
+
+\usepackage{fancyvrb}	%Verbatim with capital V for frame=single option
+
+%for \begin{landscape}
+\usepackage{lscape}
+
+%for \ding
+\usepackage{pifont}
+
+%http://en.wikibooks.org/wiki/LaTeX/Algorithms
+%\usepackage[]{algorithm2e}
+
+%http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=C,	                   % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+\lstnewenvironment{snippet}[1][]
+    {\lstset{float=htpb,#1}} 
+    {}
+
+\usepackage[table]{xcolor}
+%http://texblog.org/2011/04/19/highlight-table-rowscolumns-with-color/
+%\usepackage{color, colortbl}
+\definecolor{Gray}{gray}{0.8}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+%SSS \textemdash{} added this package to indicate changes for camera-ready by
+% highlighting it in yellow, and later just setting color to white will
+% un-highlight everything without hassle.
+% soul package is included in texlive-latex-extra package.
+%\usepackage{color}
+\usepackage{soul}
+\setulcolor{red}
+\setstcolor{red}
+\sethlcolor{yellow}	%\hl{} is the command to use
+\sethlcolor{white}	%\hl{} is the command to use
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\hypersetup{pdftitle = Thesis by Sujesha Sudevalayam}
+
+%\marginsize{2.5cm}{2.5cm}{1cm}{1.5cm}
+\def\baselinestretch{1.15}                          
+
+
+\newcommand\INPUT{\item[\textbf{Input:}]}
+\newcommand\OUTPUT{\item[\textbf{Output:}]}
+\renewcommand{\figurename}{Fig.}
+
+
+%http://tex.stackexchange.com/questions/51079/add-retrieved-last-accessed-or-similar-information-to-authoryear-in-biblate
+%\usepackage[backend=biber]{biblatex}
+%\DefineBibliographyStrings{english}{%
+%	urlseen = {Last Accessed},
+%}
+
+%\makeglossary
+
+\begin{document}
+\pagenumbering{roman}
+
+%The definitions
+%\def\title{Affinity-aware Consolidation and Provisioning for Virtualized Services}	2nd APS
+% \def\title{Resource Provisioning and Performance Modeling for Virtualized Services}	3rd APS
+%\def\title{Issues in Resource Provisioning and Management for Virtualized Services}
+% below title difficult to parse - esp mitigating issues
+%\def\title{Mitigating Issues in Resource Management \& Performance Optimization for Virtualized Services}
+%\def\title{Towards Improved Resource Provisioning and Management in Virtualized Environments}
+% \def\title{Relation-Aware Resource Provisioning and Management for Virtual Machines}
+% \def\title{Resource Provisioning and Management for Virtual Machines and their Host Systems}
+%\def\title{Resource Provisioning and Usage Optimization in Virtualized Environments}
+\def\title{Towards Improved Provisioning and Utilization of Resources in Virtualized Environments}
+\def\what{Thesis}
+\def\degree{Doctor of Philosophy}
+\def\who{Sujesha Sudevalayam}
+\def\roll{07305903}
+\def\guide{Prof. Purushottam Kulkarni}
+
+\titlpage
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\def\bsq{\begin{flushright} $\blacksquare$\\ \end{flushright}}
+\def\tab{\hspace{5mm}}
+
+%Do these pages in Word because it will be easier to format.
+%\textit{To my father and inspiration, Dr. K. K. Sudevan}.
+%\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+%
+%\input{thesis-approval}
+%\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+%
+%\input{thesis-declaration}
+%\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+
+%\doublespace
+\onehalfspace
+
+\input{thesis-abstract}
+
+%The stuff
+%\pagenumbering{roman}
+%\printglossary
+\begingroup\def\thispagestyle#1{}\def\baselinestretch{1.5}\tableofcontents\endgroup     
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\newpage
+% \listoffigures
+\begingroup\def\thispagestyle#1{}\def\baselinestretch{1.5}\listoffigures\endgroup     
+
+%\listoftables
+\begingroup\def\thispagestyle#1{}\def\baselinestretch{1.5}\listoftables\endgroup     
+
+%\lstlistoflistings
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\begingroup\def\thispagestyle#1{}\def\baselinestretch{1.5}\lstlistoflistings\endgroup     
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\printnomenclature
+
+%\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter{Introduction} 
+\pagenumbering{arabic}
+\label{chap:thesis-intro}
+\input{thesis-intro}
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter{Background \& Literature Review} 
+\label{chap:thesis-litreview}
+\input{thesis-litreview}
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter{Affinity-aware Modeling of CPU usage for Virtualized Applications}
+\label{chap:thesis-arescue}
+\input{thesis-arescue}
+
+%\part*{Network Communication aware CPU Usage Estimation for Virtualized Applications}
+%\chapter{Affinity-aware Modeling of CPU usage for Provisioning Virtualized Services}\label{current-work-v2v}
+%\chapter{A-RESCUE v1.0: \underline{A}ffinity-aware \underline{res}ource-based \underline{C}PU \underline{u}tilization \underline{e}stimation} 
+%\chapter{Affinity-aware Modeling of CPU usage for Virtualized Applications}
+%\label{chap:thesis-v2v-1}
+%\input{thesis-v2v-1}
+
+%%\chapter{A-RESCUE v2.0: \underline{A}ffinity-aware \underline{res}ource-based \underline{C}PU \underline{u}tilization \underline{e}stimation} 
+%\chapter{Enhanced Affinity-aware Modeling of CPU usage for Virtualized Applications} 
+%\label{chap:thesis-v2v-2}
+%\input{thesis-v2v-2}
+
+% \chapter{Affinity-aware Modeling of CPU usage for P2V Transitioning Services}\label{current-work-p2v}
+% \input{third-aps-current-work-p2v}
+
+%\part*{Disk I/O Reduction via Deduplication for Virtualized Applications}
+
+%included within DRIVE chapter as drivechap-survey.tex
+%\chapter{Survey and analysis of existing I/O reduction \& deduplication techniques}
+%\label{chap:thesis-iodedup}
+%\input{thesis-iodedup}
+
+%included within Appendix below
+%\chapter{SimReplay: A custom simulator to study cache management effectiveness}
+%\label{chap:thesis-simreplay}
+%\input{thesis-simreplay}
+
+\chapter{DRIVE: Using Implicit Caching Hints to Achieve \underline{D}isk I/O \underline{R}eduction \underline{i}n \underline{V}irtualized \underline{E}nvironments} 
+\label{chap:thesis-drive}
+\input{thesis-drive}
+
+%variable is commented out!
+%\part{Disk I/O Reduction with Duplicate Identification at Variable Granularity}
+%\chapter{Literature survey of duplicate identification at variable granularity}
+%\label{chap:sixth-aps-current-work-variable}
+%\input{sixth-aps-current-work-variable}
+
+%Move into Appendix
+%\chapter{Trace logging \& collection toolkit}
+%\label{chap:thesis-tracing}
+%\input{thesis-tracing}
+
+%\chapter{Trace dataset generation \& characterization for I/O deduplication}
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter{The Case for I/O Deduplication Benchmarks}
+\label{chap:thesis-architecting}
+\input{thesis-architecting}
+
+%variable is commented out!
+%\chapter{vDRIVE: Disk I/O reduction in virtualized environments using
+%variable-sized duplicate identification}
+%\label{chap:sixth-aps-current-work-vdrive}
+%\input{sixth-aps-current-work-vdrive}
+
+%%%%%%%%%%%%%%%% commented even for 6th APS %%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{PROVIDED: \underline{P}erformance Imp\underline{ro}vement by \underline{V}ariable-sized chunk aided \underline{I}/O \underline{De}-\underline{D}uplication} 
+%\label{chap:sixth-aps-current-work-provided}
+%\input{sixth-aps-current-work-provided}
+%\label{chap:fifth-aps-current-work-provided}
+%\input{fifth-aps-current-work-provided}
+
+%\chapter{GRAPES: \underline{G}auging \underline{R}esource-\underline{A}ffinities for \underline{P}ractical and \underline{E}fficient \underline{S}erver-consolidation} \label{chap:fifth-aps-current-work-grapes}
+%\input{fifth-aps-current-work-grapes}
+%%%%%%%%%%%%%%%% commented even for 6th APS %%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\part*{Conclusion and Future work}
+%\chapter{Directions for Future Work} \label{chap:sixth-aps-future-work}
+%\input{sixth-aps-future-work}
+
+\chapter{Open Directions and Future Work} \label{chap:thesis-open-directions}
+\input{thesis-open-directions}
+
+%Use separate related work for both sections, or not at all
+%\chapter{Related Work}\label{fifth-aps-related-work}
+%\input{fifth-aps-related-work}
+%\input{abbreviations}
+
+\chapter{Summary and Conclusions}
+\label{chap:thesis-conclusions}
+\input{thesis-conclusions}
+%This will be the final chapter of the thesis.  A brief report of the work carried out shall 
+%form the first part of the Chapter.  Conclusions derived from the logical analysis presented in 
+%the Results and Discussions Chapter shall be presented and clearly enumerated, each point 
+%stated separately.  Scope for future work should be stated lucidly in the last part of the chapter. 
+
+
+\begin{appendices}
+	\renewcommand{\thechapter}{\Roman{chapter}}
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+
+\chapter{LoadGen: A custom micro-benchmarking toolkit}
+\label{chap:thesis-loadgen}
+\input{thesis-loadgen}
+
+\chapter{SimReplay: A custom simulator to study cache management effectiveness}
+\label{chap:thesis-simreplay}
+\input{thesis-simreplay}
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter{Trace logging \& collection toolkit : \texttt{preadwritedump}}
+\label{chap:thesis-tracing}
+\input{thesis-tracing}
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+
+\end{appendices}
+
+\newpage
+%\footnotesize
+\singlespacing
+
+\bibliographystyle{unsrt}
+\bibliography{thesis}
+% You need to have a bibliography file called thesis.bib
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter*{Publications List}
+\label{chap:publications}
+\input{publications}
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\chapter*{Acknowledgements}
+\label{chap:acknowledgements}
+\input{acknowledgements}
+
+\newpage\leavevmode\thispagestyle{empty}\newpage	%for a blank page without page numbering
+\printindex
+
+\end{document}
+

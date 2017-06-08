@@ -1,0 +1,108 @@
+
+\begin{abstract}
+
+With widespread adoption of virtualization for hosting applications,
+service providers (like Amazon EC2~\cite{ec2}) can facilitate better 
+performance isolation, security, quicker deployment 
+and elastic resource provisioning.
+Due to above benefits of virtualization,
+many hosting centers have transitioned from providing
+Hardware as a Service (HaaS) to
+Infrastructure as a Service (IaaS) instead.
+The primary difference between HaaS and IaaS is that the
+former involves use or leasing of physical
+hardware/machine whereas the latter involves
+leasing of virtual resources/machines.
+
+%Most web-based applications are multi-tiered and virtualization
+%offers the possibility of hosting each of these tiers (e.g., the 
+%web-server tier, the application logic tier and 
+%the database server) on separate virtual machines.
+%This enables independent and flexible resource management 
+%of the different tiers. Additionally, due to
+%elastic potential of resource allocation to virtual machines,
+%differentiated hosting on virtual machines can help avoid resource
+%wastage on under-utilized (and non-elastic) physical machines.
+%Major factors that affect the performance of a 
+%virtualized application are\textemdash{}available network capacity, disk access bandwidth
+%and virtualization overheads.
+
+When multiple virtual machines (VMs) are placed on a single 
+physical machine (PM),
+they compete for various resources like CPU, memory, network and disk I/O
+and interact in many conflicting ways. 
+In any given virtualized environment, the physical resources available can 
+be broadly categorized into, (i)~Resources allocated to the virtual 
+machines\textemdash{}virtual CPU, memory, disk
+and (ii)~Resources in the virtualized host\textemdash{}host CPU and cache.
+In this thesis, we address two
+important issues related to the management of both
+these types of resources more efficiently, towards the overall goal
+of optimizing the performance of virtualized applications.
+\\
+\\
+The first problem of this thesis deals with managing the network 
+usage of VMs and estimating CPU 
+requirement on both the VM and its host PM.
+Since different tiers of an application require mutual network
+communication, \textit{colocation} of communicating VMs
+on the same PM reduces physical network 
+usage. \textit{Network affinity} is the presence of network
+communication between a pair of VMs, and is 
+\textit{intra-PM} when the VMs are colocated, and 
+\textit{inter-PM} when they are dispersed onto different PMs.
+Thus, the nature of network affinity is \textit{mutable} (i.e., changing
+between inter-PM and intra-PM) upon VM migrations.
+We make the case that since there is significant change in CPU resource
+usage when the VMs are colocated versus when they are dispersed, it is
+essential to capture such changes via a model,
+for server consolidation and VM placement decisions.
+
+In our work, we explore the difference in CPU utilization due
+to \textit{network affinity}, and propose models to
+estimate the changed CPU utilization.
+Specifically, we perform network benchmarking, which 
+demonstrates effects of network affinity on CPU usage when VMs 
+are colocated versus dispersed. Next, we develop VM \textit{pair-wise} models
+that can estimate the ``colocated'' CPU usage, on being 
+input their individual dispersed-case resource usages.
+We also build similar models to estimate the ``dispersed'' CPU
+usage based on the individual colocated-case resource usages.
+For the ``colocation'' and ``dispersion'' models, we first 
+built models that predicted the total CPU usage
+upon migration\textemdash{}these CPU models use all resource (CPU, disk, mutable
+and immutable network) usage profiles as their input. However, these models
+had an error of around 4\%. So, next we built enhanced models
+to predict only the difference in CPU usage\textemdash{}these
+models use only the \textit{mutable} network traffic metrics as input,
+and have maximum error within 2\%. Finally, we demonstrated the
+application of \textit{pair-wise} models to predict for multi-VM
+scenarios, with high accuracy.
+\\
+\\
+The second problem of this thesis deals with managing the cache
+usage on a virtualized host to improve disk access performance 
+of VMs.
+Due to increased permeation of virtualization-based systems, there is a lot of
+inherent content similarity in systems like email servers, web servers 
+and file servers. 
+Harnessing content similarity can help 
+avoid duplicate disk I/O requests that fetch the same content repeatedly.
+In this work, we incorporate intelligent I/O redirection within the 
+storage virtualization engine of the device to manage the underlying 
+sector-based cache like a content-based cache.
+
+We build a disk read-access optimization called DRIVE, that
+identifies content similarity across multiple blocks, and performs
+hint-based read I/O redirection.
+A metadata store is maintained and implicit caching hints are collected 
+based on the VM's disk accesses.
+Using the hints, read I/O redirection is performed from within the VM's virtual
+block device, to manipulate the entire
+host-cache as a content-deduplicated cache.
+Our trace-based evaluation using a custom simulator, reveals that
+DRIVE achieves up to 20\% better cache-hit ratios and reduces
+up to 80\% disk reads. It also achieves up to 
+97\% content deduplication in the host-cache.
+
+\end{abstract}

@@ -1,0 +1,85 @@
+
+%This will be the final chapter of the thesis.  A brief report of the work carried out shall 
+%form the first part of the Chapter.  Conclusions derived from the logical analysis presented in 
+%the Results and Discussions Chapter shall be presented and clearly enumerated, each point 
+%stated separately.  Scope for future work should be stated lucidly in the last part of the chapter. 
+In any virtualization environment, there are two types of resources
+involved:- (i)~resources allocated to virtual machines, and
+(ii)~resources available in host to enable and support the virtualization.
+In our thesis, we address two problems related to improving 
+the resource usage efficiency of resources in virtualized environments.
+
+To address the problem of server consolidation or migration to
+a target host,
+the foremost requirement is to estimate the VM's expected resource
+requirements on the target host. This can enable to decide whether
+such a migration is advisable.
+\ul{In the first problem, 
+we address the estimation of CPU resource requirements
+of mutually communicating VMs as they transition between colocated
+and dispersed placements}.
+In Xen virtualization environment, since the privileged
+domain Dom0 needs CPU scheduling to perform IO operations
+(network operations and disk operations for NFS-mounted
+VM images) on behalf of the VMs, we are also interested in predicting the
+corresponding Dom0 CPU resource requirement.
+Though we demonstrate our work with Xen, our approach is generic and
+is applicable to other virtualization solutions too.
+
+Two VMs are said to have \textit{network-affinity} if they 
+communicate with each other, and we show that colocation
+of communicating VMs on a single PM helps reduce the total CPU usage.
+With detailed measurements, we justified the need for
+affinity-aware placement and presented our approach to estimate
+CPU requirement for colocated and dispersed VMs. We built models to
+predict the absolute usage as well as the difference in usage, and
+observed that the prediction of difference is more accurate,
+achieving \textbf{maximum error within 2\% absolute CPU usage}.
+Further, we applied the pair-wise prediction models using a
+multi-phase prediction methodology to predict for multi-hop VM 
+transition scenarios as well.
+
+\ul{Second, we consider the problem of improving virtual 
+disk access performance by improving host cache efficiency}. 
+Typically, caches are referenced by block number, 
+%and help avoid disk accesses. 
+and can not recognize content similarity
+across multiple blocks. Hence, the system ends up storing
+multiple copies of same content into cache.
+Elimination of duplicate read I/O requests is referred to as I/O Deduplication.
+Existing work uses a split-cache approach, with a part of the block-based
+cache reserved as a content-based cache. We demonstrated
+that a split-cache approach is sub-optimal, and presented the
+DRIVE system which performs I/O
+redirection to \textit{implicitly} manipulate the whole underlying cache as
+a content-deduplicated cache. Only the VM's own disk access history is
+introspected to obtain implicit hints regarding host cache state, to be used
+for read I/O redirection.
+
+We performed comparative trace-based evaluation in a custom simulator.
+The evaluations showed that,
+%while IODEDUP system reserves a part
+%of the total memory to be used as a content-cache, 
+the \textbf{DRIVE system achieves a high content deduplication factor of up to 97\%}.
+This is the key reason for better performance, with
+up to 20\% higher cache-hit ratios,
+and up to 80\% higher number of disk reads reduced than the Vanilla system.
+% The efficiency of disk
+% cache is improved by manipulating its usage to mimic a content-aware
+% cache, by identifying content similarity at the granularity of 
+% variable-sized chunks and fetching the same physical block each
+% time that same content is requested. This I/O redirection is achieved by
+% building a mapping of fixed-size blocks to deduplicated variable-sized
+% chunks, where the chunk boundaries are derived based on content and different
+% blocks having same content map to the same deduplicated chunk. Once the
+% duplicate chunks are identified, redirection of read I/O requests is done
+% such that presence of multiple physical blocks in cache containing same 
+% content can be avoided to the extent possible. Although
+% this can not be guaranteed, intelligent I/O redirection alternatives are to be
+% experimented with to judge which is better in general.
+
+%In PROVIDED system, Rabin chunking of virtual-block data is performed and mapping is created from Rabin chunk to virtual block, referred to as the chunk-to-physical mapping. We also need to build the virtual-to-chunk mapping at this time. Once the mappings are created, the system is ready to process block read/write requests. For read requests, fetch blocks (in granularity of chunks) from disk only if not present in cache. Use data from disk write requests to update cache content and keep the mappings coherent. However, disk write requests can not be de-duplicated or avoided.
+%Last, we presented brief ideas about the directions for future 
+%work as part of this thesis. We also presented a few open directions for
+%research which, though interesting and important, are not within the scope
+%of this thesis.

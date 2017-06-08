@@ -1,0 +1,71 @@
+
+We are interested in the problem of estimating the %average
+CPU utilization of a virtual machine, based on its location relative
+to its communicating set of virtual machines.
+% when being
+% considered for consolidation or migration to a target PM. 
+Additionally, the virtual machine should be
+able to continue execution of its tasks to meet
+specified service level objectives.
+% As we demonstrate (in Section \ref{tnsm-benchmark}),
+Since CPU is the primary resource affected due to handling network I/O
+operations in colocated and dispersed scenarios, the scope of this work 
+is restricted to predicting CPU resource usage.
+
+We consider the following scenario for our problem.
+A set of applications, each application having several mutually
+communicating components or tiers, are
+provisioned as VMs in a cluster of inter-connected PMs.
+Thus, each VM has network activity, disk activity and CPU utilization. 
+Since disk partitions may be 
+network-attached (NFS-mounted\nomenclature{NFS:}{Network File System}\index{NFS} or 
+SAN\nomenclature{SAN:}{Storage Area Network}\index{SAN} or
+NAS\nomenclature{NAS:}{Network-attached Storage}\index{NAS} appliance), disk activity of
+guest VMs\index{VM} may also manifest as network traffic at their host PM\index{PM}.
+In this setting,
+pro-actively or reactively, a decision process may decide
+to move/migrate a subset of VMs to meet dynamic resource
+requirements or to consolidate VMs on fewer PMs,
+and a vital input to this decision process
+is the resource requirements of the VM on the target machine
+after migration.
+
+Given a set of virtual machines and their current resource utilization 
+levels, our aim is to predict CPU resource required by 
+the virtual machine on target host after migration. Additionally,
+the virtual machine should be able 
+to support the \emph{same load level} as on the source physical machine.
+Memory is assumed to be not a bottleneck in our placement configurations,
+and the VMs are assumed to maintain their intrinsic resource
+utilization levels towards maintaining the SLA guarantees.
+
+In~\cite{virtual-putty}, there is allusion to the possibility 
+of change in resource requirements upon a change in the
+hosting scenario of two communicating VMs\textemdash{}however, 
+empirical quantification is lacking. As part of our work,
+we perform a detailed benchmarking exercise to empirically 
+demonstrate that there is indeed a difference in CPU utilization of
+communicating VMs when their hosting scenario changes between
+\textit{colocated} and \textit{dispersed}. The difference in CPU usage for
+intra-PM (due to VM colocation) and inter-PM (due to VM dispersion)
+network communication forms the motivation for
+affinity-aware CPU usage modeling.
+% estimating the CPU requirement upon migration. 
+Benchmarking for both Xen and KVM virtualization environments is presented 
+in the next section and 
+% when the current CPU usage and other resource usage
+% profiles are known, is that intra-PM (due to colocation) and 
+% inter-PM (due to dispersion) network
+% communication incur different overheads (as already discussed
+% in Section \ref{tnsm-intro}).
+% Each VM's CPU utilization is characterized by its
+% own CPU usage (CPU utilized by DomU), its affine and non-affine
+% network traffic, and its disk read/write activity.
+% Dom0 CPU utilization occurs on account of the guest or application
+% VM's disk and network
+% I/O, and is characterized by the hosted VMs' resource usages.
+% Based on whether the VMs are being consolidated or separated
+% out, the net CPU usage will decrease or increase.
+towards CPU requirement prediction, we build models for both the 
+colocation and dispersion scenarios, which we describe in detail 
+in the following sections.

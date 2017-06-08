@@ -1,0 +1,66 @@
+
+\label{abstract}
+
+While virtualization-based systems become a reality, an important
+issue is that of virtual machine migration-enabled consolidation 
+and dynamic resource provisioning. Mutually communicating virtual machines,
+as part of migration and consolidation strategies, may get colocated on
+the same physical machine or placed on different machines. In this 
+work, we argue the need for network affinity-awareness not only in 
+placement but also in resource provisioning for virtual machines.
+First, we empirically quantify the resource savings
+due to colocation of communicating virtual machines. 
+We also discuss the increase in resource usage due to dispersion of
+previously colocated virtual machines. 
+Next, we build models
+based on different resource-usage micro-benchmarks to predict
+the resource usages when transitioning from non-colocated placements to
+colocated placements and vice-versa. 
+These resource usage prediction models are usable along-with consolidation
+and migration procedures to determine requirements of VMs in 
+colocated and non colocated scenarios. Via extensive experimentation, 
+we evaluate the applicability of our models for synthetic and benchmark
+application workloads. We find that the models have high prediction 
+accuracy\textemdash{}90th
+percentile prediction error within 3\% absolute CPU usage for both
+synthetic and application workloads.
+
+%Public cloud compute services use virtualization technologies for 
+%resource sharing, and need optimal capacity planning/management for 
+%economical utilization of hardware infrastructure. Instead 
+%of leasing fixed amount of resources, the cloud provider can benefit
+%from multiplexing resources among multiple virtual machines via 
+%dynamic resource provisioning, as per load requirements. Similar 
+%considerations apply in the ``private'' cloud setting too, though
+%the cloud provider and cloud user are one and the same. Server 
+%consolidation enabled by dynamic resource provisioning can
+%reduce server sprawl and bring down cooling costs.
+%
+%In this work, we argue the need for network affinity-aware resource provisioning
+%for virtual machines (VMs), with the claim that when inter-VM communication occurs on a
+%single physical machine (i.e. intra-PM communication), the subsequent resource
+%(network as well as CPU) requirement is lesser in comparison to that for
+%inter-PM communication. We demonstrate via controlled experiments that there
+%are ``CPU savings'' to be had, when virtual machines are \textit{colocated},
+%versus when they are \textit{non colocated}. 
+
+
+%We further develop a model to 
+%provide a mapping from the individual resource utilization profiles of non
+%colocated VMs, to their colocated resource usage profile. This model will 
+%take as input, various resource utilization metrics corresponding to 
+%execution of VMs on two different PMs and output an estimate of CPU resource 
+%required for co-hosting both of them on a single PM. In order to make the 
+%model network-affinity aware, the network traffic metrics are separated 
+%out into \textit{affine} and \textit{non-affine} traffic, where "affine" traffic refers 
+%to traffic exchanged between the two VMs and "non-affine" traffic refers 
+%to all other network traffic to/from the VMs. This constructed model
+%is generic and can be used to estimate the colocated resource usage of 
+%any given pair of VMs on a given hardware platform. We present our 
+%methodology using the Xen 
+%virtual machine platform, and our evaluations show that our models efficiently 
+%capture the general mapping from non colocated to colocated resource usage 
+%profiles. We present some results of experimental evaluation with synthetic 
+%workloads and real applications, and justify applicability in server consolidation
+%and VM placement algorithms.
+

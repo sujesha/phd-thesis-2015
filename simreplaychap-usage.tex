@@ -1,0 +1,166 @@
+
+Listing \ref{lst:usage} shows the basic usage options for the custom
+simulator, \textit{simreplay}, in alphabetic order. Each option is
+explained below.
+
+\lstset{language=C,
+	caption={Listing of simreplay usage},
+	label=lst:usage
+}
+\begin{snippet}
+static char usage_str[] =                                               \
+        "\n"                                                            \   
+        "\t[ -C        : --iodedup-logformat        ] Default: 0\n"     \   
+        "\t[ -d <dir>  : --input-directory=<dir>    ] Default: .\n"     \   
+        "\t[ -e        : --read-enable              ] Default: Off\n"   \   
+        "\t[ -E        : --write-enable             ] Default: Off\n"   \   
+        "\t[ -f <file> : --input-file=<file>        ] Default: None\n"  \   
+        "\t[ -h        : --help                     ] Default: Off\n"   \   
+        "\t[ -m <file> : --mapv2p=<file>            ] Default: None\n"  \   
+        "\t[ -O <in-MB>: --overall-RAM-size=<in-MB> ] Default: 1024\n"  \   
+        "\t[ -o <in-MB>: --contentcache-size=<in-MB>] Default: 100\n"   \   
+        "\t[ -Q        : --Vanilla-replay           ] Default: On\n"    \   
+        "\t[ -R        : --DRIVE-replay             ] Default: Off\n"   \   
+        "\t[ -T        : --IODEDUP-replay           ] Default: Off\n"   \   
+        "\t[ -V        : --version                  ] Default: Off\n"   \   
+        "\n";	
+\end{snippet}
+
+The option \texttt{iodedup-logformat} indicates that the content information
+present in each trace request is in terms of the MD5 hash of the content,
+as is the case with the traces \textit{webvm}, \textit{homes} and
+\textit{mail} available online at \cite{iodedup-online}. 
+This flag is especially useful for parsing of the input trace file.
+When the flag is specified, the content field is expected to be 32 
+characters (i.e hexadecimal representation of 16-byte MD5 hash). On the 
+other hand, if this flag is 
+not specified, the original content is expected to be present in the trace. 
+For example, if \texttt{iodedup-logformat} is not indicated, the size of the 
+content is equal to the value in the \texttt{nbytes} field in the trace
+request data-structure.
+
+The options \texttt{input-directory} and \texttt{input-file} are used
+to specify the input trace file to be used for simulated I/O replay. The
+file contains multiple read/write requests, each in the format described
+earlier. Parsing of the file is performed by the "Trace input \& parsing
+module" as discussed in Section \ref{sec:simreplay-parsing}.
+
+The options \texttt{read-enable} and \texttt{write-enable} indicate whether
+read requests or write requests should be replayed, respectively. If 
+\texttt{read-enable} is not specified, read requests replay will not be 
+simulated and if \texttt{write-enable} is not specified, write requests 
+will not be simulated. Note that, at least one of these two options 
+has to be specified otherwise there is no simulation to be done.
+By default, both options are disabled, however a typical invocation of
+simulator would enable both options so that all read and
+write requests present in the trace file would be replayed/simulated.
+
+The option \texttt{mapv2p} can be used to specify the input V2P mapping
+indicating the range of physical blocks that map to the address space of 
+each VM, as described earlier.
+If the trace file has only a single VM's requests, the input V2P
+mapping is optional, but is mandatory otherwise.
+
+The option \texttt{overall-RAM-size} indicates the space in 
+number of megabytes (MB) to be simulated as the block-cache in the
+Vanilla system. By default, the value is 1024 MB, i.e. 1GB block-cache.
+This option is also applicable to the IODEDUP system, but in conjunction
+with the value specified using the option \texttt{contentcache-size},
+as follows. The option \texttt{contentcache-size} specifies what portion
+of the \texttt{overall-RAM-size} should be simulated as a content-cache,
+and defaults to 100 MB.
+This option is valid only for IODEDUP replay, and re-adjusts the configured
+size of the block-cache to \texttt{overall-RAM-size} minus 
+\texttt{contentcache-size}. It follows that, the value of 
+\texttt{contentcache-size} must be less than or equal to 
+\texttt{overall-RAM-size}, for successful invocation of the simulator.
+
+\lstset{language=bash,
+	caption={Sample output of \texttt{SimReplay} for Vanilla invocation.},
+	label=lst:vanilla-sample
+}
+%\begin{minipage}[t][5cm][b]{0,5\textwidth}
+%\begin{Verbatim}[frame=single]
+\begin{snippet}
+$ cat stats-O1024-webvm-iodedup-sreplay_rw.txt
+#READ=3116456, #WRITE=11177702
+RAM-size = 1024 (MB)
+buffer cache: hits=12303451, misses=1990707, readhits=1471112, writehits=10832339
+disk hits=12823046
+disk hits read=1645344, writes=11177702
+\end{snippet}
+%\end{Verbatim}
+%\end{minipage}
+
+\lstset{language=bash,
+	caption={Sample output of \texttt{SimReplay} for IODEDUP invocation.},
+	label=lst:iodedup-sample
+}
+\begin{snippet}
+$ cat stats-O1024-o100-webvm-iodedup-ioreplay_rw.txt 
+io-redirections: self-is-leader=813572, self-is-not-leader=1409885
+read-responses: compulsory-misses=316045, cache-hits=704111, capacity-misses=2096300
+metadata-hit-conversions: deduphits=127156, selfhits=1, dedupmisses=1282729, selfmisses=813571
+#READ=3116456, #WRITE=11177702
+RAM-size = 1024 (MB)
+CCACHE-size = 100 (MB)
+buffer cache: hits=11185632, misses=3108526, readhits=576954, writehits=10608678
+content metadata: hits=2223457, misses=316045 dirties=0
+content cache: hits=127157, misses=8035550
+content cache: dedup hits=127156, nondedup hits=1
+disk hits=13590047
+disk hits read=2412345, writes=11177702
+\end{snippet}
+
+\lstset{language=bash,
+    caption={Sample output of \texttt{SimReplay} for DRIVE invocation.},
+    label=lst:drive-sample
+}
+\begin{snippet}
+cat stats-O1024-webvm-iodedup-freplay_rw.txt 
+io-redirections: self-is-leader=1754745, self-is-not-leader=1045666
+read-responses: compulsory-misses=316045, cache-hits=2722411, capacity-misses=78000
+metadata-hit-conversions: deduphits=1033328, selfhits=1689083, dedupmisses=12338, selfmisses=65662
+#READ=3116456, #WRITE=11177702
+RAM-size = 1024 (MB)
+confided metadata: hits=2800411, misses=316045, mapmisscachehits=0, dirties=0, mapdirtycachehits=0
+fcollisions=0, fcollisionstp=3141002, fzeros=0
+buffer cache: hits=13635026, misses=659132, readhits=2722411, writehits=10912615
+disk hits=11571747
+disk hits read=394045, writes=11177702
+\end{snippet}
+
+The options \texttt{Vanilla-replay} and \texttt{IODEDUP-replay} indicate
+that the simulator is to be invoked to simulate Vanilla execution and
+IODEDUP execution, respectively.
+Listings \ref{lst:vanilla-sample} and \ref{lst:iodedup-sample} 
+show sample outputs of the simulator when used for Vanilla and
+IODEDUP invocations, respectively.
+Similarly, the option \texttt{DRIVE-replay} indicates that the
+simulator is to be invoked to simulate DRIVE execution.
+A sample output of DRIVE invocation of the simulator 
+is shown in Listing~\ref{lst:drive-sample}.
+
+The sample output of Vanilla invocation in Listing~\ref{lst:vanilla-sample}
+has information regarding the number of read and write requests in the trace,
+the total cache (RAM) size used, the number of hits and misses in the 
+buffer (block) cache, and a classification of the hits into reads hits or
+write hits as well. Finally, it also reports the number of requests that
+went to disk\textemdash{}in case of reads, this is the number of disk 
+reads that happened, and in case of writes, this is the total number of
+writes since we assume that all writes are flushed to disk eventually.
+
+The sample output of IODEDUP and DRIVE invocation also have similar fields
+as above, however they have some additional fields too, to track the
+efficiency achieved by each system. For example, Listing \ref{lst:iodedup-sample}
+presents information regarding the configured size of content-cache,
+the number of metadata hits incurred, and how many of those were for
+reads and writes, each. It also presents information regarding how many
+of the metadata hits eventually resulting in content-cache hits and misses.
+Additionally, for all of the content-cache hits, it lists how many were hits for
+duplicate content and how many were just regular hits.
+
+The \texttt{help} option shows the usage listing 
+for the \texttt{SimReplay} tool, and the
+\texttt{version} option can be used to identify different versions of
+the custom simulator, for future extension.

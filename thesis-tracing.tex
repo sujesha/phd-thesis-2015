@@ -1,0 +1,49 @@
+In this section, we describe the block request tracing tools that we have
+developed as part of our effort to capture traces for evaluation.
+Initially, we contacted the authors of \cite{iodedup} 
+regarding the block request tracing tools developed by them. They were
+kind enough to allow us access to the source code of the kernel module,
+called \texttt{collect.ko},
+which could generate traces in a \textit{similar} format as
+described at \cite{iodedup-online} (though not exactly the same format
+as at \cite{iodedup-online}).
+However, the output of \texttt{collect.ko} was in terms of the MD5 hash
+of the content, whereas we wished to dump the entire content as-is, 
+so that it could be used with other fingerprinting mechanisms as
+well, example Rabin hashing~\cite{rabin}.
+Moreover, the \texttt{collect.ko} kernel module used the mode of
+\textit{relay channels}\cite{relayfs} to write trace records into the 
+\texttt{debugfs}\cite{debugfs} filesystem, but the userspace tools to siphon 
+the traces from the \texttt{debugfs} filesystem into persistent storage
+were missing. 
+
+The above issues motivated us to build our own toolkit which 
+included kernel modules to dump content 
+into \texttt{debugfs} filesystem, as well as a generic userspace tool
+that runs parallelly and collects the \texttt{debugfs} filesystem traces
+into output files. We also incorporated the functionality of 
+communication across the kernel module and userspace tool such that
+removal of the kernel module would signal the userspace tool and wait
+for a handshake before exiting gracefully. 
+Moreover, since the content to be dumped in the traces was binary in 
+nature and could consist of any arbitrary characters, parsing of the
+output traces became a significantly non-trivial task compared to the 
+parsing of finite-sized records, as done for traces at \cite{iodedup-online}.
+To enable correct parsing of every record, we devised our own trace 
+record format as well.
+In the rest of this section,
+we first provide a brief background of the basic features used 
+in the toolkit implementation, and then describe details of the
+various tools implemented.
+
+\section{Background for implementing tracing toolkit}
+\label{sec:tracingchap-background}
+\input{tracingchap-background}
+
+\section{Tools developed for tracing: \texttt{pdatadump}, \texttt{preadwritedump}, \texttt{psiphon}}
+\label{sec:tracingchap-tools}
+\input{tracingchap-tools}
+
+\section{Implementation details}
+\label{sec:tracingchap-implementation}
+\input{tracingchap-implementation}

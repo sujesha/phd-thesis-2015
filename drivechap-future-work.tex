@@ -1,0 +1,86 @@
+
+
+\subsection{Fixed vs variable-sized similarity identification}
+%\noindent \textit{Fixed vs variable-sized similarity identification:}
+The work in this chapter is based on content-similarity identification using
+fixed-size blocks. However, workloads like \textit{homes} and \textit{mail}
+potentially have content-similarity across variable-sized chunks. For
+example, multiple collaborators may create multiple revisions of the
+same document and these revisions may have similar content but not
+exactly aligned at 4K boundaries. Similarly, mail servers may serve mail for
+potentially thousands of users with multiple mailing lists and groups.
+Moreover, even at the datacenter level, most virtual machine image
+files are instantiated from a small number of golden master images\cite{vdn},
+and they ``age'' over a period of months and years with 
+administrators modifying files and causing byte-shifts
+at various locations within the image\cite{similarity}. 
+These observations motivate the need for variable-sized chunk based similarity 
+identification, as future work.
+
+\subsection{Applicability to other storage systems}
+%\noindent \textit{Applicability to other storage systems:}
+The IODEDUP system uses Adaptive Cache Replacement 
+(ARC)~\cite{ARC, outperforming-LRU}
+policy to boost up its content-cache hit ratio by 3-4X~\cite{iodedup}.
+%However DRIVE system still performs better for read/write traces,
+%with up to 80\% higher number of disk reads reduced as compared to Vanilla.
+If the cache replacement policy could be changed to ARC in our 
+system, DRIVE performance would also benefit from a similar performance 
+boost. Although this may not be possible in a standard Linux host, ARC 
+caches are already present in IBM's DS6000/DS8000 storage 
+controllers~\cite{wikipedia-arc} and adoption of DRIVE may
+help increase their cache performance.
+
+\subsection{Interaction with storage deduplication systems}
+The primary difference between I/O Deduplication and Storage 
+Deduplication\cite{idedup,dede,zfs}, 
+is that the former avoids duplicate read requests 
+(hence improving storage read access performance) 
+while the latter avoids duplicate writes to the storage
+(hence saving disk space). 
+For example, ZFS\cite{zfs} 
+is a file system kernel module that performs 
+storage deduplication. 
+Additionally, ZFS also maintains an ARC cache, hence resulting 
+in improved read performance (similar to IODEDUP). However, distinct 
+blocks with duplicate content will still populate the host cache. By
+employing the DRIVE system in conjunction with storage deduplication
+systems, better read performance can be achieved along-with 
+storage space savings.
+
+
+\subsection{Metadata space management}
+%\noindent \textit{Metadata space management:}
+As discussed above, metadata occupies decent amount of space per block entry.
+Hence, for deployment on a production system or on large System Volume
+Controllers (SVC), we need a 
+mechanism to ensure that memory space usage to store metadata is as low
+as possible, otherwise losing precious buffer cache space. 
+One option is to distribute metadata between memory and disk, such that 
+the more ``important'' metadata are present in memory for quick 
+access. The work in \cite{data-domain} achieves around 99\% 
+metadata cache-hits using this approach. However, a key assumption 
+there is of sequential data access, and hence sequential metadata access
+pattern. This is true for backup workloads as targeted
+in \cite{data-domain}, however in case of random-access workloads,
+metadata access prediction is non-trivial.
+
+Random-access workloads exist in inline storage deduplication scenarios
+\cite{idedup}, where a simple LRU cache is used to accommodate metadata,
+such that only the most-recently-used metadata stays in cache, while the
+rest is discarded. This, of course, comes at the cost of lost
+deduplication opportunities. However, a significant difference from our work
+of I/O deduplication is that storage deduplication needs to track only 
+write requests whereas tracking read requests is our area of interest. This 
+implies that whereas \cite{idedup} found no significant performance 
+improvement by using different caching policies, our work
+could expect to benefit from a frequency-aware caching mechanism like
+Adaptive Replacement Cache (ARC)~\cite{ARC, outperforming-LRU}.
+Thus, we propose to use a framework for metadata store which 
+ensures that more-frequently-used and/or more-recently-used
+metadata stay in cache, while the rest are moved to disk. 
+%This can be 
+%achieved by using an ARC-based cache for popular metadata, and is expected
+%to perform significantly better than an LRU-based cache for I/O deduplication
+%metadata.
+

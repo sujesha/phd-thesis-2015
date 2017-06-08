@@ -1,0 +1,82 @@
+In the evaluation section for DRIVE system, we briefly mentioned the custom 
+simulator that
+we built to perform the quantitative analysis of IODEDUP system's efficiency,
+as well as to evaluate the performance of the DRIVE system in comparison
+with the Vanilla and IODEDUP systems. In this Appendix, we describe the
+design and implementation of the simulator, called \texttt{SimReplay},
+in more detail.
+
+The main requirement from the simulator is that it capture the functionality of
+the Vanilla, IODEDUP and DRIVE systems and demonstrate the effect of
+each of these I/O access mechanisms on the cache efficiency and read
+access performance. 
+We have built the simulator to be modular so that it could be used to
+develop and test new I/O deduplicate \& redirection strategies as well.
+
+\begin{figure}[h]
+    \centering
+    %\includegraphics[scale=0.6]{simreplaychap-figures/simreplay-requirements.pdf}
+    \includegraphics[scale=0.55]{simreplaychap-figures/simreplay-drive-extension.pdf}
+    \caption{High-level functioning and requirements: \textit{The simulator should perform 
+			simulation of I/O replay by simulation of a per-VM address space 
+			and a host address space. It should accept an input 
+			virtual-to-physical (V2P) mapping for these two address spaces. 
+			It should also simulate a block-cache as well as storage for
+			Vanilla, IODEDUP and DRIVE invocations, 
+			and a content-cache especially for IODEDUP invocation.}}
+    \label{fig:simreplay-requirements}
+\end{figure}
+
+\section{High-level functioning and requirements}
+The simulator basically accepts virtual disk requests from multiple VMs
+hosted on a single physical machine, and simulates its I/O execution
+on the physical machine. The I/O execution in the standard case is referred 
+to as Vanilla, while the augmented execution scenario presented
+in \cite{iodedup} is referred to as IODEDUP. A third execution 
+scenario in this simulator is our system called DRIVE.
+Since the simulation is of virtual disk requests sent by VMs, an input 
+mapping needs to specify which virtual disk block of a VM maps to which
+corresponding physical disk block on the physical host's storage.
+Two main components of the simulator are the simulation of two 
+caches on the physical host: 
+(i)~a block-based (LRU) cache and (ii)~a content-based (ARC) cache, both
+of configurable sizes and using write-through policy. 
+Additionally, the physical host's disk or storage also needs to be simulated. 
+
+Fig. \ref{fig:simreplay-requirements} depicts the functioning 
+of the custom simulator.
+As shown, a virtual disk request is mapped from the virtual address space to
+the host physical address space, and then looked-up in host's block-cache.
+In case of Vanilla flow, the requests flow from the block-cache straight
+to the host storage. On the other hand, in case of IODEDUP flow, 
+metadata is looked up for every request that is not satisfied by the
+block-cache, and content is searched in the content-cache, before hitting
+the host storage. In case of DRIVE flow, the requests are redirected
+within the virtual machine address space itself, so that the flow path
+within the physical machine address space remains unchanged (i.e., same
+as Vanilla path on physical machine).
+
+The input to the simulator is a single trace file which contains multiple
+disk read/write requests. 
+Each request in the trace should contain information regarding
+(i)~whether it is a read or write request,
+(ii)~block number to be read or written,
+(iii)~data to be read or written, and its size.
+The output from the simulator involves the collection of metrics like
+number of cache-hits and cache-misses incurred over the execution of
+all requests in the trace file.
+Next, we present the high-level and low-level design descriptions 
+for the custom simulator. Finally, we present details regarding the
+implemented input options and demonstrate the usage of the simulator.
+
+\section{High-level design}
+\label{sec:simreplaychap-design}
+\input{simreplaychap-design}
+
+\section{Low-level design \& implementation}
+\label{sec:simreplaychap-implementation}
+\input{simreplaychap-implementation}
+
+\section{Input options and usage}
+\label{sec:simreplaychap-usage}
+\input{simreplaychap-usage}

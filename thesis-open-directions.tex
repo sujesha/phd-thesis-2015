@@ -1,0 +1,275 @@
+%This shall form the penultimate chapter of the thesis and  shall include a thorough 
+%evaluation of the investigation carried out and bring out the contributions from the study.  The 
+%discussion shall logically lead to inferences and conclusions as well as scope for possible 
+%further future work.
+
+
+This chapter acknowledges other gaps yet to be filled in the area of
+resource management and performance optimization for virtualized
+services. 
+Some of the following problems are off-shoots of the research
+contained in this thesis, and some others are crucial open problems
+that are orthogonal to the work in this thesis. 
+
+\section{Affinity-aware CPU Usage Estimation for P2V-Transitioning Services}
+The first and foremost issue that needs to be addressed to provision
+applications in virtual execution environments, is the mapping of resource
+requirements from physical to virtual environments.
+Maximum service level agreements and resource guarantees need to be met
+by the mapping that is determined, while simultaneously
+maximizing the resource multiplexing potential so that the total required
+capacity be minimized. This problem is the P2V transition problem.
+
+Timothy et. al.~\cite{profiling-and-modeling} have demonstrated a profiling
+and modeling approach to developing a generic model for predicting a VM's
+virtualized CPU requirements, given various resource usage profiles in the
+physical domain. Thus, this work considers each VM a single independent
+entity. However, in a typical virtualized shared hosting platform, there
+may exist several applications with mutually communicating components/tiers
+placed in separate VMs. Thus, these VMs are no longer independent entities
+and the communication that flows between them could potentially affect
+their individual CPU resource requirements. Taking cognizance of the
+changed CPU requirements is essential to guarantee both minimal performance
+degradation and maximal multiplexing of physical resources.
+
+
+
+
+\section{Tracking workload upon migration}
+Our models in the first component of this thesis are constructed and 
+validated with the assumption that
+the same workload in dispersed-VMs\index{Dispersed} case is to be serviced
+in the colocated-VMs\index{Colocated} case. However, in a real server consolidation
+algorithm, it is worth determining whether this assumption holds across
+a VM migration. That is, when a VM is migrated out of a colocated
+case due to overload, so that it can be allocated more resources 
+on another PM, what is the impact of this on its observed workload?
+
+Alternatively, in a dynamic server
+consolidation algorithm, VMs may be migrated due to increasing load level.
+Thus, the load levels before and after the VM migration need not
+necessarily be the same. To handle this, we need a workload
+tracking component within the server consolidation algorithm~\cite{sandpiper},
+which can then give inputs to our CPU estimation models for
+accurate estimation of CPU usage on the target PM.
+
+
+\section{Handling diversity in network topology}
+The affinity-aware CPU usage estimation models have been developed for
+VM pairs that are connected to the same layer 2 switch, when dispersed.
+As discussed before, the absolute CPU usage of dispersed VMs seem to
+be significantly different even when sustaining the same network traffic
+rate over a 100Mbps switch versus a 1Gbps switch. In a large data-center
+network, there exist several such switches and any pair of VMs might
+be communicating with one another over an array of interconnecting
+switches. To begin with, we need to validate that the CPU usage prediction
+models that have been developed by benchmarking over a single switch 
+are still applicable across PMs that are connected by multiple 
+switches. The next point to consider is whether the network 
+consists of only one type of switch (either 100Mbps or 1Gbps or 10Gbps, etc)
+or whether it has a mixture of all types. If all switches in 
+the network topology are homogeneous, then the same model can be
+used for all predictions. However, if there is heterogeneity in
+switch capacities, then we might need separate models to be
+developed per switch type. Thus, when a VM migration is to be
+initiated, the CPU usage prediction model to be used should be
+the one corresponding to the switch to which the target PM is connected.
+We would also need to consider the effective rate of data transfer
+when two mutually communicating VMs are connected to their respective
+switches via links of different capacities.
+
+\section{Metadata space management for I/O reduction}
+%\noindent \textit{Metadata space management:}
+%As discussed above, metadata occupies decent amount of space per block entry.
+For deployment of I/O deduplication systems
+on large System Volume
+Controllers, metadata space requirement can be huge.
+%, otherwise losing precious buffer cache space.
+An option is to distribute metadata between memory and disk, such that only
+``important'' metadata are present in memory for quick
+access. The work in \cite{data-domain} achieves around 99\%
+metadata cache-hits using this approach, under a key assumption
+that backup workloads access metadata sequentially.
+However in case of random-access workloads,
+metadata access prediction is non-trivial.
+
+Random-access workloads exist in inline storage deduplication scenarios
+\cite{idedup}, where a simple LRU cache is used to accommodate metadata.
+%such that only the most-recently-used metadata stays in cache, while the
+%rest is discarded. 
+%This, of course, comes at the cost of lost
+%deduplication opportunities. 
+However, a significant difference from our work
+of I/O deduplication is that storage deduplication needs to track only
+write requests whereas we require to track read requests.
+This implies that though \cite{idedup} found no significant performance
+improvement by using different caching policies, our work
+could expect to benefit from a frequency-aware caching mechanism like
+Adaptive Replacement Cache (ARC).
+Thus, we propose to use a framework for metadata store which
+ensures that more-frequently-used and/or more-recently-used
+metadata stay in cache, while the rest are moved to disk.
+
+\section{I/O reduction using variable-length blocks}
+This problem deals with the feasibility of performing disk
+read I/O reduction by identifying duplicate content in terms of
+variable-sized sub-blocks, instead of fixed-size blocks.
+We refer to this optimization as vDRIVE.
+%PROVIDED \textemdash{} \textit{Performance
+%Improvement by Variable-sized chunk aided I/O De-Duplication}.
+Similar to the DRIVE system, upon the receipt 
+of every block read request at the virtual disk front-end driver, 
+the metadata can looked-up and the I/O
+request redirected so as to manipulate the underlying 
+sector-based cache effectively like a content-based cache. 
+However, the difference between DRIVE and vDRIVE would be that, DRIVE
+redirects read requests by substituting one block address by 
+another, whereas vDRIVE metadata can potentially map one block
+address to multiple sub-blocks/chunk, which in turn, map to multiple blocks.
+Thus, every block read request in vDRIVE may potentially result
+in extra block read requests. However, if the duplication ratio
+is significant, the improved cache efficiency will outweigh the
+impact of the extra block reads.
+Due to lack of access to real-world traces at the moment, we
+do not include the design and implementation of vDRIVE in current
+thesis scope.
+However, as future work, we can implement a prototype of vDRIVE
+and evaluate using real-world traces (if available) or
+realistic benchmarks to demonstrate capabilities of the system.
+
+\section{Generating realistic I/O deduplication benchmarks}
+As per our discussion in Chapter~\ref{chap:thesis-architecting}, there
+is a dire need of research in the direction of generating
+realistic I/O traces along-with content representation. Most research
+regarding I/O trace generation so far has focussed only on metrics
+like working set sizes~\cite{working-set}, 
+I/O sizes~\cite{flexi-replay}, 
+request inter-arrival times~\cite{storagereplay},
+block accessed distribution and
+jump distance distribution~\cite{jump-based-synthetic}. However, 
+without any form of content representation, it is not possible
+to evaluate I/O deduplication techniques using such traces. 
+A future work of this thesis could be to develop such trace 
+characterization and generation methods using real-world
+workloads, such that it can present some
+content representation within the trace without sacrificing 
+anonymity or privacy of the system and its users.
+
+%\section{Implementation of the PROVIDED logic}
+%In the second part of this thesis, we developed a storage optimization 
+%called PROVIDED. We implement a prototype and evaluate it using trace-based
+%methods. Instrumenting this logic into a storage device (IBM SVC or 
+%EMC Invista), and presenting real-world evaluation results due to this 
+%optimization, is a possible avenue of future work, though beyond the 
+%scope of this thesis.
+
+\section{Empirical approach to performance-aware resource requirement 
+estimation}
+
+In this component, the problem is to perform empirical measurements
+for a given virtualized service and its resource configuration to
+determine the peak workload supported for a given performance
+requirement. Further, if the supported workload falls short of the
+requirement, then we should be able to identify the
+bottleneck resources and allocate more until a configuration is
+reached where the target workload is met~\cite{sandpiper}.
+Since this is an offline task,
+and not a real-time one, it might be acceptable to do empirical
+measurements to determine
+the resource requirement. However, it would still be
+desirable to compute this ``optimal'' resource configuration
+as quickly as possible~\cite{cutting-corners} since it might not be feasible to
+do empirical measurements at all resource configurations exhaustively
+to find the optimal allocation.
+
+%\paragraph{Motivation:} Suppose a new application is to be instantiated 
+%in the cloud,
+%with no previous history of execution in the physical world. In
+%such a case, resource utilization traces from the physical world
+%would not be available as inputs to train any P2V CPU prediction model.
+%Thus, virtual provisioning would have to be initially done arbitrarily
+%(can be a knowledgeable guess or estimation done using previously
+%developed analytical models) and empirical measurements would have
+%to be done to verify whether this allocation really meets performance
+%requirements.
+%\\
+%\\
+%In the context of this component, we would like to address the following
+%questions,
+%\begin{enumerate}
+%\item How to ``quickly'' identify the peak supported workload empirically?
+%Would usage of analytical models developed earlier, help to converge
+%to the peak sooner?
+%\item If the target workload is higher than the supported workload,
+%how to determine the resource requirement to meet the
+%target? Is the CPU usage the only bottleneck in this case, or would
+%other resources also matter?
+%\item Given that a single virtualized application can consist of multiple
+%tiers hosted in separate VMs, how to identify the bottleneck tier?
+%\item Suppose a given resource allocation $X_1$ refers to
+%list of tuples of resources allocated to all the tiers of that
+%application. Can there be a different configuration $X_2$ which
+%provides the same overall application performance? Variation in
+%which resource allocation can cause such changes?
+%\end{enumerate}
+
+% When a colocated VM pair is burdened with more load than their
+% available resources can service, this VM pair can be said to
+% be under saturation load. By allocating more resources 
+% to the VMs on the same PM, it would be possible to manage the
+% higher load. 
+% The questions that are important here are \textemdash{} (i) which resource
+% is falling short, i.e. which resource is proving to be a bottleneck
+% in handling this higher load? and, (ii) how much more of that resource
+% is needed to handle this load? The bottleneck resource can
+% be identified by checking for a resource whose availability 
+% in the VM is near zero. Sandpiper\cite{sandpiper} identifies 
+% resource hotspots and initiates VM migration (if needed) 
+% to recover from them.
+% This can be done reactively or 1. In the reactive
+% case, a hotspot is identified only after trouble indications 
+% show up, whereas in the proactive case, workload trend prediction
+% is done such that a potential hotspot can be predicted and
+% necessary extra resource allocation be done to mitigate the
+% impending hotspot. The extra resource allocation can be on
+% the same PM if enough available, or might need VM migration
+% if there are no more resources available on the same PM.
+% In any case, there is a need 
+% to estimate (i) the peak workload for given resource configuration 
+% and performance requirements ($L_{peak}$), (ii) the level of 
+% overload workload ($L_{current}$) which can be different based 
+% on the current request arrival rates and (iii) the resource requirement
+% for accommodating this higher load.
+% Additionally, in the proactive case, we would also need 
+% \textit{Workload Trend Prediction} in order to identify rising
+% trend in workload leading to potential hotspots.
+% % For such proactive
+% % action, the two important requirements identified are:-
+% % \begin{enumerate}
+% % \item Estimating the peak workload for given resource configuration and performance requirements 
+% % \item Identifying the workload trend, to determine whether the peak workload would hit soon.
+% % \end{enumerate}
+% % Of the above two requirements, identification of the workload trend
+% % would be an online task, whereas estimation of peak workload would
+% % need offline experiments and model building exercise.
+% 
+% Given any resource configuration and performance requirements, we 
+% need a method to quickly identify the peak supported workload. In 
+% order for this to be done in real-time, either an analytical model would
+% be needed to approximate this peak workload or a model should be 
+% already built in advance, since it is not possible
+% to perform benchmarking/profiling exercises to build a model 
+% on a production system to determine this peak. Since the resource 
+% configuration and performance requirements of an application need
+% not stay constant at all times, constructing an application-specific
+% model would imply constructing such a model for every possible
+% combination of resource configuration and performance requirement,
+% and also considering the varying resource requirements of multiple
+% tiers of a single application as well. Similar models would then 
+% be needed for every other application. it is clear that the effort
+% needed for such empirical modeling of peak workload is exponential 
+% in nature and not feasible. Hence, application of an analytical 
+% model of the system based on queueing theory seems much more feasible
+% in real-time. The challenge is to build such an analytical model
+% that fits virtualized systems.
+

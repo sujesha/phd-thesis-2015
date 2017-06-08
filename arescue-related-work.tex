@@ -1,0 +1,148 @@
+
+The work in this paper is focussed on effects of relative location
+(colocation or dispersion) on the CPU utilization of communicating virtual
+machines. 
+% The effect of network-affinity on CPU usage has been 
+% alluded to in past research. For example, in \cite{virtual-putty}, the authors
+% claim that the decrease in physical network usage due to colocation will 
+% eventually translate to an increase in another resource dimension, say CPU.
+% However, no empirical studies have been presented to quantify it so far.
+%Additionally, 
+Though most server consolidation and load balancing algorithms 
+\cite{capacity-management, sandpiper, autonomic-vm-placement} acknowledge
+that VMs may have elastic resource requirements to satisfy dynamically
+varying load levels, it is generally accepted that resource requirement
+to support a single load level is the same on all homogeneous physical 
+machines. In this work, we present an empirical study to quantify the effect 
+of colocation on CPU utilization of mutually communicating VMs, and 
+demonstrate that a single resource configuration to handle a certain 
+load level is at-best not efficient and at-worst short of requirements.
+Thus, our work is supplementary to many server consolidation and load 
+balancing approaches proposed in literature so far, and hence we use 
+this section to chronicle the related work in these areas.
+
+\subsection{Server consolidation and load balancing} 
+During periods of under-utilization, multiple virtual machines can
+be migrated onto a single physical machine, such a step is referred
+as \textit{Server Consolidation}. On the other hand, when load
+experienced on a single physical machine increases such that resource
+requirements exceed resource capacity, \textit{Hotspot Mitigation} is
+performed by migrating out some of the virtual machines.
+Thus, both the problems of server consolidation and hotspot mitigation are
+enabled by virtual machine migration.
+Given a set of VM configurations, the general problems of server consolidation
+and hotspot mitigation are viewed as bin-packing problems, which are NP-Hard. 
+Trace-based approaches \cite{capacity-management} have been adopted to 
+predict workload and perform consolidation, whereas online monitoring
+and reactive approaches \cite{sandpiper, autonomic-vm-placement} are used
+to address problems of load balancing and hotspot mitigation. 
+
+In all above efforts, 
+VM configurations per load-level are assumed 
+to be constant, implying that 
+it is considered that a VM that requires $x$ \% of a resource
+on a PM would need the same amount of that resource on another
+homogeneous PM. Also, in most cases, CPU resource utilization 
+levels determine whether the PM is heavily or under-loaded.
+If the VMs under consideration are
+mutually communicating, then this ``network affinity'' causes changes
+in the CPU usage profiles depending on the neighborhood set of
+colocated VMs and their communication patterns. Thus, in case of 
+communicating VMs (or application tiers), it is essential to be
+``affinity-aware'' while determining VM configurations, and the configurations
+need to be recomputed each time, instead of being assumed constant.
+
+\subsection{Affinity-aware provisioning}
+% This section presents the recent work done in the area of affinity-aware VM placement.
+% For communicating tiers of an application that are placed on dispersed VMs,
+It has been demonstrated in \cite{virtual-putty} that
+transfer time between two communicating VMs can be 
+reduced drastically
+(as much as 90\%) by placing both on the same host.
+This points to opportunities for
+server consolidation based on \textit{network affinity}. 
+%Server consolidation based on network affinity 
+This may not only
+improve response or transfer times but also reduce the load on network
+resources, since the inter-VM communication between VMs co-hosted on a
+single physical machine is more akin to IPC rather than a network transfer.
+% The authors suggest that co-location of VMs would reduce the network
+% usage while increasing the CPU usage. This is contrary to our observations,
+% presented in this paper, which show that for our $100Mbps$ network links,
+% colocation need not always result in increased CPU usage.
+The effect of network-affinity on CPU usage has been 
+alluded to in past research. In \cite{virtual-putty}, the authors
+claim that decrease in physical network usage due to colocation will 
+eventually translate to an increase in another resource dimension, say CPU.
+However, no empirical studies have been presented to quantify it so far,
+and hence the benchmarking study presented in this paper is especially relevant.
+
+A non-intrusive black-box approach for identifying mutually communicating
+groups of VMs or \emph{VM ensembles}, called Net-Cohort, is presented
+in \cite{net-cohort}. 
+This work advocates monitoring only guest-level network statistics 
+using hypervisor-tools and building an N$\times$N correlation matrix
+to ``infer'' network communication rather than ``observe'' it by 
+explicit monitoring of network traffic between all VM pairs.
+Using hierarchical clustering algorithm, VMs are grouped into 
+ensembles based on correlation in their resource usage.
+% using hierarchical clustering.
+After this initial identification of potential mutually communicating VMs,
+packet sniffing is performed only on those VMs to identify
+the actual communication dependencies. This work is complementary to
+our work, in that, it can provide the affinity relations 
+between various VMs which are required for 
+affinity-aware CPU utilization estimation at datacenter scale.
+% requires affinity relations 
+% between various VMs to be known/identified, which can be provided
+% using the solutions proposed in \cite{net-cohort}.
+%if it is more efficient than the 
+
+% In a follow-up paper~\cite{starling}, the authors have 
+% presented 
+A decentralized affinity-aware migration technique, which
+takes into consideration the network transmission traffic between
+each VM pair and tries to minimize communication overhead in 
+the entire cluster of VMs, is presented in \cite{starling}. 
+The \textit{bartering algorithm} presented
+in \cite{starling} reflects the basic assumption of similar
+CPU requirements irrespective of VM placement. However, our work
+suggests that this assumption may not hold in real scenarios and
+network affinity-aware CPU requirement estimation is essential.
+
+\subsection{Estimation of virtualized CPU usage}
+\label{cpu-estimation-refs}
+A set of micro-benchmarks are used to profile the CPU 
+usage on a given hardware
+platform, using regression modeling techniques 
+in \thinspace\cite{profiling-and-modeling}. The aim is to 
+determine the virtualization overheads of an
+application before it is placed in a virtualization environment,
+so that it is not accidentally deployed to a physical machine with
+insufficient resources. This is useful during initial placement of
+applications into the virtualized domain, also referred to as VM Sizing.
+
+% Hussam Mousa et al.\thinspace\cite{characterizing-performance}
+% also use a regression modeling approach to identify the cause of performance
+% overhead in both physical and virtualized machine instances. Profiling
+% is done per execution interval and each interval is a defined number
+% of executed instructions. During each interval, events are collected from
+% hardware performance monitoring counters (PMC), guest kernels and the
+% Hypervisor. The work in \cite{characterizing-performance} lays stress on
+% the importance of synchronizing and aligning the measurement intervals, so
+% that linear regression models will be applicable to the collected data.
+
+We borrow the idea of micro-benchmark profiling from this paper, however,
+we apply it to solve the problem of estimating colocated (virtualized)
+CPU usage given two dispersed (virtualized) resource usage profiles.
+Additionally, consider the scenario that the VMs to be transitioned from 
+physical to virtual are mutually
+communicating VMs or form various tiers of a single application. 
+Depending on whether communicating VMs are colocated or dispersed upon
+transition from physical to virtual domain, their virtualized CPU overhead
+and CPU usages would be different, and thus our work can help extend 
+the work in \cite{profiling-and-modeling}.
+% \\ \\
+% In this Section, we presented a brief overview of related literature. In the
+% next Sections, we define our problem statement and describe our solution
+% approach.

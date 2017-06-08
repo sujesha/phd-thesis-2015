@@ -1,0 +1,29 @@
+
+I/O reduction refers to reducing the number of disk read accesses by
+employing better cache management strategies. Typically, caches are 
+referenced by block number and mitigate the necessity to fetch the block
+from disk. However, traditional caches can not recognize content similarity
+across multiple blocks and hence, the system ends up fetching and storing 
+multiple copies of the same content in cache.
+Elimination of duplicate read I/O requests which fetch the same 
+content repeatedly is referred as I/O Deduplication.
+Existing work uses a split-cache approach, with a part of the block-based
+cache reserved as a content-based cache. In this work, we demonstrated
+that the split-cache approach is sub-optimal, and presented an
+I/O reduction system called DRIVE which performs I/O 
+redirection to \textit{implicitly} manipulate the whole underlying cache as 
+a content-deduplicated cache. Only the VM's own disk access history is
+introspected to obtain implicit hints regarding host cache state, to be used
+for read I/O redirection.
+
+We performed comparative evaluation by implementing 
+prototypes and performed trace-based evaluation in a custom simulator. 
+The evaluations showed that, 
+%while IODEDUP system reserves a part
+%of the total memory to be used as a content-cache, 
+the DRIVE system
+manipulates the entire available host cache space effectively like
+a content-cache, achieving a high content deduplication factor of up to 97\%.
+This is the key reason for better performance, with
+up to 20\% higher cache-hit ratios,
+and up to 80\% higher number of disk reads reduced than the Vanilla system.

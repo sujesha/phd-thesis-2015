@@ -1,0 +1,54 @@
+In this work, we performed benchmarking, to
+quantify the effects of network affinity on CPU usage when communicating VMs
+are colocated versus dispersed.
+Next, we developed VM \textit{pair-wise} models
+that can estimate ``colocated'' CPU usage, on being
+input their individual dispersed-case resource usages,
+and to estimate ``dispersed'' CPU
+usage based on colocated-case resource usages.
+For the ``colocation'' and ``dispersion'' models, we first
+built models that predicted the total CPU usage
+upon migration\textemdash{}these CPU models use all resource (CPU, disk, mutable
+and immutable network) usage profiles as their input. However, these models
+had an error of around 4\%. So, next we built enhanced models
+to predict only the differential CPU usage\textemdash{}these
+models use only the \textit{mutable} network traffic metrics as input,
+and have maximum error within 2\%. Finally, we demonstrated the
+application of \textit{pair-wise} models to predict for multi-VM
+scenarios, with high accuracy.
+%We tried two approaches
+%of modeling and found that predicting differential CPU usage provided
+%better accuracy\textemdash{}with maximum error within 2\% absolute CPU usage.
+%We also demonstrated that simple 
+This proves that CPU usage prediction models built
+on the scale of two VMs can be used for prediction in multi-VM
+scenarios as well.
+
+
+%In this work, we have empirically profiled different kinds of workloads and
+%presented the effect of colocation on the DomU and Dom0 CPU utilization for Xen.
+%We also presented models for estimation of the CPU usage when dispersed VMs
+%are moved to colocated placement and vice-versa. 
+%Experiments showed the 90 percentile error to
+%be less than 3\% absolute of CPU utilization, over both synthetic and real
+%application workloads.
+%
+%Though our empirical study is based on Xen virtual machine monitor, the approach
+%is general enough to be applicable to other virtualization technologies as 
+%well. For example, in case of KVM where there is no concept of a privileged
+%domain, we expect that the affinity related benefits will be more 
+%prominently visible in the VM's CPU usage itself, and the above-mentioned modeling will 
+%prove valuable for CPU usage prediction on colocation/dispersal.
+%
+%In our work, we have made the assumption of homogeneity of PMs,
+%both in terms of capacity as well as the architecture. 
+%The assumption of homogeneity of capacity can be withdrawn provided the higher 
+%level consolidation or placement algorithm accounts for the differing capacities
+%and makes placement decisions accordingly. However, the assumption of homogeneity
+%of architecture may be non-trivial to dispense with, because on such differing
+%architectures, the Dom0 and DomU CPU usage may also
+%be different and not directly mapped~\cite{profiling-and-modeling}. It would be of 
+%interest to
+%develop mappings from one architecture to another, so that our model can
+%be extended to apply to machines with heterogeneous architectures as well.
+

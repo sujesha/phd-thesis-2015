@@ -1,0 +1,166 @@
+In the previous chapter, we described an I/O deduplication and reduction
+mechanism called DRIVE and presented its trace-based evaluation within 
+a custom simulator, called \texttt{SimReplay}. The traces we used were
+the three (\textit{homes}, \textit{mail}, \textit{webvm}) 21 day-long 
+production traces available at \cite{iodedup-online}, from which we 
+concluded that the DRIVE system could perform exceptionally well for
+the \textit{webvm} trace. However, to further stress the system's
+functioning as well as to understand its limits, we need to test it
+with more real-world traces. In this chapter, we build the case
+for generating synthetic I/O deduplication benchmarks for more
+comprehensive evaluation of I/O deduplication techniques.
+
+\section{Motivation}
+In general, we can intuitively understand that higher the amount of
+duplicate content in the traces, higher the effectiveness of any 
+I/O deduplication technique as compared to the Vanilla case. 
+However, as our previous evaluation
+has shown, even though the \textit{webvm} trace had high levels 
+of duplicate content and was an ideal candidate to benefit from
+I/O deduplication techniques, the deduplication benefits achievable 
+for it was extremely poor
+within the IODEDUP system while being exceptionally good within
+the DRIVE system. This seems to indicate that it is not just 
+the degree of duplicate content but possibly other characteristics
+of the \textit{webvm} trace also that contribute to such varied performance.
+
+In our pursuit to test the DRIVE system further, we 
+were faced with the following options:-
+\begin{itemize}
+	\item \textbf{Trace collection toolkit}: Build our own tracing toolkit (\texttt{preadwritedump}) to capture more traces. 
+	\item \textbf{Capture production traces}: Deploy above toolkit on production servers to capture real-world traces
+	\item \textbf{Capture synthetic benchmarks}: Deploy above toolkit to capture synthetic benchmark traces 
+	\item \textbf{Dataset survey}: Perform an exhaustive literature survey to determine if there are any other real-world datasets available that can be used for I/O deduplication performance benchmarking
+	\item \textbf{DRIVE evaluation using datasets}: If public datasets or traces available, use them for further testing of DRIVE system
+	\item \textbf{Dataset characterization}: Extensively characterize the available traces to learn which particular properties of the \textit{webvm} trace contributed to its enhanced performance in the DRIVE system
+	\item \textbf{I/O deduplication benchmarks}: If public datasets are not available, build a case for creating synthetic I/O deduplication benchmarks
+\end{itemize}
+
+In the rest of this chapter, we describe the work done 
+in pursuing each of these options, and which finally 
+builds a case for creating synthetic and realistic
+I/O deduplication benchmarks.
+
+\subsection{Building custom trace collection toolkit}
+Of the above alternatives, we started off with building our own tracing 
+toolkit with a view to deploying it on production servers within our
+department. We built the toolkit called \texttt{preadwritedump}, however, 
+we were unable to obtain requisite permission from the systems 
+administrators to deploy the same on the departmental servers. Although
+we could not fully utilize the developed tool, we believe that it would
+be helpful for future tracing efforts. Moreover, if we wish to develop
+sub-block level deduplication techniques, we need to have a tracing tool
+that can perform block-level tracing and dump of I/O content, because 
+merely dumping hashes of the blocks is not suitable for sub-block duplicate
+identification. With this in mind, we have presented the design and 
+implementation of our toolkit in the Appendix~\ref{chap:thesis-tracing}
+of this thesis.
+
+\subsection{Tracing of synthetic benchmarks}
+The next alternative was to generate 
+synthetic workloads and capture corresponding 
+traces. However,
+the challenge here is to develop synthetic traces that are ``realistic''. 
+For example, many public storage and I/O benchmarks exist, however, their 
+focus is only on the number of I/Os that can be
+generated per second, and not on the actual content being read or written. 
+Hence, these benchmarks tend to generate ``realistic'' workload levels (i.e., number of IO 
+operations per second) while paying scant attention to
+whether the content being generated as part of the read and write 
+operations are also realistic or not.
+For example, these benchmarks may generate randomized content~\cite{postmark}
+or heavily duplicate content~\cite{rubis}
+or even write zeros~\cite{zeros}, in some cases. 
+For our purposes, usage of benchmarks that write randomized content
+will result in very low duplicates in the workload, whereas those that heavily 
+generate duplicate content or simply write zeros will overestimate the benefit of deduplication.
+Hence we conclude that, existing public benchmarks, though purported 
+to be ``realistic'' are not realistic in terms of the content generated
+for the I/O and hence are not useful for evaluation of deduplication techniques.
+
+With respect to the use of existing benchmarks for deduplication study, 
+it deserves mention that benchmarks like HiBench~\cite{hibench} and RUBiS~\cite{rubis}
+have been used in earlier works~\cite{deduping-hibench}
+for storage duplicate characterization, wherein 
+high levels of duplicate content were reported (eg. 70-80\% duplicate
+content observed in RUBiS benchmark). 
+However, we take a critical view towards such work because the
+intended usage of these benchmark applications (eg. RUBiS~\cite{rubis})
+is the study of application performance,
+with zero focus on the application's content characterization. 
+Basically, these benchmarks generate either heavily-duplicate 
+or heavily-random content because the content is irrelevant for the benchmark's intended usage.
+However this lack of ``realistic content characterization'' disqualifies their use
+for evaluating content deduplication techniques.
+Specifically, RUBiS is an application benchmark mimicking
+an e-commerce website where most of the content pages are dummy pages, and
+hence tend to have repetition of content (eg. repetitive ``item descriptions'' or
+``comments'') just to populate the web pages. This content
+should not be considered as legitimate duplicate 
+content,
+%\textemdash{}it is only duplicate
+%because content characterization of the application has not been captured in
+%the benchmark\textemdash{}
+since real e-commerce applications would 
+typically not consist of dummy repetitive comments.
+Alternatively, the duplicate data created in HiBench benchmark is for 
+the express purpose of storage availability in 
+bigdata or MapReduce environments, 
+hence deduplicating such blocks on storage is counter-productive.  
+
+\subsection{Survey to identify relevant public datasets}
+Due to above unsuccessful attempts at generating synthetic workload traces
+for evaluation of DRIVE, we once again turned towards datasets in literature
+and performed an extensive survey to determine whether any 
+relevant useful datasets are available online. 
+To begin with, we classified the dataset surveyed into
+two sets: (i)~\textit{Public datasets}\textemdash{}these traces are publicly available
+online and can be used by any researcher with an Internet connection,
+(ii)~\textit{Proprietary datasets}\textemdash{}these are datasets mentioned in various
+papers, however they have not been made publicly available. For example, 
+the research groups from NetApp, IBM, etc use trace datasets that are 
+internally available to them, but are not published online. We describe
+the surveyed datasets in Section~\ref{sec:architectingchap-survey}.
+
+After performing the dataset survey with a very wide net, we conclude that 
+there are no datasets available for testing I/O deduplication techniques
+apart from the ones that were provided at \cite{iodedup-online} which we
+have already used. Further, we conclude that the next best way of
+preparing datasets for evaluation would be to synthetically generate 
+realistic workload traces by capturing the characteristics of the 
+available trace itself. 
+
+\subsection{Synthetic generation of realistic traces}
+We performed another detailed
+literature survey of relevant papers that develop a workload model
+based on measurements from real-world, and then 
+generate synthetic realistic benchmarks using
+the developed model. The survey revealed that there is related work
+that generates realistic benchmarks for I/O access (i.e. only concerned
+with block numbers accessed, not their content) as well as for storage 
+deduplication (i.e. concerned with content stored on disk, not content 
+accessed). However, there is no related work so far that generates
+realistic I/O access traces that account for the content as well. 
+\\
+\\
+In the rest of this chapter, we build the case for 
+\textbf{I/O deduplication benchmarks}
+using the conducted survey results, and establish the generation of realistic
+benchmarks as useful future work. First, we present the results of our
+dataset survey which shows that there are no suitable datasets available
+publicly. Next, we present a detailed trace characterization of the 
+available \textit{webvm} traces~\cite{iodedup-online} and finally, we make the
+case that the detailed trace characterization can be used for generating
+realistic benchmarks for evaluation of I/O deduplication techniques.
+
+\section{Survey of datasets and benchmarks in literature}
+\label{sec:architectingchap-survey}
+\input{architectingchap-survey}
+
+\section{Trace characterization of available dataset} %\cite{iodedup-online}}
+\label{sec:architectingchap-tracechar}
+\input{architectingchap-tracechar}
+
+\section{The need for I/O deduplication benchmarks}
+\label{sec:architectingchap-case}
+\input{architectingchap-case}

@@ -1,0 +1,126 @@
+Some of the following problems are off-shoots of the research
+contained in this thesis, and some others are crucial open problems
+that are orthogonal to the work in this thesis.
+
+\paragraph{Tracking workload upon migration.}
+The CPU estimation models of Section~\ref{sec:synopsis-arescue} are developed
+under assumption that ``same'' workload in dispersed-VMs\index{dispersed} case 
+is to be serviced
+in the colocated-VMs\index{colocated} case. However, in a dynamic server 
+consolidation algorithm, VMs may be migrated due to increasing load level.
+Thus, the load levels before and after the VM migration need not 
+necessarily be the same. To handle this, we need a workload
+tracking component within the server consolidation algorithm~\cite{sandpiper}, 
+which can then give inputs to our CPU estimation models for
+accurate estimation of CPU usage on the target PM.
+
+\paragraph{Handling diversity in network topology.}
+In a large data-center
+network, there exist several such switches and any pair of VMs might
+be communicating with one another over an array of interconnecting
+switches.
+If all switches in
+the network topology are homogeneous, then the same model (developed
+using methodology of Section~\ref{sec:synopsis-arescue}) can be
+used for all predictions. However, if there is heterogeneity in
+switch capacities, then we might need separate models to be
+developed per switch type. Thus, when a VM migration is to be
+initiated, the CPU usage prediction model to be used should be
+the one corresponding to the switch to which the target PM is connected.
+We might also need to consider the effective rate of data transfer
+when two mutually communicating VMs are connected to their respective
+switches via links of different capacities.
+
+\paragraph{Metadata space management for I/O reduction.}
+%\noindent \textit{Metadata space management:}
+%As discussed above, metadata occupies decent amount of space per block entry.
+For deployment of I/O deduplication systems 
+on large System Volume
+Controllers, metadata space requirement can be huge.
+%, otherwise losing precious buffer cache space.
+An option is to distribute metadata between memory and disk, such that only
+``important'' metadata are present in memory for quick
+access. The work in \cite{data-domain} achieves around 99\%
+metadata cache-hits using this approach, under a key assumption
+that backup workloads access metadata sequentially.
+However in case of random-access workloads,
+metadata access prediction is non-trivial.
+
+Random-access workloads exist in inline storage deduplication scenarios
+\cite{idedup}, where a simple LRU cache is used to accommodate metadata.
+%such that only the most-recently-used metadata stays in cache, while the
+%rest is discarded. 
+%This, of course, comes at the cost of lost
+%deduplication opportunities. 
+However, a significant difference from our work
+of I/O deduplication is that storage deduplication needs to track only
+write requests whereas we require to track read requests.
+This implies that though \cite{idedup} found no significant performance
+improvement by using different caching policies, our work
+could expect to benefit from a frequency-aware caching mechanism like
+Adaptive Replacement Cache (ARC).
+Thus, we propose to use a framework for metadata store which
+ensures that more-frequently-used and/or more-recently-used
+metadata stay in cache, while the rest are moved to disk.
+
+%\subsection{Empirical approach to performance-aware resource-requirement estimation}
+%The problem here is to perform empirical measurements
+%for a given virtualized service and its resource configuration to
+%determine the peak workload supported for a given performance
+%requirement. Further, if the supported workload falls short of the
+%requirement, then we should be able to identify the
+%bottleneck resources and allocate more until a configuration is
+%reached where the target workload is met.
+%Since this is an offline task,
+%and not a real-time one, it might be acceptable to do empirical
+%measurements to determine
+%the resource requirement. However, it would still be
+%desirable to compute this ``optimal'' resource configuration
+%as quickly as possible since it might not be feasible to
+%empirically measure every possible resource configuration exhaustively.
+
+\paragraph{I/O reduction using variable-length blocks.}
+This problem deals with the feasibility of performing disk
+read I/O reduction by identifying duplicate content in terms of
+variable-sized sub-blocks, instead of fixed-size blocks.
+We refer to this optimization as vDRIVE.
+%PROVIDED\textemdash{}\textit{Performance
+%Improvement by Variable-sized chunk aided I/O De-Duplication}.
+%Similar to the DRIVE system, upon the receipt
+%of every block read request at the virtual disk front-end driver,
+%the metadata can looked-up and the I/O
+%request redirected so as to manipulate the underlying
+%sector-based cache effectively like a content-based cache.
+The difference between DRIVE and vDRIVE would be that, DRIVE
+redirects read requests by substituting one block address by
+another, whereas vDRIVE metadata can potentially map one block
+address to multiple sub-blocks/chunk, which in turn, can map to multiple blocks.
+Thus, every block read request in vDRIVE may potentially result
+in extra block read requests. However, if the duplication ratio
+is significant, the improved cache efficiency will outweigh the
+cost of the extra block reads.
+Due to lack of access to real-world traces at the moment, we
+do not include the design and implementation of vDRIVE in current
+thesis scope.
+However, as future work, we plan to implement a prototype of vDRIVE
+and evaluate using real-world traces or
+realistic benchmarks to demonstrate capabilities of the system.
+
+
+\paragraph{Generating realistic I/O deduplication benchmarks.}
+%As per discussion in Section~\ref{sec:synopsis-architecting}, 
+There is a dire need of research regarding generation of
+realistic I/O traces along-with content representation. Most 
+existing research for I/O trace generation focusses only on metrics
+like working set sizes, I/O sizes~\cite{flexi-replay},
+request inter-arrival times~\cite{storagereplay},
+block accessed distribution and
+jump distance distribution~\cite{jump-based-synthetic}. However,
+due to lack of content representation, it is not possible
+to evaluate I/O deduplication techniques using such traces.
+A future work of this thesis is to develop trace
+characterization and generation methods using real-world
+workloads, such that it can capture
+content representation within the trace, while still preserving
+the anonymity/privacy of the system and its users.
+

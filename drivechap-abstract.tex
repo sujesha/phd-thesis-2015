@@ -1,0 +1,38 @@
+
+Co-hosting of virtualized applications results in similar content 
+across multiple blocks on disk, which are fetched into memory (the 
+host's page cache). Content similarity can be harnessed both to
+avoid duplicate disk I/O requests that fetch the same content 
+repeatedly, as well as to prevent multiple occurrences of duplicate 
+content in cache.
+Typically, caches store the most recently or frequently
+accessed blocks to reduce the number of disk read accesses. 
+These caches are referenced by block number, and can not recognize content 
+similarity across multiple
+blocks. Existing work in memory deduplication merges cache pages after
+multiple identical blocks have already been fetched from disk into cache, 
+while existing work in I/O deduplication reserves a portion of the
+host-cache to be maintained as a content-aware cache.
+We propose a disk I/O reduction system for the virtualization environment
+that addresses the dual problems of duplicate I/O and duplicate content 
+in the host-cache, without being invasive.
+
+We build a disk read-access optimization called DRIVE, that 
+identifies content similarity across multiple blocks, and performs
+hint-based read I/O redirection to improve cache effectiveness,
+thus reducing the number of disk reads further.
+% than other systems.
+A metadata store is maintained based on the virtual machine's disk
+accesses and implicit caching hints are collected 
+for future read I/O redirection.
+The read I/O redirection is performed from within the virtual 
+block device in the virtualized system, to manipulate the entire 
+host-cache as a content-deduplicated cache implicitly.
+Our trace-based evaluation using a custom simulator, reveals that 
+DRIVE always performs equal to or better than the Vanilla system, 
+achieving up to 20\% better cache-hit ratios and reducing the
+number of disk reads by up to 80\%. The results also indicate that
+our system is able to achieve up to 97\% content deduplication in
+the host-cache.
+%, using only the implicit hints collected regarding 
+%host-cache state.

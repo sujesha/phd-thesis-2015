@@ -1,0 +1,160 @@
+
+%\subsection{Existing I/O Reduction Techniques}
+% \label{sec:iodedupchap-background}
+% \input{iodedupchap-background}
+
+
+
+
+
+This section presents an overview
+of existing techniques for I/O reduction in virtualized data centers,
+then presents other page cache management techniques and their
+shortcomings in virtualized environment.
+
+\subsection{Virtualization-based I/O reduction techniques}
+Reduction of disk read accesses can be achieved by 
+better host cache usage (for example, use as a content-cache~\cite{iodedup}),
+better cache management 
+(insertion and eviction) policies~\cite{outperforming-LRU}, 
+and content-based deduplication techniques~\cite{VMAR}.
+
+Prior work~\cite{cooperative, VMAR, capo} to achieve I/O reduction in 
+virtualized data centers focusses on content-based deduplication techniques.
+SeaCache\cite{cooperative} deploys a de-duplication
+system on the shared storage server in a virtualized data center, and
+designs efficient cache eviction algorithms to aggregate distributed
+host caches as a unified cache. Thus, it can be used
+complementarily with host cache management techniques.
+VMAR\cite{VMAR} builds a deduplication map at VM instantiation
+time, and redirects read requests for I/O reduction.
+Since a long-running application will write many blocks and subsequently
+read them again, the deduplication map should ideally be updated for
+higher efficiency. However, VMAR's choice to not gather the deduplication 
+map dynamically, implies that many
+%write requests by
+%VMs are not captured on-the-fly,
+% for deduplication, hence 
+deduplication opportunities may be lost in a long-running application.
+Capo\cite{capo} expoits the fact that all VMs are instantiated
+from a relatively small number of ``golden images'' and generates a bitmap,
+which is then used to eliminate duplicate read requests. However, it
+can not detect duplicate requests for data outside of golden images,
+for example, customized VMs and workloads of
+virtualized applications.
+
+In our work, we build metadata regarding virtual disk data while
+the virtual machine (and its hosted application) is executing, and hence
+the resulting I/O deduplication can detect duplicates in customized
+VM workloads as well.
+
+\subsection{Cache management techniques for I/O reduction}
+Memory deduplication~\cite{vmware-esx-server, satori, memorybuddies, 
+difference-engine, singleton}
+refers to storing only one copy of duplicate content in memory to 
+save memory space and improve cache effectiveness. 
+In I/O deduplication~\cite{iodedup}, the aim is to avoid disk I/O requests
+that fetch duplicate content into cache. Hence, though both
+memory deduplication and I/O deduplication are basically cache
+management techniques\cite{cooperative}, the difference is that
+memory deduplication is performed after multiple blocks with duplicate
+content have been fetched into memory, whereas I/O deduplication seeks to
+avoid block fetches altogether if the same content is already present
+in memory. In our work, we seek to improve host cache management via
+I/O redirection \& deduplication strategies.
+
+\underline{Memory deduplication techniques:} 
+Previous work in \cite{vmware-esx-server, difference-engine} has
+shown the possibility of saving memory using deduplication
+techniques\index{Memory deduplication},
+so as to improve the caching performance. However, the content
+similarity identification in these approaches is done via periodic
+scanning of guest VM memory. Memory scanning is beneficial for 
+memory deduplication only when done at a high scan-rate, however,
+this results in higher CPU overheads.
+Moreover, because of their overcommitment of memory to guest VMs, 
+the Hypervisor has to resort to paging of VM memory in order to 
+ensure that all VM's contents are accommodated in memory, and this can
+lead to degraded performance.
+
+The work in \cite{satori} develops a memory-deduplication 
+system called Satori, in which multiple blocks in cache 
+having same content are mapped to a single page, which
+is marked as \textit{read-only}. Due to the \textit{read-only} 
+setting of shared pages, an attempt to write to it will
+cause a page fault, called \textit{copy-on-write-fault}
+and the Hypervisor will handle the fault by allocating
+and new page frame with the page contents copied. Also,
+the page table mappings need to be updated to ensure
+that the faulting VM uses the newly allocated page
+henceforth.
+
+In our work, we build content-similarity metadata
+by dynamic interception\index{Interception} 
+of read and write requests within
+the virtual disk driver in the VM. Hence, there is
+no scanning of memory and related overheads are avoided.
+Moreover, an update to the metadata is a ``local''
+update as far as the VM's virtual disk driver is
+concerned, hence costly page faults and any related
+traps to Hypervisor are also unnecessary in our system. Thus, 
+our system can achieve efficient cache usage 
+with lower overheads than existing memory deduplication 
+systems.
+
+%\subsubsection{Memory Deduplication}
+\underline{I/O deduplication techniques:}\index{I/O deduplication}
+The work in \cite{iodedup} demonstrates that a 
+content-cache \index{Content-cache}
+is better than a block-cache\index{Block-cache} for read-only workloads,
+due to the inherent content similarity.
+However, it does not present any study of the effects of the above
+split-cache approach on overall cache effectiveness.
+Specifically,
+write requests attain a higher number of cache hits in a block-cache rather
+than a content-cache~\cite{iodedup} whereas read requests attain more 
+cache hits in a content-cache. 
+Since IODEDUP\index{IODEDUP} has both 
+a \textit{block-cache} and a \textit{content-cache}, 
+it is essential to explore the holistic effects of reserving a fraction of the
+block-cache to be used as a content-cache. This is
+crucial because content-cache benefits may be read/write 
+request-mix dependent, as explained next.
+
+The split-cache approach of \cite{iodedup} introduces two problems:
+(i)~cache inclusiveness problem, i.e.,
+same block present in both the block-cache and the content-cache, and
+(ii)~content-cache sizing problem, i.e., determining what portion of 
+the host's cache should be maintained as a content-cache
+for maximum performance benefits.
+To demonstrate these problems, we present results from a simulation experiment
+using the traces %from two virtualized web-servers hosting 
+%webmail proxy and course management system (called \textit{webvm}),
+available at~\cite{iodedup-online}. This study is presented in the next 
+section.
+
+\subsection{Revisiting disk I/O virtualization}
+The de-coupling of the front-end and back-end virtual block drivers
+%is beneficial in the following ways.
+%First, it 
+enables trapping and redirection\index{I/O redirection} 
+of guest disk I/O requests before they 
+encounter the host page cache.
+%Second, it allows access to the virtual block interface for building our
+%storage optimization hence allowing our implementation to stay modular
+%and pluggable. Third, a non-virtualized host's buffer/page cache can not
+%be directly manipulated in a content-deduplication fashion as already
+%acknowledged\cite{iodedup}; and virtualization offers a simple alternative to
+%easily intercept and redirect I/Os from guest VMs. Finally, since this
+%layer is much above the cache and block layer of host, all I/Os
+%generated by our deduplication module can still leverage physical
+%disk I/O scheduling services at the host as before.
+In our work, we exploit this de-coupling of drivers and introduce 
+an I/O redirection mechanism such that the host cache in a virtualized
+system is implicitly manipulated in a
+content-deduplicated fashion without needing any invasive changes
+in functioning.
+In the next section, we present the design of our I/O reduction 
+\& deduplication system called DRIVE (\underline{D}isk I/O 
+\underline{R}eduction \underline{i}n 
+\underline{V}irtualized \underline{E}nvironments)\index{DRIVE}.

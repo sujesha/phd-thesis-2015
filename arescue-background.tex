@@ -1,0 +1,254 @@
+This section recalls the concept of network I/O
+virtualization in Xen\index{Xen} and KVM\index{KVM} 
+(previously presented in detail in
+Section~\ref{sec:litreviewchap-io-virtualization}), and supplements it
+with an event profiling study of network virtualization in Xen.
+
+\subsection{Recalling the basics of network I/O virtualization}
+As mentioned in Chapter~\ref{chap:thesis-litreview}, the Xen
+virtualization technology has the concept of a split-driver
+architecture to deal with network I/O virtualization\textemdash{}consisting of
+a \texttt{frontend} and \texttt{backend} driver. Of these, the 
+\texttt{backend} driver is responsible to communicate with the 
+native network drivers and get the I/O performed on behalf of the 
+virtual machines. 
+
+In case of virtual machines that are colocated on a single physical 
+machine, the native driver does not need to be invoked at all whereas
+if the VMs are hosted on different physical machines, physical network
+communication is essential. This difference manifests as different
+CPU overheads for the virtual machines and the physical hosts 
+concerned. In this section, 
+we present an event profiling study of the CPU overheads in both scenarios.
+
+\subsection{Profiling study of network I/O virtualization}
+% Xen uses an inter-domain shared memory mechanism to share data between
+% colocated VMs. 
+To further motivate the study of differences in communication between
+colocated and dispersed virtual machines, we performed a detailed 
+profiling-based study of Xen's\index{Xen} 
+networking architecture and 
+implementation~\cite{xen-internals, xen-networking, linux-networking}. 
+% The major difference between dispersed
+% and colocated communication is that 
+
+A common optimization in the colocated case communication is that 
+packet check-summing
+(both calculation and verification) is not performed since it is assumed 
+that memory copying (performed in colocated case) is quite reliable as 
+opposed to physical network transmission (corresponding to dispersed case). 
+Additionally, when Xen-based VMs are colocated, they are
+connected via a layer 2 software bridge and hence a packet 
+transmitted from one VM to another colocated VM is locally delivered 
+on the bridge itself. On the other hand, when communicating VMs 
+are on different physical machines, a packet transmission by one VM
+is forwarded over the software bridge, 
+DMA-copied\nomenclature{DMA:}{Direct Memory Access}\index{DMA}
+into the network interface 
+card's (NIC\nomenclature{NIC:}{Network Interface Card}\index{NIC}) 
+buffer, and placed on the network link by the NIC. This
+transmitted packet is then received on the destination host's NIC, 
+copied into a kernel buffer for further processing
+and interrupt sent to destination host's driver domain (Dom0). Upon
+subsequent scheduling, the received packet is inspected by Dom0 to
+determine the destination VM, packet delivery scheduled and destination 
+VM notified of incoming packet. Thus, end-to-end communication
+path in dispersed case is comparatively longer than the path 
+in colocated case.
+
+Using the tool \texttt{Xenoprof}~\cite{xenoprof}, we performed
+event monitoring for network transmission between a pair of Xen-based 
+VMs in both colocated and dispersed scenarios. 
+\texttt{Xenoprof} performs statistical profiling of applications
+by using non-maskable interrupts when a performance counter overflows,
+to sample the function under execution. Since it
+performs statistical sampling, higher number of samples 
+of a specific function call can imply either that a
+single invocation of the function had a long execution 
+time compared to other functions, 
+or that the function call had higher
+number of invocations as compared to others, or both.
+
+To perform the profiling study, 
+TCP\nomenclature{TCP:}{Transport Control Protocol}\index{TCP}
+network traffic of
+50Mbps was generated from one VM to the other,
+%using application-level packet size (henceforth referred to as \textit{segment size}\index{segment size}) of 30KB 
+wherein VM1 sent requests and VM2 served the requests
+by transmitting back the requested number of bytes. 
+We define the transmitting and receiving VMs in terms of 
+the direction of data traffic,
+i.e., the VM sending requests receives data responses, 
+hence is the \emph{receiver},
+whereas the VM receiving requests sends data responses and 
+is the \emph{transmitter}.
+Thus, in our example, VM2 is the transmitter (of requested data) and 
+VM1 the receiver (of requested data). 
+We refer to Dom0 on VM2's host as the transmitting Dom0 
+and the Dom0 on VM1's host as the receiving Dom0. However, it
+should be noted that neither of the VMs are pure transmitters
+or pure receivers\textemdash{}because VM1 (i)~sends requests, (ii)~receives responses 
+and (iii)~sends TCP acknowledgements whereas VM2 (i)~receives requests and
+(ii)~sends responses.
+%Since we wished to analyze TCP communication 
+%overheads, such bi-directional communication flows were unavoidable. 
+
+We perform monitoring on both the transmitting Dom0 (\textit{Disp-Tx})
+and the receiving Dom0 (\textit{Disp-Rx}) in the dispersed case. 
+Meanwhile in the colocated case, we perform monitoring on the 
+sole Dom0\index{Dom0}
+instance (\textit{Colo}) which performs both transmit and receive processing.
+Our aim is to empirically observe the 
+difference in CPU processing required in the three cases
+\textemdash{}(i)~\textit{Disp-Tx} (short for Dispersed-Transmit), 
+(ii)~\textit{Disp-Rx} (short for Dispersed-Receive) and 
+(iii)~\textit{Colo} (short for Colocated).
+We consider the 10 most sampled function calls in each case.
+Since we are interested in the differences and not the similarities, hence
+we discard those calls which are common to all three lists. 
+We compute the union of all three lists and select those function
+calls that exhibit some distinctive feature of network flow.
+The sample counts of these calls are enumerated in Table 
+\ref{tab:xenoprof-30KB-norm} for all the three
+cases.
+% present
+% the number of samples reported by Xenoprof for those function
+% calls which have distinctive behaviour in Table \ref{tab:xenoprof-30KB-norm}. 
+% To make the numbers more coherent to understand, we present in
+% Table \ref{tab:xenoprof-30KB-norm} 
+The number of samples is represented in a
+normalized format, wherein for every function call, the number
+of calls in each of the three cases is normalized w.r.t the
+case which
+has the highest number of samples. For example, the function
+\texttt{change\_page\_attr} has highest number of samples
+in \textit{Disp-Rx} case and almost negligible numbers in the other
+cases. The normalized number is shown correct to 2 decimal 
+places, so very low numbers get automatically rounded off to 0,
+thus further simplifying our analysis. Thus, the function calls
+that are listed as having 0.0 samples are those which have very 
+few samples in the \texttt{Xenoprof} output.
+
+
+% \begin{table}[t]
+% \centering
+% % \noindent\makebox[\textwidth]{%
+% \begin{tabular}{|c|c|c|c|} \hline
+% \textbf{Function} & \multicolumn{3}{|c|}{\textbf{Number of samples}} \\ \cline{2-4}
+% \textbf{Call} & \textbf{Disp-Tx} & \textbf{Disp-Rx}  & \textbf{Colo} \\ \hline  
+% \texttt{/e1000} & 209997 & 242202 & 2311 \\
+% \texttt{/bridge} &	130362 & 154456 & 114009 \\
+% \texttt{change\_page\_attr} & 229 & 94889 & 384 \\
+% \texttt{x86\_emulate} & 202 & 89053 & 372  \\
+% \texttt{flush\_area\_local} & 25179 & 121486 & 21910 \\
+% \texttt{\_\_copy\_from\_user\_ll} & 23449 & 116011 & 25519 \\
+% \texttt{evtchn\_set\_pending} & 28233 & 63585 & 26638 \\
+% \texttt{evtchn\_do\_upcall} & 26278 & 46489 & 23753 \\
+% \texttt{nf\_iterate} & 35678 & 40846 & 32485 \\
+% \texttt{\_spin\_unlock\_irqrestore} & 50895 & 60517 & 49261 \\
+% \texttt{net\_rx\_action} & 42467 & 77225 & 54090 \\
+% \texttt{do\_grant\_table\_op} & 35344 & 55089 & 65292 \\
+% \texttt{get\_page} & 14742 & 35037 & 53635 \\
+% \texttt{\_\_acquire\_grant\_for\_copy} & 9565 & 24982 & 38502  \\
+% \texttt{gnttab\_copy} & 10446 & 90687 & 160845 \\
+% \texttt{\_\_release\_grant\_for\_copy} & 7692 & 15693 & 42386 \\ \hline
+% \end{tabular}
+% % }
+% \caption{Comparison of number of samples reported by Xenoprof monitoring}
+% \label{tab:xenoprof-30KB}
+% \end{table}
+
+% \begin{table}[t]
+% \centering
+% % \noindent\makebox[\textwidth]{%
+% \begin{tabular}{|c|c|c|c|} \hline
+% \textbf{Function} & \multicolumn{3}{|c|}{\textbf{Normalized num of samples}} \\ \cline{2-4}
+% \textbf{Call} & \textbf{Disp-Tx} & \textbf{Disp-Rx}  & \textbf{Colo} \\ \hline  
+% \texttt{change\_page\_attr} & 0.00 & 1.00 & 0.00    \\
+% \texttt{x86\_emulate} & 0.00 & 1.00 & 0.00 \\
+% \texttt{flush\_area\_local} & 0.21 & 1.00 & 0.18   \\
+% \texttt{\_\_copy\_from\_user\_ll} & 0.20 & 1.00 & 0.22 \\
+% \texttt{evtchn\_set\_pending} & 0.44 & 1.00 & 0.42 \\
+% \texttt{evtchn\_do\_upcall} & 0.57 & 1.00 & 0.51    \\
+% % \texttt{nf\_iterate} & 0.87 & 1.00 & 0.80  \\
+% % \texttt{\_spin\_unlock\_irqrestore} & 0.84 & 1.00 & 0.81 \\
+% % \texttt{net\_rx\_action} & 0.46 & 0.71 & 0.85 \\
+% % \texttt{do\_grant\_table\_op} & 0.54 & 0.84 & 1.00  \\
+% \texttt{get\_page} & 0.27 & 0.65 & 1.00   \\
+% \texttt{\_\_acquire\_grant\_for\_copy} & 0.25 & 0.65 & 1.00    \\
+% \texttt{gnttab\_copy} & 0.06 & 0.56 & 1.00 \\
+% \texttt{\_\_release\_grant\_for\_copy} & 0.18 & 0.37 & 1.00 \\ \hline
+% \end{tabular}
+% % }
+% \caption{Normalized number of samples reported by Xenoprof monitoring}
+% \label{tab:xenoprof-30KB-norm}
+% \end{table}
+
+\begin{table}[t]
+\caption{Normalized number of samples reported by Xenoprof}
+\label{tab:xenoprof-30KB-norm}
+\centering
+\vspace{0.1in}
+% \noindent\makebox[\textwidth]{%
+\begin{tabular}{|c|c|c|c|} \hline
+\textbf{Function} & \multicolumn{3}{|c|}{\textbf{Normalized num of samples}} \\ \cline{2-4}
+\textbf{Call} & \textbf{Disp-Tx} & \textbf{Disp-Rx}  & \textbf{Colo} \\ \hline  
+\texttt{\/e1000} & 0.87 & 1.00 & 0.01 \\
+\texttt{gnttab\_copy} & 0.06 & 0.56 & 1.00 \\
+\texttt{\/bridge} & 0.84 & 1.00 & 0.74 \\
+% \texttt{flush\_area\_local} & 0.21 & 1.00 & 0.18 \\
+% \texttt{\_\_copy\_from\_user\_ll} & 0.20 & 1.00 & 0.22 \\
+\texttt{change\_page\_attr} & 0.00 & 1.00 & 0.00 \\
+\texttt{x86\_emulate} & 0.00 & 1.00 & 0.00 \\ 
+\texttt{do\_mmuext\_op} & 0.00 & 1.00 & 0.01 \\
+%\texttt{ptwr\_emulated\_update} &  0.00 & 1.00 & 0.00 \\
+\texttt{ptwr\_do\_page\_fault} &  0.00 & 1.00 & 0.00 \\
+\texttt{get\_page\_from\_l1e} &  0.00 & 1.00 & 0.00 \\
+\texttt{xen\_tlb\_flush} &  0.00 & 1.00 & 0.00 \\ 
+All & 0.44 & 1.00 & 0.49 \\ \hline
+\end{tabular}
+% }
+\end{table}
+
+\paragraph{Observations from profiling study.}
+From Table \ref{tab:xenoprof-30KB-norm}, we make the following 
+observations,
+\begin{itemize}
+\item \texttt{e1000} (the native network driver) is used only 
+in the dispersed case whereas in the colocated case, network packets are passed 
+from source to destination over the bridge without using the native driver.
+\item \texttt{gnttab\_copy} is a page copy mechanism involving grant
+tables. Hence, it is used significantly in \textit{Disp-Rx} for copying packets
+from Dom0 memory to the receiving DomU and the highest in \textit{Colo}
+case where Dom0 copies the packet from the transmitting DomU to 
+the receiving DomU\index{DomU}. It is not used much in \textit{Disp-Tx} 
+because of scatter/gather wherein the data to be transmitted is 
+collected by DMA\index{DMA} device directly from DomU memory. 
+\item \texttt{bridge} is used approximately equally in all three cases. 
+This is because packet delivery in colocated case needs a one-shot
+traversal of the bridge as compared to traversing the bridge on both
+transmitting and receiving ends in the dispersed case.
+\item \texttt{change}\_\texttt{page}\_\texttt{attr}, 
+\texttt{ptwr\_do\_page\_fault}, \\
+\texttt{get}\_\texttt{page}\_\texttt{from}\_\texttt{l1e},
+\texttt{xen\_tlb\_flush},
+\texttt{x86\_emulate}
+\& \texttt{do\_mmuext\_op}
+are related to the copying of
+received packets from the network buffer to Dom0\index{Dom0}
+memory, wherein Dom0 has to acquire free pages, request for copying
+of packets to those free pages, and facilitate guest TLB updates.
+%using writable page tables approach.
+% (\texttt{ptwr\_*}). Thus, 
+These calls, being specific to dispersed receive flow, are absent in
+colocated case network flow.
+\end{itemize}
+Thus, depending on whether the VMs are colocated
+(causing intra-PM network traffic), 
+or dispersed (causing inter-PM network traffic), 
+the network communication between them follows
+different data-paths, in-turn incurring different overheads.
+These differences in CPU overheads were observed empirically with both 
+Xen and KVM environments (refer Section~\ref{sec:arescue-benchmark}). 
+%as presented in subsequent sections.
+

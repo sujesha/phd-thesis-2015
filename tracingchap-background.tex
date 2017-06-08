@@ -1,0 +1,64 @@
+In this sub-section, we present a brief description of basic features like
+\texttt{relayfs} channels, \texttt{debugfs} file system, \texttt{kprobes}
+and \textit{kernel signaling}, which were used for developing the 
+block tracing toolkit.
+
+\subsection{Relayfs channels}
+The Relayfs\cite{relayfs} filesystem is designed to enable large amounts 
+or sustained
+data delivery from kernel modules to user space. Basically, it is a 
+``channel'' that routes data from the kernel module into a set of
+per-CPU buffers that are operated essentially like a file. 
+The Relayfs API consists of two sets of API\textemdash{}the first set for 
+in-kernel clients, and the second set for userspace tools to 
+dump out the data into persistent storage. We used both sets of APIs
+to build our toolkit\textemdash{}the first set to build our content-dumping 
+kernel module(s), and the second set to build a generic userspace tool
+that can be used with any kernel module that uses the in-kernel 
+relayfs APIs. Note that, the relay channels work in tandem with the
+\texttt{debugfs} filesystem, as explained next.
+
+\subsection{Debugfs filesystem}
+Although relay channels route the data from in-kernel to outwards, the 
+userspace tools can access the data only if the buffers are exposed
+to userspace like a filesystem. This is where the \texttt{debugfs}\cite{debugfs} 
+filesystem comes into play. When the in-kernel Relayfs API called 
+\texttt{relay\_open()} is invoked, it results in abstract files being
+created within the Debugfs filesystem, per CPU. These files can be 
+accessed via \texttt{poll()}, \texttt{open()} and 
+\texttt{mmap()} from userspace tools.
+
+\subsection{Kprobes}
+Kprobes\cite{kprobes} form the basic essence of the block request tracing 
+kernel modules. Kprobes provide a minimally-invasive way to dynamically
+trap into any kernel routine, and collect debugging information
+non-disruptively. Thus, we can trap any kernel address, and specify
+a handler to be executed before the original execution begins. There
+are three types of kernel probes: 
+(i)~\texttt{kprobes}\textemdash{}can be inserted on \textit{any} instruction in the
+kernel,
+(ii)~\texttt{jprobes}\textemdash{}can be inserted at kernel function entry, and
+provides convenient access to function's arguments,
+(iii)~\texttt{kretprobes}\textemdash{}inserted to be fired at function exit.
+In our kernel modules, we use \texttt{jprobes} at the entry of the
+kernel function \texttt{generic\_make\_request} to gain access to its
+function arguments, of type \texttt{struct bio}. More details regarding
+usage of \texttt{jprobes} in tracing tool implementation, are presented
+in the next section.
+
+\subsection{Signaling between kernel and user space}
+An example instantiation of how to ``Send signals from kernel to user space'' 
+is presented at \cite{kernel-signaling}. We borrow the source code and
+tweak it to fit it into our kernel-module and the userspace log-siphoning
+program. The basic idea is that the kernel can signal a userspace process
+only if its PID is known. Hence, the userspace process is required to 
+let its own PID be known/accessible to the kernel, by writing it into a
+pre-determined location, such as a file in the \texttt{debugfs} filesystem
+described above. Note that, from within a kernel module, it is 
+unsafe/disallowed to open() or close() regular files. However, creating,
+opening and closing files in the \texttt{debugfs} filesystem is allowed,
+as mentioned above. Additionally, the kernel can register handlers to 
+specify the functionality to be performed upon read() or write() of
+the file created in \texttt{debugfs} filesystem. Thus, by using the
+\texttt{debugsfs}, any userspace process's PID can be conveyed to the
+kernel-module, so that signals may be sent to that PID from kernel space.

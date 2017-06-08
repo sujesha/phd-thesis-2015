@@ -1,0 +1,225 @@
+%\documentclass[11pt, a4paper]{report}
+%\documentclass[12pt, a4paper]{article}
+\documentclass[12pt, a4paper, twoside]{article}
+\usepackage[toc, page]{appendix}
+\usepackage{iitbtitle}
+%\usepackage{a4wide}
+\usepackage{anysize}
+\usepackage{iitbcs}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tabls}
+\usepackage{environ}
+\usepackage{color}
+\usepackage{url}
+\usepackage[caption=false,font=footnotesize]{subfig}
+%\usepackage{glosstex}
+
+%http://tex.stackexchange.com/questions/67768/times-new-roman-font
+\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+%looks like TNR %http://tex.stackexchange.com/questions/161973/which-texlive-package-has-times-new-roman-for-xelatex
+\setmainfont[Mapping=tex-text]{TeXGyreTermes}	
+%http://tex.stackexchange.com/questions/174943/why-arent-backtics-giving-me-curly-quotes
+\setsansfont[Mapping=tex-text]{TeXGyreTermes}
+
+\usepackage{floatrow}
+% Table float box with bottom caption, box width adjusted to content
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+
+%http://tex.stackexchange.com/questions/61869/latex-bibtex-not-arranging-citations-by-order-of-appearance
+\usepackage{notoccite}
+
+%http://tex.stackexchange.com/questions/134031/how-to-adjust-the-size-and-placement-of-chapter-heading-in-report-class
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\filcenter}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}
+  {0pt}{50pt}{40pt}
+
+%http://en.wikibooks.org/wiki/LaTeX/Indexing
+\usepackage{makeidx}  
+\makeindex
+
+%http://en.wikibooks.org/wiki/LaTeX/Indexing
+\usepackage{nomencl}
+\makenomenclature
+%The title of the list can be changed using the following command:
+\renewcommand{\nomname}{List of Abbreviations}
+
+\usepackage{setspace}
+\usepackage{fancyvrb}	%Verbatim with capital V for frame=single option
+
+%for \begin{landscape}
+\usepackage{lscape}
+
+%for \ding
+\usepackage{pifont}
+
+%http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=C,	                   % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+\lstnewenvironment{snippet}[1][]
+    {\lstset{float=htpb,#1}} 
+    {}
+
+\usepackage[table]{xcolor}
+%http://texblog.org/2011/04/19/highlight-table-rowscolumns-with-color/
+%\usepackage{color, colortbl}
+\definecolor{Gray}{gray}{0.8}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+%SSS\textemdash{}added this package to indicate changes for camera-ready by
+% highlighting it in yellow, and later just setting color to white will
+% un-highlight everything without hassle.
+% soul package is included in texlive-latex-extra package.
+%\usepackage{color}
+\usepackage{soul}
+\setulcolor{black}
+\setstcolor{red}
+\sethlcolor{yellow}	%\hl{} is the command to use
+\sethlcolor{white}	%\hl{} is the command to use
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\hypersetup{pdftitle = Synopsis report by Sujesha Sudevalayam}
+
+%\marginsize{2.5cm}{2.5cm}{1cm}{1.5cm}
+\def\baselinestretch{1.15}                          
+
+
+\newcommand\INPUT{\item[\textbf{Input:}]}
+\newcommand\OUTPUT{\item[\textbf{Output:}]}
+\renewcommand{\figurename}{Fig.}
+
+
+%http://tex.stackexchange.com/questions/51079/add-retrieved-last-accessed-or-similar-information-to-authoryear-in-biblate
+%\usepackage[backend=biber]{biblatex}
+%\DefineBibliographyStrings{english}{%
+%	urlseen = {Last Accessed},
+%}
+
+%\makeglossary
+
+\begin{document}
+
+%The definitions
+%\def\title{Affinity-aware Consolidation and Provisioning for Virtualized Services}	2nd APS
+% \def\title{Resource Provisioning and Performance Modeling for Virtualized Services}	3rd APS
+%\def\title{Issues in Resource Provisioning and Management for Virtualized Services}
+% below title difficult to parse - esp mitigating issues
+%\def\title{Mitigating Issues in Resource Management \& Performance Optimization for Virtualized Services}
+%\def\title{Towards Improved Resource Provisioning and Management in Virtualized Environments}
+% \def\title{Relation-Aware Resource Provisioning and Management for Virtual Machines}
+% \def\title{Resource Provisioning and Management for Virtual Machines and their Host Systems}
+%\def\title{Resource Provisioning and Usage Optimization in Virtualized Environments}
+\def\title{Towards Improved Provisioning and Utilization of Resources in Virtualized Environments}
+\def\what{Synopsis}
+\def\degree{Doctor of Philosophy}
+\def\who{Sujesha Sudevalayam}
+\def\roll{07305903}
+\def\guide{Prof. Purushottam Kulkarni}
+
+\titlpage
+\def\bsq{\begin{flushright} $\blacksquare$\\ \end{flushright}}
+\def\tab{\hspace{5mm}}
+
+\printnomenclature
+
+\newpage
+\pagenumbering{arabic}
+
+%\doublespace
+\onehalfspace
+
+\section{Introduction and Motivation} 
+\label{sec:synopsis-intro}
+\input{synopsis-intro}
+
+%MERGED v2v-1 and v2v-2 into synopsis-arescue.tex, per advice from Puru.
+\newpage
+\section{Affinity-aware Modeling of CPU Usage for Virtualized Applications}
+\label{sec:synopsis-arescue}
+\input{synopsis-arescue}
+
+%\newpage
+%\section{Affinity-aware Modeling of CPU Usage for Virtualized Applications}
+%\label{sec:synopsis-v2v-1}
+%\input{synopsis-v2v-1}
+%\newpage
+%\section{Enhanced Affinity-aware Modeling of CPU usage for Virtualized Applications} 
+%\label{sec:synopsis-v2v-2}
+%\input{synopsis-v2v-2}
+
+\newpage
+\section{DRIVE: Using Implicit Caching Hints to Achieve \underline{D}isk I/O \underline{R}eduction \underline{i}n \underline{V}irtualized \underline{E}nvironments} 
+\label{sec:synopsis-drive}
+\input{synopsis-drive}
+
+%\newpage
+%\section{The Case for I/O Deduplication Benchmarks}
+%\label{sec:synopsis-architecting}
+%\input{synopsis-architecting}
+
+%\newpage
+%\section{Open Directions for Future Work}
+%\label{sec:synopsis-open-directions}
+%\input{synopsis-open-directions}
+
+\newpage
+\section{Conclusions}
+\label{sec:synopsis-conclusions}
+\input{synopsis-conclusions}
+
+\newpage
+\footnotesize
+%\singlespacing
+
+\bibliographystyle{unsrt}
+\bibliography{synopsis}
+% You need to have a bibliography file called synopsis.bib
+
+\newpage
+\section*{Publications List}
+\label{chap:publications}
+\input{publications}
+
+\printindex
+
+\end{document}
+
