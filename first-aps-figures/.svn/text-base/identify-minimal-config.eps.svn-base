@@ -1,0 +1,279 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: /home/sujesha/Documents/APS/first-aps/figures/identify-minimal-config.fig
+%%Creator: fig2dev Version 3.2 Patchlevel 5
+%%CreationDate: Fri Nov 20 16:53:53 2009
+%%For: sujesha@observer (sujesha,,,)
+%%BoundingBox: 0 0 688 696
+%Magnification: 1.0000
+%%EndComments
+%%BeginProlog
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+
+/pageheader {
+save
+newpath 0 696 moveto 0 0 lineto 688 0 lineto 688 696 lineto closepath clip newpath
+-132.5 757.6 translate
+1 -1 scale
+$F2psBegin
+10 setmiterlimit
+0 slj 0 slc
+ 0.06299 0.06299 sc
+} bind def
+/pagefooter {
+$F2psEnd
+restore
+} bind def
+%%EndProlog
+pageheader
+%
+% Fig objects follow
+%
+% 
+% here starts figure with depth 50
+% Polyline
+0 slj
+0 slc
+7.500 slw
+n 2115 990 m 10125 990 l 10125 1755 l 2115 1755 l
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+5910 2429 m 5910 2580 l 5970 2580 l 5970 2429 l 5970 2429 l 5940 2549 l 5910 2429 l cp
+eoclip
+n 5940 2565 m 5940 1755 l
+ 5940 2250 l gs col0 s gr gr
+
+% arrowhead
+n 5910 2429 m 5940 2549 l 5970 2429 l 5910 2429 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 3735 2577 m 3645 2577 3645 3240 90 arcto 4 {pop} repeat
+  3645 3330 8190 3330 90 arcto 4 {pop} repeat
+  8280 3330 8280 2667 90 arcto 4 {pop} repeat
+  8280 2577 3735 2577 90 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+n 3735 4017 m 3645 4017 3645 4680 90 arcto 4 {pop} repeat
+  3645 4770 8190 4770 90 arcto 4 {pop} repeat
+  8280 4770 8280 4107 90 arcto 4 {pop} repeat
+  8280 4017 3735 4017 90 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+5910 3869 m 5910 4020 l 5970 4020 l 5970 3869 l 5970 3869 l 5940 3989 l 5910 3869 l cp
+eoclip
+n 5940 4005 m 5940 3330 l
+ 5940 3780 l gs col0 s gr gr
+
+% arrowhead
+n 5910 3869 m 5940 3989 l 5970 3869 l 5910 3869 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+5910 5309 m 5910 5460 l 5970 5460 l 5970 5309 l 5970 5309 l 5940 5429 l 5910 5309 l cp
+eoclip
+n 5940 5445 m 5940 4770 l
+ 5940 5220 l gs col0 s gr gr
+
+% arrowhead
+n 5910 5309 m 5940 5429 l 5970 5309 l 5910 5309 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 3735 5445 m 3645 5445 3645 6108 90 arcto 4 {pop} repeat
+  3645 6198 8190 6198 90 arcto 4 {pop} repeat
+  8280 6198 8280 5535 90 arcto 4 {pop} repeat
+  8280 5445 3735 5445 90 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+5910 6794 m 5910 6945 l 5970 6945 l 5970 6794 l 5970 6794 l 5940 6914 l 5910 6794 l cp
+eoclip
+n 5940 6930 m
+ 5940 6210 l gs col0 s gr gr
+
+% arrowhead
+n 5910 6794 m 5940 6914 l 5970 6794 l 5910 6794 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 3735 6897 m 3645 6897 3645 7560 90 arcto 4 {pop} repeat
+  3645 7650 8190 7650 90 arcto 4 {pop} repeat
+  8280 7650 8280 6987 90 arcto 4 {pop} repeat
+  8280 6897 3735 6897 90 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+5910 8234 m 5910 8385 l 5970 8385 l 5970 8234 l 5970 8234 l 5940 8354 l 5910 8234 l cp
+eoclip
+n 5940 8370 m
+ 5940 7650 l gs col0 s gr gr
+
+% arrowhead
+n 5910 8234 m 5940 8354 l 5970 8234 l 5910 8234 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 5962 8302 m 4792 9472 l 5962 10642 l 7132 9472 l
+ cp gs col0 s gr 
+% Polyline
+n 8460 9057 m 8370 9057 8370 9720 90 arcto 4 {pop} repeat
+  8370 9810 12915 9810 90 arcto 4 {pop} repeat
+  13005 9810 13005 9147 90 arcto 4 {pop} repeat
+  13005 9057 8460 9057 90 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+8234 9480 m 8385 9480 l 8385 9420 l 8234 9420 l 8234 9420 l 8354 9450 l 8234 9480 l cp
+eoclip
+n 7110 9450 m
+ 8370 9450 l gs col0 s gr gr
+
+% arrowhead
+n 8234 9480 m 8354 9450 l 8234 9420 l 8234 9480 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+n 4110 11205 m 4005 11205 4005 11910 105 arcto 4 {pop} repeat
+  4005 12015 7725 12015 105 arcto 4 {pop} repeat
+  7830 12015 7830 11310 105 arcto 4 {pop} repeat
+  7830 11205 4110 11205 105 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+gs  clippath
+5910 11069 m 5910 11220 l 5970 11220 l 5970 11069 l 5970 11069 l 5940 11189 l 5910 11069 l cp
+eoclip
+n 5940 10620 m
+ 5940 11205 l gs col0 s gr gr
+
+% arrowhead
+n 5910 11069 m 5940 11189 l 5970 11069 l 5910 11069 l  cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+gs  clippath
+6076 10815 m 5925 10815 l 5925 10875 l 6076 10875 l 6076 10875 l 5956 10845 l 6076 10815 l cp
+eoclip
+n 11025 9810 m 11025 10845 l
+ 5940 10845 l gs col0 s gr gr
+
+% arrowhead
+n 6076 10815 m 5956 10845 l 6076 10875 l 6076 10815 l  cp gs 0.00 setgray ef gr  col0 s
+/Helvetica ff 238.13 scf sf
+5940 8820 m
+gs 1 -1 sc (Is) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 9120 m
+gs 1 -1 sc (there ) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 9420 m
+gs 1 -1 sc (any difference) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 9720 m
+gs 1 -1 sc (in performance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 254.00 scf sf
+6030 1440 m
+gs 1 -1 sc (Identifying Minimal Resource Configuration \(Offline step\)) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 2880 m
+gs 1 -1 sc (Allocate excess resources to) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 3150 m
+gs 1 -1 sc (the physical server instance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 4455 m
+gs 1 -1 sc (Apply moderate load) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5985 5895 m
+gs 1 -1 sc (Measure resource usage and performance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 7245 m
+gs 1 -1 sc (Repeat above 3 steps for the ) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5940 7545 m
+gs 1 -1 sc (virtualized server instance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5985 10035 m
+gs 1 -1 sc (?) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+10530 9315 m
+gs 1 -1 sc (Quantify loss in performance in the) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+10530 9615 m
+gs 1 -1 sc (virtualized instance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+7515 9225 m
+gs 1 -1 sc (Y) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5805 11520 m
+gs 1 -1 sc (Quantify resource overhead) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5805 11820 m
+gs 1 -1 sc (in virtualized instance) dup sw pop 2 div neg 0 rm  col0 sh gr
+/Helvetica ff 238.13 scf sf
+5670 10980 m
+gs 1 -1 sc (  N) dup sw pop 2 div neg 0 rm  col0 sh gr
+% here ends figure;
+pagefooter
+showpage
+%%Trailer
+%EOF
