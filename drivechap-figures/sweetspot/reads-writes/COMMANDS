@@ -1,0 +1,12 @@
+
+script.calc-cache-hit-ratios-for-sweetspot-reads-n-writes.sh webvm > sweetspot-reads-n-writes-webvm.txt
+script.calc-cache-hit-ratios-for-sweetspot-reads-n-writes.sh homes > sweetspot-reads-n-writes-homes.txt
+script.calc-cache-hit-ratios-for-sweetspot-reads-n-writes.sh mail > sweetspot-reads-n-writes-mail.txt
+#./plot.cache_hit_ratios_I_F_S_rw.sh
+
+
+script.calc-disk-reads-averted-for-sweetspot-reads-n-writes.sh webvm > sweetspotaverted-reads-n-writes-webvm.txt
+script.calc-disk-reads-averted-for-sweetspot-reads-n-writes.sh homes > sweetspotaverted-reads-n-writes-homes.txt
+script.calc-disk-reads-averted-for-sweetspot-reads-n-writes.sh mail > sweetspotaverted-reads-n-writes-mail.txt
+#./plot.disk_reads_averted_rw.sh
+

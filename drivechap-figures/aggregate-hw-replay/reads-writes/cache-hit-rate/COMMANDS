@@ -1,0 +1,6 @@
+script.calc-cache-hit-ratios-for-eval-reads-n-writes.sh sreplay > overheads-reads-n-writes-vanilla.txt
+script.calc-cache-hit-ratios-for-eval-reads-n-writes.sh freplay noupdatew > overheads-reads-n-writes-confided-noupdatew.txt
+script.calc-cache-hit-ratios-for-eval-reads-n-writes.sh ioreplay wupdatew > overheads-reads-n-writes-iodedup-wupdatew.txt
+script.calc-cache-hit-ratios-for-eval-reads-n-writes.sh freplay wupdatew > overheads-reads-n-writes-confided-wupdatew.txt
+script.calc-cache-hit-ratios-for-eval-reads-n-writes.sh ioreplay noupdatew > overheads-reads-n-writes-iodedup-noupdatew.txt
+

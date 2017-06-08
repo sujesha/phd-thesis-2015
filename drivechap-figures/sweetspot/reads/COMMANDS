@@ -1,0 +1,4 @@
+script.calc-cache-hit-ratios-for-sweetspot-reads.sh webvm > sweetspot-reads-webvm.txt
+script.calc-cache-hit-ratios-for-sweetspot-reads.sh homes > sweetspot-reads-homes.txt
+script.calc-cache-hit-ratios-for-sweetspot-reads.sh mail > sweetspot-reads-mail.txt
+#./plot.cache_hit_ratios_I_F_S.sh

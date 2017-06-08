@@ -1,0 +1,5 @@
+script.calc-disk-reads-averted-for-reads-n-writes.sh sreplay > readsaverted-overheads-reads-n-writes-vanilla.txt
+script.calc-disk-reads-averted-for-reads-n-writes.sh freplay noupdatew > readsaverted-overheads-reads-n-writes-confided-noupdatew.txt
+script.calc-disk-reads-averted-for-reads-n-writes.sh ioreplay wupdatew > readsaverted-overheads-reads-n-writes-iodedup-wupdatew.txt
+script.calc-disk-reads-averted-for-reads-n-writes.sh freplay wupdatew > readsaverted-overheads-reads-n-writes-confided-wupdatew.txt
+script.calc-disk-reads-averted-for-reads-n-writes.sh ioreplay noupdatew > readsaverted-overheads-reads-n-writes-iodedup-noupdatew.txt

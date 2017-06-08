@@ -1,0 +1,12 @@
+io-redirections: self-is-leader=504527, self-is-not-leader=142485
+read-responses: compulsory-misses=3356429, cache-hits=62801, capacity-misses=632946
+metadata-hit-conversions: deduphits=14041, selfhits=25, dedupmisses=128444, selfmisses=504502
+#READ=4052176, #WRITE=17110222
+RAM-size = 1024 (MB)
+CCACHE-size = 100 (MB)
+buffer cache: hits=13021304, misses=8141094, readhits=48735, writehits=12972569
+content metadata: hits=647012, misses=3356429 dirties=0
+content cache: hits=14066, misses=12394488
+content cache: dedup hits=14041, nondedup hits=25
+disk hits=21099597
+disk hits read=3989375, writes=17110222
