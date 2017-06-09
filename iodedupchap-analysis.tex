@@ -206,41 +206,43 @@ same block or due to different blocks having identical content.
 
 Since we do not have access to the actual underlying data for these traces, 
 the block addresses present in the traces are our only clue to the content similarity 
-present in the dataset. Thus, we compute ``sharing factor'' as an approximation 
+present in the dataset. Thus, we compute \textit{sharing factor} as an approximation 
 of the static content similarity in the data. 
 Further, although presence of static content similarity is necessary for I/O 
 deduplication efforts to be useful, it is not a sufficient condition. This is 
 because no I/O deduplication can occur if those identical blocks are not actually 
-accessed by any workloads. Thus, we compute ``occurrence factor'' as an indicator 
+accessed by any workloads. Thus, we compute \textit{occurrence factor} as an indicator 
 of identical content access in the workloads.
-
-Fig.~\ref{fig:similarity-distrib}(a) plots a CDF of the percentage of \textit{sharing}.
-We can see that in \textit{homes} and
-\textit{mail} traces, more than 95\% content is present in only one block, whereas
-in \textit{webvm} trace, around 35\% content is present in two blocks.
-Fig.~\ref{fig:similarity-distrib}(b) plots a CDF of the percentage of
-occurrences of identical content, % (due to same or different blocks),
-where ``occurrence'' of identical content can be due to the
-same block or due to different blocks sharing the same content. 
-It is observed that,
-in \textit{webvm} workload, 45\% content occur twice,
-whereas \textit{homes} and \textit{mail} workloads have only 6-10\% content
-occurring twice.
-The difference between ``sharing'' factor and ``occurrence'' factor is that, 
+The difference between sharing factor and occurrence factor is that, 
 when a single block address occurs multiple times in the trace, it is counted as 
 only one when computing the ``sharing'' factor of that block’s content whereas 
 every occurrence contributes to the ``occurrence'' factor of that content. 
 
 
-%Note that, 
-In Fig.~\ref{fig:similarity-distrib}(c), we present a scatter-plot depicting
-for every observed sharing factor\index{Sharing factor}, 
-what are the various number of occurrences\index{Occurrence factor}
-observed in the trace for that content.
-Each point in the scatter-plot represents one or more chunks of unique
-content with sharing factor as depicted on x-axis and corresponding
-number of occurrences on y-axis.
+Fig.~\ref{fig:similarity-distrib}(a) plots a CDF of the percentage of \textit{sharing}.
+We can see that in \textit{homes} and
+\textit{mail} traces, more than 95\% content is present in only one block, whereas
+in \textit{webvm} trace, around 35\% content is present in two blocks.
+Fig.~\ref{fig:similarity-distrib}(b) plots a CDF of the percentage of \textit{occurrence}.
+It is observed that,
+in \textit{webvm} workload, 45\% content occur twice,
+whereas \textit{homes} and \textit{mail} workloads have only 6-10\% content
+occurring twice.
 
+In Fig.~\ref{fig:similarity-distrib}(c), we present a scatter-plot depicting
+the sharing factor versus occurrence factor, for every observed block of content.
+In other words, for every observed block of content, 
+what is its sharing factor\index{Sharing factor} (plotted on x-axis), 
+versus its various number of occurrences\index{Occurrence factor} (plotted on y-axis).
+Thus, each point in the scatter-plot represents one or more chunks of unique
+content with sharing factor as depicted on x-axis and corresponding
+number of occurrences on y-axis. For example, in Fig.~\ref{fig:similarity-distrib}(c),
+the triangle appearing with value of x=2 and y=5 implies that in the 
+\textit{webvm} trace, there are one or more pieces of content having
+sharing factor of 2 and occurrence factor of 5. This alludes to the possibility
+that for each such piece of content, both the blocks containing it 
+were accessed multiple times in the workload---thus
+indicating a significant overall potential for I/O deduplication.
 
 Although the x-axis in
 %these graphs 
@@ -275,7 +277,7 @@ our algorithm works far better as demonstrated in following sections.
 
 \begin{figure}
 	\begin{minipage}{0.9\textwidth}
-\vspace{-2in}
+\vspace{-1in}
 \hspace{-1.5in}
 \includegraphics[scale=1.95]{drivechap-figures/sweetspot/sweetspot-multiplot-revised.pdf}
 	\vspace{-0.5in}
