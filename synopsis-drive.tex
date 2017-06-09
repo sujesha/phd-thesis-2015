@@ -31,7 +31,7 @@ achieved. Thus, we reduce disk I/O without actively tracking page-cache state, a
 maintaining any explicit content cache. The \textbf{contributions} of this work are,
 \begin{enumerate}
 	\singlespacing
-\item Simulation-based analysis of existing system \cite{iodedup} to show that it is sub-optimal.
+\item Simulation-based analysis of existing system \cite{iodedup} to show that it is inefficient.
 \item Design and implementation of the DRIVE system that tackles both the duplicate content
 and duplicate I/O problems,
 \item Trace-based evaluation of DRIVE with prototype implementation in a custom simulator.
@@ -344,7 +344,7 @@ tent similarity across multiple blocks.
 Elimination of duplicate read I/O requests is referred to as I/O Deduplication.
 Existing work (IODEDUP) uses a split-cache approach~\cite{iodedup}, 
 with a part of block-cache reserved as a content-cache. 
-We demonstrated that a split-cache approach is sub-optimal, and presented
+We demonstrated that a split-cache approach is inefficient, and presented
 the DRIVE system which performs I/O redirection to implicitly manipulate the whole underlying
 cache as a content-deduplicated cache. Only the VM's own disk access history is introspected
 to obtain implicit hints regarding host cache state, to be used for read I/O redirection.
