@@ -387,10 +387,20 @@ In all three workloads, when content-cache size increases from 10\% to
 for all three workloads.
 %If we judge the number of disk reads averted as 
 %a measure of performance since our aim is only read I/O deduplication, 
-Judging by number of disk reads averted as a measure of performance,
+Judging by ``number of disk reads averted'' as a measure of performance,
 a setting of 90\% for content-cache size seems to be the sweetspot
 for all three read/write traces. However, this is contrary to our earlier
-conclusion that 10\% is the sweetspot setting.
+conclusion that 10\% is the sweetspot setting, which had been based
+on ``cache-hit ratio'' as a measure of performance.
+Thus, when we consider the metric of “disk reads averted” (which is 
+basically what I/O deduplication is intended to achieve), we see that 
+more number of disk reads are averted when the content cache size is 
+bigger, i.e. a content cache size of 90\% results in highest deduplication. 
+In other words, when read/write traces are considered, simply sizing the 
+content cache to improve the overall cache hit ratio does not guarantee the 
+highest achievable deduplication---this is a major drawback of the 
+I/O deduplication approach of~\cite{iodedup}.
+
 
 \subsection{Effect of excess memory pressure}
 \begin{figure}
