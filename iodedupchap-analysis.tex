@@ -79,12 +79,12 @@ or request-mix specific.
 %using different content-cache sizes.
 Based on above observations, we claim
 that a split-cache approach of sub-dividing available
-memory space into block-based and content-based caches, is sub-optimal.
+memory space into block-based and content-based caches, is inefficient.
 More specifically, our claims are the following.
 \begin{itemize}
     \item As the evaluation of IODEDUP shows~\cite{iodedup}, a content-based cache
         succeeds in improving cache hit ratio for a read-only request
-        stream, but performs sub-optimally with a read/write request stream.
+        stream, but performs inefficiently with a read/write request stream.
         This was attributed~\cite{iodedup} to the journaling process writing varying
         content to same numbered sectors repeatedly.
         %Thus, block-cache is also needed
@@ -347,7 +347,7 @@ Fig.~\ref{fig:sweetspot}(b)).
 %trace.
 
 From above experiments, we see that for each request-mix type, IODEDUP has a
-different optimal setting for content-cache size --
+different optimal setting for content-cache size---
 90\% (900MB) for read-only,
 10\% (100 MB) for write-only, and
 10\% (100 MB) for read/write.
@@ -449,8 +449,8 @@ Moreover,
 the split-cache approach of IODEDUP results in duplicate content across the
 block-cache and content-cache, hence degrading the overall performance
 (refer Fig.~\ref{fig:sweetspot}).
-We conclude that the split-cache approach
-performs sub-optimally, and establish the necessity
+We conclude that the split-cache approach is inefficient, 
+and establish the necessity
 %especially in presence of write requests.
 %This points to the necessity
 for an I/O deduplication solution that can perform effectively
