@@ -57,20 +57,32 @@ accurate estimation of CPU usage on the target PM.
 \section{Handling diversity in network topology}
 The affinity-aware CPU usage estimation models have been developed for
 VM pairs that are connected to the same layer 2 switch, when dispersed.
-As discussed before, the absolute CPU usage of dispersed VMs seem to
+In Section~\ref{ref:1gbps}, we performed benchmarking of network usage
+on a 1 Gbps link, and observed that CPU usage is still linear though
+unequal to the CPU usage incurred for 100 Mbps links. 
+In other words, the absolute CPU usage of dispersed VMs seems to
 be significantly different even when sustaining the same network traffic
-rate over a 100Mbps switch versus a 1Gbps switch. In a large data-center
-network, there exist several such switches and any pair of VMs might
+rate over a 100Mbps switch versus a 1Gbps switch. 
+This implies that network link bandwidth is an important
+determinant of CPU utilization incurred at the transmitter and
+receiver. So, if the cloud deployment has networks links or switches
+of heterogeneous capacities,
+different CPU estimation models would have to be
+developed for each type of link.
+
+In a large data-center
+network, there exist several network switches in the hierarchy, 
+and any pair of VMs might
 be communicating with one another over an array of interconnecting
-switches. To begin with, we need to validate that the CPU usage prediction
+switches. First, we need to validate that the CPU usage prediction
 models that have been developed by benchmarking over a single switch 
 are still applicable across PMs that are connected by multiple 
-switches. The next point to consider is whether the network 
+switches. Second, we need to consider whether the network 
 consists of only one type of switch (either 100Mbps or 1Gbps or 10Gbps, etc)
 or whether it has a mixture of all types. If all switches in 
 the network topology are homogeneous, then the same model can be
 used for all predictions. However, if there is heterogeneity in
-switch capacities, then we might need separate models to be
+switch capacities, then we would need separate models to be
 developed per switch type. Thus, when a VM migration is to be
 initiated, the CPU usage prediction model to be used should be
 the one corresponding to the switch to which the target PM is connected.
@@ -83,7 +95,7 @@ switches via links of different capacities.
 %As discussed above, metadata occupies decent amount of space per block entry.
 For deployment of I/O deduplication systems
 on large System Volume
-Controllers, metadata space requirement can be huge.
+Controllers (SVC), metadata space requirement can be huge.
 %, otherwise losing precious buffer cache space.
 An option is to distribute metadata between memory and disk, such that only
 ``important'' metadata are present in memory for quick
