@@ -88,7 +88,7 @@ For network loads, we vary the load on each VM by steps
 of 10 Mbps, from 10 to 90 Mbps.
 For disk read and write
 micro-benchmarking, we vary the disk read/write rate from 
-0 to 1500 blocks/second on each VM.
+0 to 1280 blocks/second on each VM.
 
 % Next, we describe briefly
 % the approach adopted to ensure that we representatively
@@ -126,7 +126,7 @@ micro-benchmarking, we vary the disk read/write rate from
 % \item \textbf{Disk read \& write micro-benchmarks.}
 % For disk read and write
 % micro-benchmarking, we vary the disk read/write rate from 
-% 0 - 1500 blocks/second on each VM.
+% 0 - 1280 blocks/second on each VM.
 % For all files read and written, the block size is retained as $4 KB$.
 % \end{itemize}
 
@@ -143,7 +143,7 @@ workload types.
 For each combination benchmark, we sample a target utilization level, for 
 each workload type, from a pre-defined range\textemdash{}CPU utilization from $10\%$ to 
 $90\%$, network rate from 10 Mbps to 90 Mbps and disk read/write rate
-of $0$ - $1500$ blocks/second. Each sample for a workload type is chosen
+of $0$ - $1280$ blocks/second. Each sample for a workload type is chosen
 uniformly at random. 
 This is intended to keep the sample points
 uniformly distributed throughout the available sample space. 
@@ -165,7 +165,7 @@ workload and 158 combinational workloads.
 % $ntx$ is random in [1-90] for generating non-affine network
 % transmit traffic, 
 % $r$ and $w$ are randomly chosen file read/write
-% rates between 0 - 1500 blocks/second. Note that given a pair of VMs,
+% rates between 0 - 1280 blocks/second. Note that given a pair of VMs,
 % the affine network traffic transmitted by one VM is the affine network
 % traffic received by the other.
 
