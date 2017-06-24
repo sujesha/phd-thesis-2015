@@ -392,14 +392,25 @@ a setting of 90\% for content-cache size seems to be the sweetspot
 for all three read/write traces. However, this is contrary to our earlier
 conclusion that 10\% is the sweetspot setting, which had been based
 on ``cache-hit ratio'' as a measure of performance.
-Thus, when we consider the metric of “disk reads averted” (which is 
-basically what I/O deduplication is intended to achieve), we see that 
-more number of disk reads are averted when the content cache size is 
-bigger, i.e. a content cache size of 90\% results in highest deduplication. 
-In other words, when read/write traces are considered, simply sizing the 
-content cache to improve the overall cache hit ratio does not guarantee the 
-highest achievable deduplication---this is a major drawback of the 
-I/O deduplication approach of~\cite{iodedup}.
+
+The above discrepancy can be explained as follows. When the same block
+is written repeatedly with varying content, they all count as cache misses
+in content-cache though they will be counted as cache hits if that
+block is present in sector-cache too. Thus, in presence of write
+requests, total cache hits would be higher when the sector-cache is big
+at 90\%, i.e. content-cache is small like 10\%. However, when we
+consider the metric of ``disk reads averted'', we see that more number
+of disk reads are averted when the content cache size is
+bigger, i.e. a content cache size of 90\% results in highest deduplication.
+
+Thus, when we consider the metric of ``disk reads averted'' (which is
+basically what I/O deduplication is intended to achieve), we see that
+more number of disk reads are averted when the content cache size is
+bigger, i.e. a content cache size of 90\% results in highest deduplication.
+In other words, when read/write traces are considered, simply sizing the
+content cache to improve the overall cache hit ratio does not guarantee the
+highest achievable deduplication---this is a major drawback of the
+I/O deduplication implementation of~\cite{iodedup}.
 
 
 \subsection{Effect of excess memory pressure}
