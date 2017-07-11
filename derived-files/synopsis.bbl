@@ -1,0 +1,73 @@
+\begin{thebibliography}{10}
+
+\bibitem{ec2}
+The~AWS Community.
+\newblock {Amazon Elastic Compute Cloud (Amazon EC2)}.
+\newblock Website.
+\newblock \url{http://aws.amazon.com/ec2/}. Accessed Apr 24, 2015.
+
+\bibitem{ubuntu-private-cloud}
+Ubuntu Community.
+\newblock {Bootstack---Your Managed Cloud}.
+\newblock Website.
+\newblock \url{http://www.ubuntu.com/cloud/managed-cloud}. Accessed May 11,
+  2015.
+
+\bibitem{virtual-putty}
+Jason Sonnek and Abhishek Chandra.
+\newblock {Virtual Putty: Reshaping the Physical Footprint of Virtual
+  Machines}.
+\newblock In {\em Proceedings of the Workshop on Hot Topics in Cloud
+  Computing}, June 2009.
+
+\bibitem{rubis}
+C.~Amza, E.~Cecchet, A.~Chanda, A.~Cox, S.~Elnikety, R.~Gil, J.~Marguerite,
+  K.~Rajamani, and W.~Zwaenepoel.
+\newblock {Specification and Implementation of Dynamic Web Site Benchmarks}.
+\newblock Proceedings of the 5th Workshop on Workload Characterization, 2001.
+
+\bibitem{similarity}
+K.~R. Jayaram, Chunyi Peng, Zhe Zhang, Minkyong Kim, Han Chen, and Hui Lei.
+\newblock {An Empirical Analysis of Similarity in Virtual Machine Images}.
+\newblock In {\em Proceedings of the Middleware Industry Track Workshop}, pages
+  6:1--6:6, 2011.
+
+\bibitem{intra-higherthan-inter}
+Sean Barker, Timothy Wood, Prashant Shenoy, and Ramesh Sitaraman.
+\newblock {An Empirical Study of Memory Sharing in Virtual Machines}.
+\newblock In {\em Proceedings of the USENIX Conference on Annual Technical
+  Conference (ATC)}, pages 25--25, 2012.
+
+\bibitem{iodedup}
+Ricardo Koller and Raju Rangaswami.
+\newblock {I/O Deduplication: Utilizing Content Similarity to Improve I/O
+  Performance}.
+\newblock In {\em Proceedings of the USENIX Conference on File and Storage
+  Technologies}, pages 211--224, 2010.
+
+\bibitem{google}
+Sergey Brin and Lawrence Page.
+\newblock {The Anatomy of a Large-scale Hypertextual Web Search Engine}.
+\newblock In {\em Proceedings of the 7th International Conference on World Wide
+  Web (WWW)}, pages 107--117, 1998.
+
+\bibitem{data-domain}
+Benjamin Zhu, Kai Li, and Hugo Patterson.
+\newblock {Avoiding the Disk Bottleneck in the Data Domain Deduplication File
+  System}.
+\newblock In {\em Proceedings of the 6th USENIX Conference on File and Storage
+  Technologies (FAST)}, pages 18:1--18:14, 2008.
+
+\bibitem{pagecache}
+Robert Love.
+\newblock {Linux Kernel Development Second Edition}.
+\newblock \url{{http://www.makelinux.net/books/lkd2/ch15}}. Accessed Jan 5,
+  2015.
+
+\bibitem{satori}
+Grzegorz Mi\l\'{o}s, Derek~G. Murray, Steven Hand, and Michael~A. Fetterman.
+\newblock {Satori: Enlightened Page Sharing}.
+\newblock In {\em Proceedings of the USENIX Annual Technical Conference (ATC)},
+  pages 1--14, 2009.
+
+\end{thebibliography}

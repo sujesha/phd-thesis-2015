@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction\040and\040Motivation}{}% 1
+\BOOKMARK [1][-]{section.2}{Affinity-aware\040Modeling\040of\040CPU\040Usage\040for\040Virtualized\040Applications}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Micro-benchmarking\040the\040effect\040of\040colocation\040on\040CPU\040Usage}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Linear\040regression\040modeling\040for\040CPU\040requirement\040estimation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Applying\040the\040pair-wise\040models\040to\040multi-VM\040scenarios}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Summary\040of\040Experimental\040evaluation}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Conclusions}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{DRIVE:\040Using\040Implicit\040Caching\040Hints\040to\040Achieve\040Disk\040I/O\040Reduction\040in\040Virtualized\040Environments}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Analysis\040of\040existing\040I/O\040deduplication\040technique:\040IODEDUP}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{DRIVE\040system\040requirements\040and\040design}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Summary\040of\040experimental\040evaluation}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Conclusions}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Conclusions}{}% 13

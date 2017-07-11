@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: synopsis.aux
+The style file: unsrt.bst
+Database file #1: synopsis.bib
+You've used 11 entries,
+            1791 wiz_defined-function locations,
+            503 strings with 5614 characters,
+and the built_in function-call counts, 3039 in all, are:
+= -- 265
+> -- 124
+< -- 6
++ -- 46
+- -- 35
+* -- 150
+:= -- 423
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 154
+empty$ -- 322
+format.name$ -- 35
+if$ -- 728
+int.to.chr$ -- 0
+int.to.str$ -- 11
+missing$ -- 7
+newline$ -- 60
+num.names$ -- 11
+pop$ -- 71
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 105
+stack$ -- 0
+substring$ -- 182
+swap$ -- 68
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 29
+width$ -- 13
+write$ -- 119
