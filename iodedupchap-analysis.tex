@@ -269,11 +269,12 @@ we use all three workloads
 to perform our experiments. We wish to demonstrate that if a workload has
 ``any'' significant level of duplication, I/O deduplication can be beneficial
 \textit{if and only if} performed effectively. By this, we intend to emphasize
-that although the I/O deduplication work~\cite{iodedup} seems to perform well for 
-read-only workloads, it still fails to perform well under realistic workloads
-like read-write workload and under practical conditions where a block cache
-is irreplaceable/unavoidable. In such realistic scenarios, we claim that 
-our algorithm works far better as demonstrated in following sections.
+that I/O deduplication is best suited for read-only workloads and its benefits 
+keep proportionately decreasing/changing with ratio of read-write requests 
+in workloads. Thus, benefits of IODEDUP approach can be less under realistic 
+workloads like read-write workload and under practical conditions where a 
+block cache is irreplaceable/unavoidable. In such realistic scenarios, we 
+claim that our algorithm works far better as demonstrated in following sections.
 
 \begin{figure}
 	\begin{minipage}{0.9\textwidth}
