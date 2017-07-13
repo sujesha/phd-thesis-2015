@@ -402,7 +402,9 @@ requests, total cache hits would be higher when the sector-cache is big
 at 90\%, i.e. content-cache is small like 10\%. However, when we
 consider the metric of ``disk reads averted'', we see that more number
 of disk reads are averted when the content cache size is
-bigger, i.e. a content cache size of 90\% results in highest deduplication.
+bigger, i.e. a content cache size of 90\% results in highest deduplication
+for disk read requests although many of the write requests result in cache 
+misses due to the smaller (size 10\%) location-addressed cache.
 
 Thus, when we consider the metric of ``disk reads averted'' (which is
 basically what I/O deduplication is intended to achieve), we see that
