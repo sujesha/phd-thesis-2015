@@ -1,15 +1,15 @@
 In the area of I/O deduplication for a host operating system's block
 device, the sole prior work so far is~\cite{iodedup}.
-The work in \cite{iodedup} demonstrates that a content-based cache is
-strictly better than a block-based cache for most real workloads, due to
+The work in \cite{iodedup} demonstrates that a content-addressed cache is
+strictly better than a location-addressed cache for most real workloads, due to
 the inherent content similarity present in them.
 %This motivates the
 %construction of the I/O Deduplication system with an
-%additional content-based cache.
+%additional content-addressed cache.
 Three mechanisms are used to achieve 
 host-based I/O deduplication\index{I/O deduplication}
 and I/O latency reduction in \cite{iodedup}\textemdash{}(i)~A
-content-based cache, to store deduplicated content and respond to read
+content-addressed cache, to store deduplicated content and respond to read
 requests directly instead of fetching from disk,
 (ii)~A dynamic replica retriever, to optionally
 redirect the remaining read requests such that overall disk access
@@ -29,7 +29,7 @@ described above, only the content-cache mechanism eliminates duplicate
 I/O requests, and hence performs I/O deduplication.
 %we use the term \textit{I/O deduplication} to refer 
 %only to the technique of eliminating duplicate I/O requests.
-Thus, we regard only the \textit{content-cache}\index{Content-cache} 
+Thus, we regard only the \textit{content-addressed cache}\index{Content-cache} 
 mechanism of IODEDUP as ``prior art'' in the area of I/O 
 deduplication.
 
@@ -45,20 +45,20 @@ deduplication.
 \subsection{Motivation for in-depth analysis}
 Our work is motivated by a few observations from the work
 presented in \cite{iodedup}.
-First, it demonstrates that a content-based cache
-is strictly better than a block-based cache of the same size. However, since
+First, it demonstrates that a content-addressed cache
+is strictly better than a location-addressed cache of the same size. However, since
 IODEDUP has both a \textit{block-cache} (i.e., page/buffer cache)
 and a \textit{content-cache}, it is
 essential to explore the holistic effects of subtracting from the existing
 block-cache size while creating the new content-cache.
 %For example, 
-%within a total cache size of 1 GB, reserving 200MB as a content-based
-%cache leaves only 800MB as the regular block-based cache.
+%within a total cache size of 1 GB, reserving 200MB as a content-addressed
+%cache leaves only 800MB as the regular location-addressed cache.
 %Fig.~\ref{fig:iodedup-arch}(b) shows some of the various configurations of
 %block-cache and content-cache sizes within a total cache size (say 1 GB).
 %We create a simulation module to study the effects of using different
 %content-cache sizes upon the cache-hits incurred.
-Second, since the \textit{content-based}\index{Content-cache} cache
+Second, since the \textit{content-addressed}\index{Content-cache} cache
 basically takes away a finite amount of memory space available
 to the buffer/page cache, a study is needed to learn the
 optimal content-cache size per workload. This is especially important
@@ -79,10 +79,10 @@ or request-mix specific.
 %using different content-cache sizes.
 Based on above observations, we claim
 that a split-cache approach of sub-dividing available
-memory space into block-based and content-based caches, is inefficient.
+memory space into location-addressed and content-addressed caches, is inefficient.
 More specifically, our claims are the following.
 \begin{itemize}
-    \item As the evaluation of IODEDUP shows~\cite{iodedup}, a content-based cache
+    \item As the evaluation of IODEDUP shows~\cite{iodedup}, a content-addressed cache
         succeeds in improving cache hit ratio for a read-only request
         stream, but does not perform as well with a read/write request stream.
         This was attributed~\cite{iodedup} to the journaling process writing varying
@@ -106,9 +106,9 @@ To support our claims, we built a custom simulator\index{Simulator}
 simulator details) with prototype implementations of the Vanilla and 
 IODEDUP~\cite{iodedup} systems.
 %that uses a fixed-size
-%block-based page/buffer cache, and of the I/O Deduplication
+%location-addressed page/buffer cache, and of the I/O Deduplication
 %system.
-% that reserves part of the buffer cache above as a content-based
+% that reserves part of the buffer cache above as a content-addressed
 %cache. 
 %As usual, t
 The block-cache\index{Block-cache} is looked up 
@@ -125,7 +125,7 @@ into block-cache. Upon hit, content is served whereas upon miss,
 the block is fetched from disk. In I/O Deduplication system, the
 original disk fetch path due to block-cache miss, is
 intercepted and metadata is used to lookup the block in
-the content-based cache.
+the content-addressed cache.
 Upon a hit in content-cache, the content is returned straight-away to callee
 and thus, the disk fetch is \textit{averted}.
 However, upon a content-cache miss, a
@@ -310,7 +310,7 @@ blocks, hence achieving a high cache-hit ratio of almost 90\%.
 %This effect is caused due to the interplay of the following
 %factors: (i)~the amount of duplicate content in different locations, 
 %(ii)~the degree of duplicate content in unique locations accessed, and
-%(iii)~the size of the reserved content-based cache within total space.
+%(iii)~the size of the reserved content-addressed cache within total space.
 %For example, when block-cache already achieves a high cache-hit ratio, 
 %an extra content-cache may be unable to add any extra 
 %value and instead the duplication of blocks between the block-cache and
@@ -428,7 +428,7 @@ Total cache size 512 MB.}
 
 We claimed above that if the total memory
 size is already enough to sustain most block requests,
-an explicit content-based cache does not add much value
+an explicit content-addressed cache does not add much value
 and instead degrades the performance (refer
 \textit{webvm} workload in Fig.~\ref{fig:sweetspot}(a)).
 To substantiate this claim, we performed trace replay for \textit{webvm}

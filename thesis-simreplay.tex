@@ -39,7 +39,8 @@ mapping needs to specify which virtual disk block of a VM maps to which
 corresponding physical disk block on the physical host's storage.
 Two main components of the simulator are the simulation of two 
 caches on the physical host: 
-(i)~a block-based (LRU) cache and (ii)~a content-based (ARC) cache, both
+(i)~a location-addressed cache using LRU and 
+(ii)~a content-addressed cache using ARC, both
 of configurable sizes and using write-through policy. 
 Additionally, the physical host's disk or storage also needs to be simulated. 
 

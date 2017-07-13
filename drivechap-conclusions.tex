@@ -7,8 +7,8 @@ across multiple blocks and hence, the system ends up fetching and storing
 multiple copies of the same content in cache.
 Elimination of duplicate read I/O requests which fetch the same 
 content repeatedly is referred as I/O Deduplication.
-Existing work uses a split-cache approach, with a part of the block-based
-cache reserved as a content-based cache. In this work, we demonstrated
+Existing work uses a split-cache approach, with a part of the location-addressed
+cache reserved as a content-addressed cache. In this work, we demonstrated
 that the split-cache approach is inefficient, and presented an
 I/O reduction system called DRIVE which performs I/O 
 redirection to \textit{implicitly} manipulate the whole underlying cache as 

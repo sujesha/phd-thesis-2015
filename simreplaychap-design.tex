@@ -178,7 +178,7 @@ invocations of the simulator.
 
 %\subsubsection{Content-cache simulation}
 To prototype the IODEDUP system within the simulator, we implement a 
-content-based cache with Adaptive Replacement Cache (ARC) policy.
+content-addressed cache with Adaptive Replacement Cache (ARC) policy.
 %\subsubsection{Configuring the size}
 The size of the content-cache can be configured, and this configuration
 option is valid only if IODEDUP replay is requested. Also, since
@@ -224,11 +224,11 @@ performs virtual-to-physical address mapping, and then block-cache lookup.
 However, the IODEDUP module intercepts the path between the block-cache
 and the storage, where it performs content-deduplication based on 
 fingerprint comparison. Thus, implementation of the IODEDUP prototype requires 
-a content-based cache and a fingerprinting mechanism as well.
+a content-addressed cache and a fingerprinting mechanism as well.
 Additionally, IODEDUP maintains a metadata store, containing 
 information regarding the duplicates identified, which can be used 
 to intercept block read requests and serve content directly from the
-content-based cache, if available.
+content-addressed cache, if available.
 %\subsubsection{Metadata store \& maintenance for IODEDUP}
 %\subsubsection{Fingerprinting}
 

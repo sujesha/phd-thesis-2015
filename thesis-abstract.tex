@@ -90,7 +90,7 @@ Harnessing content similarity can help
 avoid duplicate disk I/O requests that fetch the same content repeatedly.
 In this work, we incorporate intelligent I/O redirection within the 
 storage virtualization engine of the device to manage the underlying 
-sector-based cache like a content-based cache.
+location-addressed cache like a content-deduplicated cache.
 
 We build a disk read-access optimization called DRIVE, that
 identifies content similarity across multiple blocks, and performs

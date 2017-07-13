@@ -13,7 +13,7 @@ requirements\index{DRIVE}.
 \subsection{Core idea}
 The DRIVE approach dynamically builds metadata based on
 similarity identified in disk I/O content by trapping it
-upstream from an existing (block-based) disk cache. Using
+upstream from an existing (location-addressed) page cache. Using
 the metadata information as ``caching hints'', a request
 for a disk block is redirected as a request for
 another block containing duplicate content, in the hopes
@@ -22,7 +22,7 @@ present in cache than the original block. Over time, duplicate
 blocks containing identical content will get flushed out
 of the cache and the cache will start functioning like a
 content-deduplicated cache. Thus, we manipulate an existing
-block-based cache like a content-based cache using only
+location-addressed cache like a content-addressed cache using only
 implicit caching hints, without physically changing any
 of the caching algorithms or data structures.
 

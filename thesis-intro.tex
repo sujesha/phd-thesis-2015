@@ -236,13 +236,13 @@ inherent content similarity in systems like email servers, web servers
 and file servers. All this data resides on disk and is fetched by corresponding
 applications, as and when required. 
 Typically, caches are addressed by block number (hence called 
-\textit{block-based} caches)\index{Block-cache} and are not
+\textit{location-addressed} caches)\index{Block-cache} and are not
 equipped to recognize content similarity across multiple blocks.
 Harnessing the content similarity can help 
 avoid duplicate disk I/O requests that fetch the same content repeatedly.
 In this work, we incorporate intelligent I/O redirection within the 
 storage virtualization engine of the device to manage the underlying 
-block-based cache like a \textit{content-deduplicated} cache.
+location-addressed cache like a \textit{content-deduplicated} cache.
 
 We build a disk read-access optimization called DRIVE, that
 identifies content similarity across multiple blocks, and performs

@@ -84,17 +84,17 @@ to avoid duplicate disk I/O requests %that fetch the same content
 is referred as I/O deduplication\index{I/O deduplication}.
 To harness content similarity across different blocks,~\cite{iodedup} 
 suggests the use of a 
-\textit{content-based cache} which can be looked up by content also.
+\textit{content-addressed cache}--can be looked up by content.
 The proposed approach in \cite{iodedup} is to
-maintain a \textit{content-based cache} and build 
+maintain a \textit{content-addressed cache} and build 
 metadata \index{Metadata}
 regarding blocks inserted therein. 
-A content-based cache\footnote{The terms 
-\textit{content-cache} and \textit{content-based cache} are used 
+A content-addressed cache\footnote{The terms 
+\textit{content-cache} and \textit{content-addressed cache} are used 
 interchangeably. Similarly for \textit{block-cache} and 
-\textit{block-based cache}.}
+\textit{location-addressed cache}.}
 can be referenced by content\index{Content-cache} 
-(unlike a block-based\index{Block-cache} cache), and hence 
+(unlike a location-addressed\index{Block-cache} cache), and hence 
 retains only a single copy of each content. 
 It is used to intercept disk read
 requests and deliver content directly, 
@@ -144,12 +144,12 @@ The contributions of this work are,
 \end{enumerate}
 
 %\footnote{The terms \textit{block-cache} and 
-%\textit{block-based cache} are used
+%\textit{location-addressed cache} are used
 %interchangeably. Similarly for \textit{content-cache} and 
-%\textit{content-based cache}.}
+%\textit{content-addressed cache}.}
 
-%Building an integrated block-based and 
-%content-based cache would help utilize cache space more 
+%Building an integrated location-addressed and 
+%content-addressed cache would help utilize cache space more 
 %effectively, but 
 %such integration would make the system design highly complex
 %with invasive changes required in existing kernel.
@@ -160,14 +160,14 @@ The contributions of this work are,
 %identifies content similarity at block level, and 
 %redirects requests 
 %to better
-%manage the existing block-based cache as a content-based cache.
+%manage the existing location-addressed cache as a content-addressed cache.
 
 %The contributions in this work are the following:
 %(i)~Demonstrate that existing work addresses only one of the problems
 %of duplicate I/O and duplicate content at a time, and hence falls short
 %of exploiting the host's page-cache space to its maximum.
 %%introduces additional cache inclusiveness
-%%problem by using an explicit content-based cache.
+%%problem by using an explicit content-addressed cache.
 %%Highlighting the problem with split-cache based design, hence
 %%motivating the need for a content-deduplicated cache,
 %%(ii)~Design and implementation of DRIVE system which

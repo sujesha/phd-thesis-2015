@@ -133,7 +133,7 @@ Similar to the DRIVE system, upon the receipt
 of every block read request at the virtual disk front-end driver, 
 the metadata can looked-up and the I/O
 request redirected so as to manipulate the underlying 
-sector-based cache effectively like a content-based cache. 
+location-addressed cache effectively like a content-deduplicated cache. 
 However, the difference between DRIVE and vDRIVE would be that, DRIVE
 redirects read requests by substituting one block address by 
 another, whereas vDRIVE metadata can potentially map one block
