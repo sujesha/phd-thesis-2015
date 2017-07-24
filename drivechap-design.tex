@@ -26,6 +26,39 @@ location-addressed cache like a content-addressed cache using only
 implicit caching hints, without physically changing any
 of the caching algorithms or data structures.
 
+Though the duplicate-identifying algorithm seems to be standard 
+and similar to the one used in~\cite{iodedup}, the difference 
+between the DRIVE approach and the others, lies in the way the 
+metadata is utilized for achieving I/O deduplication. The 
+differences from the I/O deduplication approach of~\cite{iodedup} 
+can be summarized as shown in Table~\ref{tab:drive-novelty}.
+
+\begin{table}[h]
+\caption{Difference in approach of IODEDUP versus DRIVE}
+\label{tab:drive-novelty}
+\centering
+\begin{tabular}{|c|l|l|} \hline
+\textbf{No.} & \textbf{IODEDUP} & \textbf{DRIVE} \\ \hline
+1. & Newly added and explicitly        & Caching hints used to implicitly \\
+   & maintained content-based cache    & manipulate the existing          \\
+   &                                   & location-addressed cache         \\ 
+   &                                   & (block-cache) as a \\
+   &                                   & content-deduplicated cache \\ \hline
+2. & Request trapped downstream of     & Request trapped upstream of existing\\ 
+   & existing block-cache and upstream & block-cache \\
+   & of newly added content-cache      & \\ \hline
+3. & If metadata present for a block,  & If metadata present, the block’s \\
+   & the block’s content is known to be& content known to have been fetched \\
+   & present within content-cache      & into cache at least once \\ \hline
+4. & If metadata present for a block,  & If metadata present for a block, \\
+   & the content is explicitly fetched & implicit caching hints are used to \\
+   & from content-cache and sent   & merely request a different (duplicate) \\
+   & upstream                          & block and the request forwarded \\
+   &                                   & downstream \\ \hline
+\end{tabular}
+%\vspace{-0.15in}
+\end{table}
+
 \subsection{System requirements}
 To perform I/O redirection, metadata needs to be maintained
 regarding the similarity of content present in read and write requests. 
