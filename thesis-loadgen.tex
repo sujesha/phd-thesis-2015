@@ -163,9 +163,9 @@ better keep track of its own activity periods.
 
 \subsection{Disk read \& write micro-benchmark}
 We generate disk read (or write) workload by reading 
-(or writing) files of a specific size, continuously one after the other, for a period of time
-$T$ (say, one minute). 
-In order to vary the disk read access rates (in read load), we need to to
+(or writing) files of a specific size, continuously one after the other, 
+for a period of time $T$ (say, one minute). 
+In order to vary the disk read access rates (in read load), we need to
 overflow the RAM in such a manner that every read fetches 
 data directly from the disk instead of finding it in cache. To
 ensure this, for every file size input (example, $x$ KB) for disk read, 
@@ -178,6 +178,23 @@ disk once, the next read request to that same
 file will happen only after that file’s previously
 fetched contents have been flushed out of the RAM and cache, 
 thus ensuring that disk access occurs.
+\\
+Regarding the disk workload generation, following may be noted:-
+\begin{itemize}
+\item VM disk images are hosted on NFS, so disk activity on VMs translates 
+into network activity of Dom0
+\item We used two measurement tools---Xentop and sar---and verified that 
+both of them reported similar block read/write request rates and byte rates 
+for any given load level
+\item We considered RAM size and used enough number of files to span the 
+RAM size twice so that when files are read sequentially 
+one-after-another, they would be read up from disk into cache and 
+subsequently flushed before they are read the next time.
+\item We read the files one-after-another to ensure that disk activity 
+occurs, not cache reads (as per above-stated plan). However, since file 
+blocks need not always map to sequential blocks on disk, hence reading 
+files sequentially does not necessarily imply sequential read of disk blocks.
+\end{itemize}
 
 \subsection{Network micro-benchmark}
 In the first version of the tool, 
