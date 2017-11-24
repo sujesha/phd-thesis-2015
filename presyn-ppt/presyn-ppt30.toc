@@ -1,0 +1,16 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Pay-per-Use Service Model}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Virtualized Resources}{4}{0}{1}
+\beamer@sectionintoc {2}{Thesis Contributions and Challenges within}{6}{0}{2}
+\beamer@sectionintoc {3}{Motivation}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Benchmarking: Effect of colocation on CPU usage for Mutable N/w traffic}{11}{0}{3}
+\beamer@subsectionintoc {3}{2}{Benchmarking: Effect of colocation on CPU usage for Immutable N/w traffic, CPU and disk loads}{12}{0}{3}
+\beamer@sectionintoc {4}{Affinity-aware Modeling of CPU Usage}{13}{0}{4}
+\beamer@subsectionintoc {4}{1}{Affinity-aware Resource Requirement Estimation}{13}{0}{4}
+\beamer@sectionintoc {5}{Analyzing existing work : IODEDUP}{24}{0}{5}
+\beamer@sectionintoc {6}{I/O reduction challenges}{28}{0}{6}
+\beamer@sectionintoc {7}{Our system to achieve I/O reduction : DRIVE}{29}{0}{7}
+\beamer@subsectionintoc {7}{1}{DRIVE System Design \& Implementation}{30}{0}{7}
+\beamer@sectionintoc {8}{Conclusions}{39}{0}{8}
