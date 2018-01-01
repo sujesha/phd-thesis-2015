@@ -1,0 +1,62 @@
+\begin{thebibliography}{1}
+
+\bibitem{iodedup}
+Ricardo Koller and Raju Rangaswami.
+\newblock {I/O Deduplication: Utilizing Content Similarity to Improve I/O
+  Performance}.
+\newblock In {\em Proceedings of the USENIX Conference on File and Storage
+  Technologies (FAST)}, pages 211--224, 2010.
+
+\bibitem{satori}
+Grzegorz Mi\l\'{o}s, Derek~G. Murray, Steven Hand, and Michael~A. Fetterman.
+\newblock {Satori: Enlightened Page Sharing}.
+\newblock In {\em Proceedings of the USENIX Annual Technical Conference (ATC)},
+  pages 1--14, 2009.
+
+\bibitem{iodedup-online}
+Ricardo Koller and Raju Rangaswamy.
+\newblock {Trace: I/O Deduplication: Utilizing Content Similarity to Improve
+  I/O Performance}.
+\newblock Website.
+\newblock \url{http://sylab-srv.cs.fiu.edu/doku.php?id=projects:iodedup:start}.
+
+\bibitem{storagecharacterization}
+Sriram Sankar and Kushagra Vaid.
+\newblock {Storage Characterization for Unstructured Data in Online Services
+  Applications}.
+\newblock In {\em Proceedings of the IEEE International Symposium on Workload
+  Characterization (IISWC)}, IISWC '09, pages 148--157. IEEE Computer Society,
+  2009.
+
+\bibitem{storagereplay}
+C.~Delimitrou, S.~Sankar, K.~Vaid, and C.~Kozyrakis.
+\newblock {Storage I/O Generation and Replay for Datacenter Applications}.
+\newblock In {\em Proceedings of the IEEE International Symposium on
+  Performance Analysis of Systems and Software (ISPASS)}, pages 123--124, April
+  2011.
+
+\bibitem{storagemodeling}
+Christina Delimitrou, Sriram Sankar, Kushagra Vaid, and Christos Kozyrakis.
+\newblock {Accurate Modeling and Generation of Storage I/O for Datacenter
+  Workloads}, 2011.
+
+\bibitem{flexi-replay}
+V.~Tarasov, S.~Kumar, J.~Ma, D.~Hildebrand, A.~Povzner, G.~Kuenning, and
+  E.~Zadok.
+\newblock {Extracting Flexible, Replayable Models from Large Block Traces}.
+\newblock In {\em Proceedings of the 10th USENIX Conference on File and Storage
+  Technologies (FAST)}, FAST'12, pages 22--22. USENIX Association, 2012.
+
+\bibitem{jump-based-synthetic}
+Zachary Kurmas, Jeremy Zito, Lucas Trevino, and Ryan Lush.
+\newblock {Generating a Jump Distance Based Synthetic Disk Access Pattern},
+  2006.
+
+\bibitem{generating-datasets}
+Vasily Tarasov, Amar Mudrankit, Will Buik, Philip Shilane, Geoff Kuenning, and
+  Erez Zadok.
+\newblock {Generating Realistic Datasets for Deduplication Analysis}.
+\newblock In {\em Proceedings of the USENIX Conference on Annual Technical
+  Conference}, pages 24--24, 2012.
+
+\end{thebibliography}
