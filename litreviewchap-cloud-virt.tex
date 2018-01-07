@@ -13,7 +13,7 @@ server on a single physical machine, but would
 cause resource under-utilization
 during periods of light loads.
 
-For example, an auction website may have
+For instance, an auction website may have
 periods of heavy load during the day and be comparatively lightly-loaded
 during the night. Hence, it may be profitable to the hosting center provider to
 host multiple auction websites on the same machine during the night while
@@ -28,8 +28,7 @@ the server is not expected to be handling peak load at all
 times~\cite{capacity-planning, emerging-research-directions}. Also, with
 such static allocation, initial deployment of a server in the data-center
 will involve procurement and setup delays of the physical 
-machines\index{Physical machine} on
-which it is to be deployed~\cite{xen-art-of-virtualization}. 
+machines\index{Physical machine}~\cite{xen-art-of-virtualization}. 
 
 Virtualization\index{Virtualization} helps to avoid
 such pitfalls, by enabling dynamic resource allocation and 
@@ -208,7 +207,7 @@ and will intimate the guest OS when task is over.
 
 \underline{OS-assisted virtualization}\index{OS-assisted virtualization}: 
 In this technique, guest operating systems\index{Guest OS} are processes 
-that are allocated different name-spaces such that
+that are allocated different namespaces such that
 they seem to be separate machines altogether. However, in OS-level
 virtualization, the same host OS\index{Host OS} kernel also supports 
 the guest processes.
@@ -216,10 +215,10 @@ The advantage of full-virtualization and paravirtualization over OS-level
 virtualization is that they can support heterogeneous operating system
 distributions as guest OSes, like Linux, BSD and Windows
 XP~\cite{xen-art-of-virtualization}. 
-Although, paravirtualization is an OS-assisted form of virtualization where
-all privileged instructions need to be executed by the virtualization
-layer, however, the difference is that para-virtualization can support
-different guest operating systems, while OS-level virtualization cannot.
+Although paravirtualization is also an OS-assisted form of virtualization 
+requiring all privileged instructions to be executed by the virtualization
+layer, the difference is that para-virtualization can support
+different guest operating systems whereas OS-level virtualization cannot.
 
 \underline{Hardware-assisted virtualization}\index{Hardware-assisted virtualization}: 
 In this technique,

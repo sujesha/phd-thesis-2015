@@ -3,10 +3,10 @@ All regular instructions involving CPU computation within the
 virtual machines are executed similarly to the physical machine
 case, since no
 switch between kernel and user modes is required during execution of
-CPU instructions. However, in case of I/O operations, not only 
-context switches between kernel and user modes are required,
+CPU instructions. However, in case of I/O operations, not only are
+context switches between kernel and user modes required,
 but also permissions and security are of paramount importance.
-In other words, I/O operations have a higher access level
+Basically, I/O operations have a higher access level
 than CPU operations, and hence it is necessary for the Hypervisor
 to intercept and arbitrate the I/O operations requested 
 by the virtual machines. In this section, we present 
