@@ -213,12 +213,13 @@ CPU resource usage when VMs transition from colocated to dispersed
 placements. These models predict CPU usage in target 
 scenario (colocated/dispersed) based on resource usage profiles 
 from source scenario (dispersed/colocated).
-First we built models to predict total CPU usage for target scenario,
+
+Initially, we built models to predict total CPU usage for target scenario,
 based on all resource usage profiles like CPU, disk, mutable network
 and immutable network usage. However, the maximum error with these 
 predictions was found to be around 4 to 6\% absolute CPU usage. 
-Hence, based on our findings that CPU usage is affected only by
-\textit{mutable} network traffic levels, we build models to 
+Consequently, based on our findings that CPU usage is affected only by
+\textit{mutable} network traffic levels, we built models to 
 predict the difference in (or differential) CPU usage based on only
 the mutable network traffic profiles. These models were much more
 accurate, with maximum error within 2\%. Finally, we applied these
@@ -289,7 +290,7 @@ implementation are discussed in the Appendix chapters.
 The rest of this thesis is organized as follows. 
 Chapter~\ref{chap:thesis-litreview} presents brief background 
 to cover the scope of this thesis.
-In Chapter~\ref{chap:thesis-arescue}, we present work
+In Chapter~\ref{chap:thesis-arescue}, we present our work
 related to building affinity-aware CPU estimation\index{Estimation} models 
 for migrating VMs and their hosts. In Chapter~\ref{chap:thesis-drive},
 we present our I/O reduction system called DRIVE\index{DRIVE} which
