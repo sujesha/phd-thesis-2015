@@ -47,17 +47,17 @@ migration techniques~\cite{sandpiper, adaptation-engine}.
 \label{virtualization-enables-consolidation}
 \end{figure}
 
-An example consolidation scenario is shown in Figure \ref{virtualization-enables-consolidation}, where two virtualized server
-instances can be moved to or co-hosted on a single physical machine such that
-only one physical machine is sufficient to host both services and
+An example consolidation scenario is shown in Fig.~\ref{virtualization-enables-consolidation}, 
+where two virtualized server instances are moved to or co-hosted on a single physical machine 
+such that only one physical machine is sufficient to host both services and
 the other machine which becomes idle can be powered off.
-We can see that in the ``Before Consolidation'' case, each physical
-machine is executing a single virtual machine each, which are quite
-lightly loaded. Here, power is being wasted in keeping both physical
+In the ``Before Consolidation'' case of Fig.~\ref{virtualization-enables-consolidation}(a), 
+each physical machine is executing a single lightly-loaded virtual machine each. 
+Here, power is being wasted in keeping both physical
 machines ON though under-utilized. In the ``After Consolidation'' case,
 both VMs have been moved to one of the physical machines. 
-If the physical machine can
-accommodate both VMs and the corresponding virtualization overheads, 
+If both the VMs and the corresponding virtulization overheads can be accommodated
+on a single PM,
 the other resultant unused PM can be switched OFF. Such consolidation and
 powering off of unnecessary resources results in better resource
 utilization and saves copious amounts of power
@@ -68,7 +68,7 @@ the data-center.
 instantiated in a virtual
 environment, two major factors affect their performance\textemdash{}available
 network capacity and virtualization-related CPU overhead,
-and these factors vary based on whether the communicating virtual machines 
+and these factors vary based on whether the communicating VMs
 are located on the same host or on different hosts~\cite{virtual-putty}.
 \emph{Colocated}\index{Colocated} 
 virtual machines (VMs\nomenclature{VM:}{Virtual machine}\index{VM} 
@@ -87,20 +87,20 @@ quantification is lacking.
 %\textit{network-affinity} if they have network communication with each other.}
 for each other if they have 
 network communication between them~\cite{virtual-putty, starling}.
-When the VMs are colocated, the network traffic between them
-is \textit{intra-PM}, whereas when they are dispersed,
+When VMs are colocated, the network traffic between them
+is defined as being \textit{intra-PM}, whereas when they are dispersed,
 it is \textit{inter-PM} network traffic.
 Since migration of a VM can potentially change the nature of network
-traffic between \textit{intra-PM} and \textit{inter-PM} depending 
+traffic between being \textit{intra-PM} and \textit{inter-PM}, depending 
 on the source and destination hosts for migration, we define this
 as the \textit{mutable} nature of network affinity, as explained next.
 
 \underline{Mutable nature of network affinity:} Given a set of VMs, some 
 of which may have network communication with one another, every 
 ``communicating pair'' of VMs is said to have network affinity for each other.
-A migration of any one VM can, but need not necessarily, cause
-network traffic between a VM pair to change from \textit{intra-PM}
-to \textit{inter-PM}, or from \textit{inter-PM} to \textit{intra-PM}.
+A migration of any one VM can, but need not necessarily, cause the nature of
+network traffic between a VM pair to change from being \textit{intra-PM}
+to \textit{inter-PM}, or from being \textit{inter-PM} to \textit{intra-PM}.
 For example, suppose there are 4 VMs hosted on 4 PMs, as illustrated
 in Fig.~\ref{fig:mutable}(a). The VM pairs that have
 network affinity are, (i)VM1 $\leftrightarrow$ VM2,
@@ -140,17 +140,18 @@ on CPU usage of virtual machines and their hosts, when communicating
 VMs are colocated as compared to when they are dispersed. 
 Motivated by the benchmark findings, we develop models
 that can estimate the ``colocated'' CPU resource usage when VMs transition
-from dispersed to colocated placements, and can estimate the ``dispersed''
-CPU resource usage when VMs transition from colocated to dispersed
-placements. These models predict CPU usage in target
+from dispersed placements to colocated, and can estimate the ``dispersed''
+CPU resource usage when VMs transition from colocated placements to dispersed. 
+These models predict CPU usage in target
 scenario (colocated/dispersed) based on resource usage profiles
 from source scenario (dispersed/colocated).
-First we built models to predict total CPU usage for target scenario,
+
+Initially we built models to predict total CPU usage for target scenario,
 based on all resource usage profiles like CPU, disk, mutable network
 and immutable network usage. However, the maximum error with these
 predictions was found to be around 4 to 6\% absolute CPU usage.
-Hence, based on our findings that CPU usage is affected only by
-\textit{mutable} network traffic levels, we build models to
+Consequently, based on our findings that CPU usage is affected only by
+\textit{mutable} network traffic levels, we built models to
 predict the difference in CPU usage based on only
 the mutable network traffic profiles. These models were much more
 accurate, with maximum error within 2\%. Finally, we applied these
@@ -184,39 +185,41 @@ predict for multi-VM scenarios as well.
 %\emph{affinity-aware} models that can predict expected CPU
 %resource requirements\textemdash{}upon colocation or dispersion of VMs.
 Our contributions are,
-\begin{enumerate}
-	\item \emph{Event profiling} of intra-PM and inter-PM network
-		    communication paths in Xen, using \texttt{Xenoprof}~\cite{xenoprof}.
+\begin{enumerate}	
+\item \emph{Event profiling} of intra-PM and inter-PM network
+	communication paths in Xen, using \texttt{Xenoprof}~\cite{xenoprof}.
 \item \emph{Benchmark} CPU resource requirements
 of VMs with different levels of network-affinity
 in colocated and dispersed configurations.
 \item Perform the above benchmarking step for both Xen and KVM virtualization environments,
-	which shows that a linear relationship between network usage and the resulting CPU overhead
+	showing that a linear relationship between network usage and the resulting CPU overhead
 	exists in both.
 \item Develop \emph{pair-wise affinity-aware} models to predict \textit{total}
 	as well as \textit{differential} CPU usage, when a pair of VMs move between
-dispersed and colocated configurations.
+	dispersed and colocated placements.
 \item Apply above pair-wise models to \emph{multi-VM scenarios}, where
-a single migrating VM has more than one neighboring
-VMs with which it exhibits network-affinity, both on source \& target PMs.
-\item Present a \emph{comprehensive evaluation} using synthetic workloads \& benchmark applications,
+	a single migrating VM has more than one neighboring
+	VMs with which it exhibits network-affinity, both on source \& target PMs.
+\item Present a \emph{comprehensive evaluation} using synthetic 
+	workloads \& benchmark applications,
 	of the pair-models as well as application to multi-VM scenarios.
 \end{enumerate}
 
-\noindent The rest of this chapter is structured as follows. Section \ref{sec:arescue-background}
+\noindent The rest of this chapter is structured as follows. 
+Section~\ref{sec:arescue-background}
 presents background regarding network virtualization in Xen and KVM, and
-problem statement is presented in Section \ref{sec:arescue-problem}.
-Section \ref{sec:arescue-benchmark}
+problem statement is presented in Section~\ref{sec:arescue-problem}.
+Section~\ref{sec:arescue-benchmark}
 presents empirical benchmarking of the effects of relative placement on
 CPU usage of communicating VMs, in both Xen and KVM virtualization environments.
-Section \ref{sec:arescue-our-approach} presents our approach to
+Section~\ref{sec:arescue-our-approach} presents our approach to
 build affinity-aware models to predict CPU usage for Xen DomU and Dom0
-and Section \ref{sec:arescue-experimental-eval} presents evaluation 
+and Section~\ref{sec:arescue-experimental-eval} presents evaluation 
 of the models.
-Section \ref{sec:arescue-related-work} presents related work in juxtaposition
+Section~\ref{sec:arescue-related-work} presents related work in juxtaposition
 with our work and 
-in Section \ref{sec:arescue-open-directions}, we
+in Section~\ref{sec:arescue-open-directions}, we
 present our ideas for future work.
 %in the area of affinity-aware CPU usage modeling and 
-Section \ref{sec:arescue-conclusions} concludes the chapter.
+Section~\ref{sec:arescue-conclusions} concludes the chapter.
 
