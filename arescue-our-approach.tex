@@ -35,23 +35,23 @@ write operations.
 develop pair-wise CPU estimation models
 that can predict total CPU requirement in target scenario
 based on source scenario's resource usages.
-Specifically, using resource usage measurements in the 
+Specifically, using resource usage measurements in
 dispersed scenario, the ``colocation''
-model predicts CPU utilization for the VM pair in the colocated scenario,
-and based on the resource usage in the colocated deployments, while 
-the ``dispersion''
-model predicts the CPU utilization of VMs in the dispersed case.
+model predicts CPU utilization for VMs in the colocated scenario,
+while the ``dispersion''
+model uses resource usage measurements in the colocated scenario and 
+predicts CPU utilization of VMs in the dispersed scenario.
 
 Our benchmarking revealed that only the mutable network usage
 causes change in CPU usage, upon change in VM placement.
-Hence, we build models to use \underline{two approaches of prediction}:-
+Hence, we employ \underline{two approaches of prediction}:-
 (i)~Predict \textit{total} CPU requirement based on multiple
 resource usage profiles\textemdash{}CPU, disk and network,
 (ii)~Predict \textit{differential} CPU requirement based only on
 mutable network traffic metrics\textemdash{}later, take summation
 of prediction with the source scenario's CPU usage to estimate
 the total CPU requirement.
-In this section, we explain both approaches in detail.
+Next, we explain both approaches in detail.
 
 \subsection{Approach 1: Prediction of total CPU requirement}
 
@@ -79,8 +79,7 @@ behaviour of resource usage in all possible conditions
 for both dispersed and colocated scenarios. So, the micro-benchmarks
 should span the full range of resource utilization levels. 
 The workload micro-benchmarks are generated using the workload
-generation procedures described previously (in 
-Section~\ref{sec:arescue-setup}). 
+generation procedures described in Section~\ref{sec:arescue-workloadgen}.
 For CPU micro-benchmarking, we split the CPU load on each VM
 into $nine$ different intensities
 ranging from $10\%$ to $90\%$. 
@@ -205,7 +204,7 @@ the colocated resource usage metrics.
 The relation between estimated CPU and resource parameters is shown
 in Eqn. (\ref{mlr-eqn}).
 \begin{equation}
-\mbox{CPU}^{i}_{estimated} = C_{0} + C_{1} \times M^{i}_{1} + C_{2} \times M^{i}_{2} + ... + M^{i}_{m}
+\mbox{CPU}^{i}_{estimated} = C_{0} + C_{1} \times M^{i}_{1} + C_{2} \times M^{i}_{2} + ... + C_{m} \times M^{i}_{m}
 \label{mlr-eqn}
 \end{equation}
 where, $i$ is an iterator over each experiment or sample point
@@ -254,8 +253,8 @@ obtain the total CPU requirement.
 Note that differential Dom0 CPU is the difference in CPU 
 usage between that incurred for the single (colocated) Dom0 and
 the summation of both (dispersed) Dom0.
-The model parameters are bit-rates (in Mbps) and packet-
-rates (in packets per second) for both transmission (Tx) and reception (Rx), thus four parameters
+The model parameters are bit-rates (in Mbps) and packet-rates (in packets 
+per second) for both transmission (Tx) and reception (Rx), thus four parameters
 in all: (i) Rx Mbps, (ii) Rx pkts/s, (iii) Tx Mbps, and (iv) Tx pkts/s. 
 
 \paragraph{Modeling of differential CPU utilization: }
@@ -274,7 +273,7 @@ where, scenario$\{1|2\}$ = $\{colocated|dispersed\}$.
 In case of \textbf{Dom0's CPU usage}, colocated Dom0 CPU usage is incurred
 for hosting both VMs whereas dispersed Dom0 usage levels are
 on behalf of a single VM each. During transition from dispersed
-(\textit{disp} for short) to colocated (\textit{colo} for short),
+(\textit{disp} in short) to colocated (\textit{colo} in short),
 the change in Dom0 CPU is defined as the difference in CPU usage
 between that incurred for the single (colocated) Dom0 and the
 summation of both (dispersed) Dom0, as illustrated in
@@ -340,8 +339,8 @@ and hence should intuitively depend on four metrics each of
 both the DomUs, i.e. eight metrics in total. However, given a VM pair
 with only mutual network communication, the received traffic by one
 VM is the transmitted
-traffic by the other, hence the metrics of one VM are in fact
-duplicates of the metrics of the other, albeit in a different
+traffic by the other, hence metrics of one VM are in fact
+duplicates of metrics of the other, albeit in a different
 order. We discard the redundant columns, therefore even Dom0
 model has only four parameters. Thus, each model can be represented as
 \begin{equation}
@@ -353,10 +352,9 @@ model has only four parameters. Thus, each model can be represented as
 	%\end{split}
 	\label{mlr-eqn-2}
 \end{equation}
- where, ``Mut'' stands for mutable network traffic,
-  superscripts Rx \& Tx stands for receive \& transmit, and
-  subscripts Kbps \& p/s represent the units Kbps and packets/second,
-  respectively.
+ where, ``Mut'' represents mutable network traffic,
+  superscripts Rx \& Tx represent receive \& transmit, and
+  subscript p/s represents the units packets/second.
 \\
 \\
 To solve for the $m+1$ coefficients $C_{k}$, a stepwise linear
