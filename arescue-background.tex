@@ -5,21 +5,21 @@ Section~\ref{sec:litreviewchap-io-virtualization}), and supplements it
 with an event profiling study of network virtualization in Xen.
 
 \subsection{Recalling the basics of network I/O virtualization}
-As mentioned in Chapter~\ref{chap:thesis-litreview}, the Xen
+As mentioned in Chapter~\ref{chap:thesis-litreview}, Xen
 virtualization technology has the concept of a split-driver
 architecture to deal with network I/O virtualization\textemdash{}consisting of
-a \texttt{frontend} and \texttt{backend} driver. Of these, the 
-\texttt{backend} driver is responsible to communicate with the 
-native network drivers and get the I/O performed on behalf of the 
+\texttt{frontend} and \texttt{backend} drivers. Of these, the 
+\texttt{backend} driver is responsible to communicate with 
+native network drivers and get the I/O performed on behalf of 
 virtual machines. 
 
-In case of virtual machines that are colocated on a single physical 
-machine, the native driver does not need to be invoked at all whereas
-if the VMs are hosted on different physical machines, physical network
+In case of VMs that are colocated on a single PM, the native driver 
+does not need to be invoked at all whereas
+if VMs are hosted on different PMs, physical network
 communication is essential. This difference manifests as different
-CPU overheads for the virtual machines and the physical hosts 
+CPU overheads for the VMs and the physical hosts 
 concerned. In this section, 
-we present an event profiling study of the CPU overheads in both scenarios.
+we present an event profiling study of CPU overheads in both scenarios.
 
 \subsection{Profiling study of network I/O virtualization}
 % Xen uses an inter-domain shared memory mechanism to share data between
@@ -32,7 +32,7 @@ implementation~\cite{xen-internals, xen-networking, linux-networking}.
 % The major difference between dispersed
 % and colocated communication is that 
 
-A common optimization in the colocated case communication is that 
+A common optimization in the network communication in colocated case is that 
 packet check-summing
 (both calculation and verification) is not performed since it is assumed 
 that memory copying (performed in colocated case) is quite reliable as 
@@ -41,7 +41,7 @@ Additionally, when Xen-based VMs are colocated, they are
 connected via a layer 2 software bridge and hence a packet 
 transmitted from one VM to another colocated VM is locally delivered 
 on the bridge itself. On the other hand, when communicating VMs 
-are on different physical machines, a packet transmission by one VM
+are on different PMs, a packet transmission by one VM
 is forwarded over the software bridge, 
 DMA-copied\nomenclature{DMA:}{Direct Memory Access}\index{DMA}
 into the network interface 
@@ -51,16 +51,15 @@ transmitted packet is then received on the destination host's NIC,
 copied into a kernel buffer for further processing
 and interrupt sent to destination host's driver domain (Dom0). Upon
 subsequent scheduling, the received packet is inspected by Dom0 to
-determine the destination VM, packet delivery scheduled and destination 
-VM notified of incoming packet. Thus, end-to-end communication
-path in dispersed case is comparatively longer than the path 
-in colocated case.
+determine the destination VM, packet delivery is scheduled and destination 
+VM is notified of incoming packet. Thus, end-to-end communication
+path in dispersed case is comparatively longer than in colocated case.
 
 Using the tool \texttt{Xenoprof}~\cite{xenoprof}, we performed
 event monitoring for network transmission between a pair of Xen-based 
 VMs in both colocated and dispersed scenarios. 
 \texttt{Xenoprof} performs statistical profiling of applications
-by using non-maskable interrupts when a performance counter overflows,
+using non-maskable interrupts when a performance counter overflows,
 to sample the function under execution. Since it
 performs statistical sampling, higher number of samples 
 of a specific function call can imply either that a
@@ -74,10 +73,15 @@ TCP\nomenclature{TCP:}{Transport Control Protocol}\index{TCP}
 network traffic of
 50Mbps was generated from one VM to the other,
 %using application-level packet size (henceforth referred to as \textit{segment size}\index{segment size}) of 30KB 
-wherein VM1 sent requests and VM2 served the requests
+wherein VM1 sent requests for a certain number of bytes, 
+and VM2 served the requests
 by transmitting back the requested number of bytes. 
-We define the transmitting and receiving VMs in terms of 
-the direction of data traffic,
+It may be noted that neither of the VMs are pure transmitters
+or pure receivers\textemdash{}because VM1 (i)~sends requests, (ii)~receives responses
+and (iii)~sends TCP acknowledgements whereas VM2 (i)~receives requests and
+(ii)~sends responses.
+However, we define the VMs as being ``transmitting'' and ``receiving'' 
+in terms of the direction of data traffic,
 i.e., the VM sending requests receives data responses, 
 hence is the \emph{receiver},
 whereas the VM receiving requests sends data responses and 
@@ -85,11 +89,7 @@ is the \emph{transmitter}.
 Thus, in our example, VM2 is the transmitter (of requested data) and 
 VM1 the receiver (of requested data). 
 We refer to Dom0 on VM2's host as the transmitting Dom0 
-and the Dom0 on VM1's host as the receiving Dom0. However, it
-should be noted that neither of the VMs are pure transmitters
-or pure receivers\textemdash{}because VM1 (i)~sends requests, (ii)~receives responses 
-and (iii)~sends TCP acknowledgements whereas VM2 (i)~receives requests and
-(ii)~sends responses.
+and the Dom0 on VM1's host as the receiving Dom0. 
 %Since we wished to analyze TCP communication 
 %overheads, such bi-directional communication flows were unavoidable. 
 
@@ -249,6 +249,6 @@ or dispersed (causing inter-PM network traffic),
 the network communication between them follows
 different data-paths, in-turn incurring different overheads.
 These differences in CPU overheads were observed empirically with both 
-Xen and KVM environments (refer Section~\ref{sec:arescue-benchmark}). 
+Xen and KVM environments (presented in Section~\ref{sec:arescue-benchmark}). 
 %as presented in subsequent sections.
 
