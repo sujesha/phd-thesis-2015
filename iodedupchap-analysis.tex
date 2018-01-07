@@ -138,17 +138,24 @@ remaining as the size of block-cache. We replay each trace
 with a total memory size of 1 GB or 512 MB, as specified in each
 experiment respectively.
 
+In~\cite{iodedup}, the primary evaluation uses LRU algorithm for both 
+its block-cache and content-cache. In a subsequent section, they show 
+that using ARC algorithm for content-cache improves performance even 
+further---up to 4X performance boost compared to using LRU---and conclude 
+that, ``performance improvements for a content-addressed cache are 
+sensitive to the cache replacement mechanism which should be chosen 
+with care''. Hence, we have used ARC for the content-cache in our simulator.
+
 Evaluation in~\cite{iodedup} is performed with 
 traces\index{Workload traces} over 21 days from three production systems
 %that were in active use 
 at FIU Computer Science Department:
-(i)~\textit{webvm}, traces from two virtualized web-servers hosting webmail
-proxy and course management system, (ii)~\textit{mail}, traces from an
-email server, and (iii)~\textit{homes}, traces from a file server.
-From the above,
-we consider the entire available \textit{webvm}
+(i)~\textit{webvm}- traces from two virtualized web-servers hosting webmail
+proxy and course management system, (ii)~\textit{mail}- traces from an
+email server, and (iii)~\textit{homes}- traces from a file server.
+We consider the entire available \textit{webvm}
 and \textit{homes} trace, and one day's trace for \textit{mail} workload,
-for our evaluation.
+for our study.
 
 \begin{figure}[t]
     \subfloat[]{\includegraphics[scale=0.6]{confided-figures/sharing-distrib-from-hashes/reads-writes/cdf-perc-sharing-distrib.pdf}}	\hfill

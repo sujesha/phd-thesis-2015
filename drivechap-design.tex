@@ -156,6 +156,13 @@ whether it is ``new'' content or ``duplicate'' of previously seen content,
 and update metadata accordingly.
 In case of write requests, we invalidate existing mappings for those blocks,
 so that stale metadata is not used for the next read request redirection.
+This is because it is not always the case that the block being overwritten 
+in content-cache is definitely not needed. Whether the older content of 
+that block is needed or not depends on whether any other blocks also had 
+the same content. Hence, in our simulator, we check the metadata mappings 
+and if there are no other blocks containing the same content as the block 
+being overwritten, we evict the previous content from cache and insert the 
+new content into cache, and update mappings to reflect the change. 
 
 \subsubsection{Maintaining hints regarding host-cache state}
 When a read request from the front-end driver is serviced by the back-end
