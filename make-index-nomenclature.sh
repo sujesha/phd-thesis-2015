@@ -14,7 +14,6 @@ fi
 
 name=$1
 
-
 makeindex "$name"
 makeindex "$name".nlo  -s nomencl.ist -o "$name".nls
 bibtex "$name"

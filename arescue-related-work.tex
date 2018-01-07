@@ -146,3 +146,32 @@ the work in \cite{profiling-and-modeling}.
 % In this Section, we presented a brief overview of related literature. In the
 % next Sections, we define our problem statement and describe our solution
 % approach.
+
+\subsection{Note about applicability of linear regression models to other virtualization solutions}
+Recently, there has been work on fast network virtualization 
+stack (eg. Click OS~\cite{clickos}). 
+ClickOS is basically a minimal VM based on Xen’s MiniOS. The network path is 
+redesigned to achieve higher network rates, using strategies like a higher 
+speed switch, directly mapped packets between the switch and network front-end 
+driver inside the VM, and mapping of ring buffers into memory space of network 
+front-end driver inside the VM. In such cases, CPU utilization of guest VMs 
+will be proportional to the L2/L3 processing, which is traditionally handled 
+by Dom0 (referring to Xen paravirtualization setup). 
+
+Most of the evaluation in \cite{clickos} is related to throughput for 
+different packet sizes, and doesn’t mention the CPU overheads related to 
+I/O processing. In our work, we explicitly consider paravirtualization 
+setups and observe linear correlation between network and CPU usage, whereas 
+in other scenarios like HVMs and pass-through setups, some of the CPU 
+overheads will need to be recalculated and implications may change. 
+In general, benchmarking of CPU usage to network throughput relationship 
+should be done before making any conclusions regarding whether the 
+relationship is linear or not. 
+
+However, as long as the optimization is such that it applies proportionally 
+for various network throughput levels for a single packet size, a linear 
+dependence between CPU utilization and network throughput may continue to 
+hold. On the other hand, if the inter-VM path is optimized such that the 
+CPU usage in inter-PM scenario is not much greater than in intra-PM scenario, 
+then the difference in CPU usage between co-located and dispersed scenarios 
+maybe insignificant and hence not need any modeling.
