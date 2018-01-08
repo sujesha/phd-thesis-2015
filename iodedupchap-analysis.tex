@@ -393,6 +393,12 @@ the sweetspot setting for the rest of the evaluation in this thesis.
 Next, let us take
 a look at the metric of ``disk reads averted'', i.e., disk reads avoided owing
 to cache hits. 
+A physical disk read has latency that is magnitudes higher than reading the 
+same content from cache. Therefore reducing the number of physical disk reads 
+incurred can significantly help to improve the application’s performance/responsiveness. 
+The metric ``disk reads averted'' refers to the number of physical disk reads 
+that are eliminated (i.e. by being served from the caching system itself), and 
+hence is an interesting metric.
 The difference between the two metrics of \textit{cache hit
 ratio}\index{Cache hit ratio} and 
 \textit{disk reads averted}\index{Disk reads averted} 
