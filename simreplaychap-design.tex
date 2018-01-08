@@ -201,7 +201,7 @@ experience with the online traces at \cite{iodedup-online}, we found that
 there appeared to be some missing trace records from the files, resulting
 in some inconsistencies. For example, a write request 
 to block 1 with data A, was subsequently followed by a read request to the
-same block 1 (and hence should ideally contain same data A) with
+same block 1 (and hence should ideally contain same data A) but with
 another data B instead of A. To address such inconsistency issues,
 we chose to simulate the storage as well, wherein we could explicitly track
 the content of each block that has been read or requested so far and hence

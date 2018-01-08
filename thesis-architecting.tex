@@ -53,7 +53,7 @@ sub-block level deduplication techniques, we need to have a tracing tool
 that can perform block-level tracing and dump of I/O content, because 
 merely dumping hashes of the blocks is not suitable for sub-block duplicate
 identification. With this in mind, we have presented the design and 
-implementation of our toolkit in the Appendix~\ref{chap:thesis-tracing}
+implementation of our toolkit in Appendix~\ref{chap:thesis-tracing}
 of this thesis.
 
 \subsection{Tracing of synthetic benchmarks}
@@ -74,9 +74,9 @@ or even write zeros~\cite{zeros}, in some cases.
 For our purposes, usage of benchmarks that write randomized content
 will result in very low duplicates in the workload, whereas those that heavily 
 generate duplicate content or simply write zeros will overestimate the benefit of deduplication.
-Hence we conclude that, existing public benchmarks, though purported 
-to be ``realistic'' are not realistic in terms of the content generated
-for the I/O and hence are not useful for evaluation of deduplication techniques.
+Hence we posit that, existing public benchmarks, though purported 
+to be ``realistic'' are not realistic in terms of content generated
+for the I/O and hence are not useful for evaluation of I/O deduplication techniques.
 
 With respect to the use of existing benchmarks for deduplication study, 
 it deserves mention that benchmarks like HiBench~\cite{hibench} and RUBiS~\cite{rubis}

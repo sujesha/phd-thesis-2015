@@ -134,6 +134,9 @@ are static images and not I/O workloads in themselves, they are not
 suitable for evaluation of I/O deduplication techniques.
 
 \subsection{Public individual datasets}
+These are individual datasets that were used for the 
+characterization and evaluation in a couple of papers
+and have been made available online for use by other researchers.
 \begin{enumerate}
 	\item \textbf{I/O deduplication traces}~\cite{iodedup-online}: Traces provided by the I/O deduplication paper~\cite{iodedup} which we also used in our evaluation
 	\item \textbf{Plan 9 traces}~\cite{p9-traces}: File system snapshots of the Plan 9 file system deployed in the Computing Sciences Research center of Bell Labs. Has content representation, but is suitable only for storage deduplication studies, not for I/O deduplication
@@ -141,13 +144,10 @@ suitable for evaluation of I/O deduplication techniques.
 	\item \textbf{Linux kernel \& GCC sources}~\cite{kernel-src, gcc-src}: A few papers~\cite{p-dedupe, ddelta} use kernel and GCC sources to perform study of storage deduplication systems, by exploiting the fact that multiple successive versions of the same software tend to have a lot of overlapping content.
 \end{enumerate}
 
-These are individual datasets that were used for the 
-characterization and evaluation in a couple of papers
-and have been made available online for use by other researchers.
 Among these, the first dataset (i.e. the I/O deduplication traces at~\cite{iodedup-online})
-is the one we have used for DRIVE evaluation in the previous chapter. This
+is the one we have used for DRIVE evaluation in the previous chapter. These
 traces are also present at the SNIA IOTTA repository mentioned above, and 
-is the only I/O access trace which has content representation included.
+is the only set of I/O access traces which have content representation included.
 The remaining traces are all either storage metadata traces or I/O traces
 without content representation, hence unfit for evaluation of I/O deduplication
 techniques.
