@@ -16,6 +16,7 @@ redirect the remaining read requests such that overall disk access
 latencies are lowered, (iii)~A selective duplicator, to track frequently
 accessed content and dynamically create more replicas for use
 by dynamic replica retriever.
+
 Fig.~\ref{fig:iodedup-arch}
 presents the system architecture of the I/O Deduplication system
 (henceforth referred as IODEDUP), wherein
@@ -32,6 +33,13 @@ I/O requests, and hence performs I/O deduplication.
 Thus, we regard only the \textit{content-addressed cache}\index{Content-cache} 
 mechanism of IODEDUP as ``prior art'' in the area of I/O 
 deduplication.
+
+We note that in practice, it is impossible to completely replace the 
+block-cache with a content-cache. Moreover, even in the implementation 
+presented/evaluated in~\cite{iodedup} (refer Figure 5 in \cite{iodedup}
+shown here as Fig.~\ref{fig:iodedup-arch}), 
+the architecture includes both a block-cache as well as a content-cache. 
+Hence, we have evaluated the same approach in our work.
 
 \begin{figure}[t]
 \centering
