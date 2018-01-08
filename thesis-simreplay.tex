@@ -66,6 +66,20 @@ Each request in the trace should contain information regarding
 The output from the simulator involves the collection of metrics like
 number of cache-hits and cache-misses incurred over the execution of
 all requests in the trace file.
+
+In our simulator, we use a single-threaded model for all the
+systems---Vanilla, IODEDUP and DRIVE for the sake of simplicity of
+implementation and validation. Making the DRIVE/IODEDUP design
+multithreaded would basically involve using synchronization mechanisms
+when accessing the metadata, to ensure consistent view of metadata
+for every read/write request. Specifically, when a request looks for
+a specific block in the metadata, the associated metadata should be
+locked and all subsequent requests for that block should wait until
+the lock release is signaled. The requirement of consistent metadata
+holds for both DRIVE and IODEDUP approaches, hence any overheads
+arising from additional metadata lookups due to multithreading
+would apply comparably to both approaches.
+
 Next, we present the high-level and low-level design descriptions 
 for the custom simulator. Finally, we present details regarding the
 implemented input options and demonstrate the usage of the simulator.

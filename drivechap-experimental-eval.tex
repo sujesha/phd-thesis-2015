@@ -10,7 +10,14 @@ et. al.~\cite{iodedup, iodedup-online},
 we borrow traces made available online at \cite{iodedup-online}
 and use them for our evaluation. 
 
-The trace data set consists of
+We humbly note that a real implementation study is essential. However, based 
+on some initial caching related experiments, we concluded that using a 
+simulation would give us more control over the system, since we could make 
+the workloads repeatable which would not be entirely possible in a real 
+system. Moreover, a simulator would allow us to do extensive instrumentation 
+for obtaining various statistics as well as debugging.
+
+The trace data set used for evaluation consists of
 disk read and write request traces over 21 days from three production systems
 at FIU Computer Science Department:
 (i)~\textit{webvm}, traces from two virtualized web-servers hosting webmail
