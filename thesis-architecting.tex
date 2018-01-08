@@ -164,3 +164,23 @@ realistic benchmarks for evaluation of I/O deduplication techniques.
 \section{The need for I/O deduplication benchmarks}
 \label{sec:architectingchap-case}
 \input{architectingchap-case}
+
+\section{Conclusions}
+The purpose of this literature review was to find publicly-available 
+datasets of I/O traces with content representation, that could be 
+used in evaluation of our DRIVE dedup system. However, our survey 
+revealed that among the publicly-available datasets, only the ones 
+available via IODEDUP paper~\cite{iodedup} have content representation, 
+and we have already used them for our evaluation in the previous chapter. 
+
+The obstacle that we faced in doing a real implementation study for the 
+DRIVE system is that neither were we able to procure production I/O 
+workloads or traces, nor could we find any tools that would generate 
+realistic traces with duplicate I/O content. In fact, this obstacle 
+is the basis for this chapter, which is basically a detailed survey 
+of the available traces, workloads and tools related to disk and I/O 
+deduplication. We wish to restate that this chapter is not intended 
+as a design contribution. Its intent is to make the case that a 
+comprehensive tool is needed that can generate realistic 
+workloads/traces which have significant levels of I/O deduplication, so 
+that it can be used for evaluating various I/O deduplication approaches.
