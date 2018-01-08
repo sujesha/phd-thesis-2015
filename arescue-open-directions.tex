@@ -46,10 +46,7 @@ both dispersed and colocated scenarios for segment size of
 5KB. As can be seen, the CPU utilization is linearly correlated with
 network rate in both the cases. 
 % We made similar observations at the transmitting DomU as well. 
-Thus, we conclude that 
-linear regression modeling approach can be applied for affinity-aware
-CPU estimation even in deployments with 1 Gbps links. However, 
-the CPU utilization
+However, the magnitudes of CPU utilization
 incurred for network rates $\le$ 100 Mbps over a 1 Gbps link are not the 
 same as those observed during benchmarking with 100 Mbps links. 
 %More
@@ -59,8 +56,11 @@ This implies that network link bandwidth is an important
 determinant of CPU utilization incurred at the transmitter and
 receiver. So, if the cloud deployment has networks links or switches 
 of heterogeneous capacities,
-different CPU estimation models would have to be
+different CPU estimation models would need to be
 developed for each link type.
+Overall, we conclude that 
+linear regression modeling approach can be applied for affinity-aware
+CPU estimation even in deployments with 1 Gbps links. 
 
 \subsection{Effect of colocation for data-centric applications}
 The work in this paper is targeted towards multi-tiered service-oriented

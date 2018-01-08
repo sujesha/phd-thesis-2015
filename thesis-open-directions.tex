@@ -32,9 +32,6 @@ their individual CPU resource requirements. Taking cognizance of the
 changed CPU requirements is essential to guarantee both minimal performance
 degradation and maximal multiplexing of physical resources.
 
-
-
-
 \section{Tracking workload upon migration}
 Our models in the first component of this thesis are constructed and 
 validated with the assumption that
@@ -134,7 +131,7 @@ of every block read request at the virtual disk front-end driver,
 the metadata can looked-up and the I/O
 request redirected so as to manipulate the underlying 
 location-addressed cache effectively like a content-deduplicated cache. 
-However, the difference between DRIVE and vDRIVE would be that, DRIVE
+The difference between DRIVE and vDRIVE would be that, DRIVE
 redirects read requests by substituting one block address by 
 another, whereas vDRIVE metadata can potentially map one block
 address to multiple sub-blocks/chunk, which in turn, map to multiple blocks.
@@ -142,12 +139,12 @@ Thus, every block read request in vDRIVE may potentially result
 in extra block read requests. However, if the duplication ratio
 is significant, the improved cache efficiency will outweigh the
 impact of the extra block reads.
-Due to lack of access to real-world traces at the moment, we
-do not include the design and implementation of vDRIVE in current
-thesis scope.
-However, as future work, we can implement a prototype of vDRIVE
-and evaluate using real-world traces (if available) or
-realistic benchmarks to demonstrate capabilities of the system.
+
+Although we did implement the system for deduplication using
+variable-length blocks, due to unavailability of traces/workloads (as 
+discussed in Chapter~\ref{chap:thesis-architecting}), we were unable 
+to perform any reasonable evaluation of this system--and hence unable 
+to include it as part of this thesis.
 
 \section{Generating realistic I/O deduplication benchmarks}
 As per our discussion in Chapter~\ref{chap:thesis-architecting}, there

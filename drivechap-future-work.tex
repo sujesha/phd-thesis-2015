@@ -31,6 +31,15 @@ caches are already present in IBM's DS6000/DS8000 storage
 controllers~\cite{wikipedia-arc} and adoption of DRIVE may
 help increase their cache performance.
 
+Note that, our DRIVE dedup algorithm does not explicitly manage 
+the cache---rather it only uses caching hints to implicitly manipulate 
+the cache as a deduplicated content cache without physically changing 
+any of the underlying caching algorithms or data structures. In our 
+simulation, we have considered the LRU cache which is the cache 
+present in a typical system. Our work demonstrates feasibility of 
+implicit hints-based cache management and would benefit with ARC 
+caches as well.
+
 \subsection{Interaction with storage deduplication systems}
 The primary difference between I/O Deduplication and Storage 
 Deduplication\cite{idedup,dede,zfs}, 
