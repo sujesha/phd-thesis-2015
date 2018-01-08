@@ -34,13 +34,6 @@ Thus, we regard only the \textit{content-addressed cache}\index{Content-cache}
 mechanism of IODEDUP as ``prior art'' in the area of I/O 
 deduplication.
 
-We note that in practice, it is impossible to completely replace the 
-block-cache with a content-cache. Moreover, even in the implementation 
-presented/evaluated in~\cite{iodedup} (refer Figure 5 in \cite{iodedup}
-shown here as Fig.~\ref{fig:iodedup-arch}), 
-the architecture includes both a block-cache as well as a content-cache. 
-Hence, we have evaluated the same approach in our work.
-
 \begin{figure}[t]
 \centering
 \includegraphics[scale=0.65]{confided-figures/main/sys-arch-iodedup-host.pdf}
@@ -51,7 +44,31 @@ Hence, we have evaluated the same approach in our work.
 \end{figure}
 
 \subsection{Motivation for in-depth analysis}
-Our work is motivated by a few observations from the work
+We note that in practice, it is impossible to completely replace the
+block-cache with a content-cache. 
+There has been discussion~\cite{advanced-page-replacement-algo} in Linux 
+community about replacing the LRU variants used for page cache with 
+advanced caching algorithms like ARC or Clock, Clock-PRO, etc. 
+However, the change does not seem to have been made, primarily the problem 
+being that advanced caching algorithms need to maintain information about 
+evicted pages as well---not just the pages in cache---and it is not 
+desirable in general to incur the associated CPU and memory overheads. 
+
+Potentially due to the above inertia against completely replacing the 
+linux block-cache with a content-cache, the implementation in \cite{iodedup} 
+resorts to using a content-cache downstream from the block-cache, i.e. it 
+uses both caches (refer Figure 5 in \cite{iodedup}
+shown here as Fig.~\ref{fig:iodedup-arch}). 
+Moreover, having both caches allows to exploit both 
+aspects---content deduplication via content-based caching and locality 
+via location-addressed caching. In our work, we carry forward the same 
+approach and suggest that in such an implementation, it would be 
+necessary to find the sweet-spot to figure out how to size the two 
+caches. Without sizing to find the sweet-spot, the performance can 
+vary drastically for different types of workloads, as our evaluations
+demonstrate.
+
+Our work is motivated by the following observations from the work
 presented in \cite{iodedup}.
 First, it demonstrates that a content-addressed cache
 is strictly better than a location-addressed cache of the same size. However, since

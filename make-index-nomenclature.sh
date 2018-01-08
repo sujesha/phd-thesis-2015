@@ -14,6 +14,7 @@ fi
 
 name=$1
 
+pdflatex "$name"
 makeindex "$name"
 makeindex "$name".nlo  -s nomencl.ist -o "$name".nls
 bibtex "$name"
@@ -23,6 +24,7 @@ bibtex "$name"
 bibtex "$name"
 xelatex "$name".tex
 
+pdflatex "$name"
 makeindex "$name"
 makeindex "$name".nlo  -s nomencl.ist -o "$name".nls
 bibtex "$name"
