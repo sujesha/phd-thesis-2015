@@ -42,22 +42,19 @@ can be summarized as shown in Table~\ref{tab:drive-novelty}.
 \centering
 \begin{tabular}{|c|l|l|} \hline
 \textbf{No.} & \textbf{IODEDUP} & \textbf{DRIVE} \\ \hline
-1. & Newly added and explicitly        & Caching hints used to implicitly \\
-   & maintained content-based cache    & manipulate the existing          \\
-   &                                   & location-addressed cache         \\ 
-   &                                   & (block-cache) as a \\
-   &                                   & content-deduplicated cache \\ \hline
-2. & Request trapped downstream of     & Request trapped upstream of existing\\ 
-   & existing block-cache and upstream & block-cache \\
-   & of newly added content-cache      & \\ \hline
-3. & If metadata present for a block,  & If metadata present, the block's \\
-   & the block's content is known to be& content is known to have been fetched \\
-   & present within content-cache      & into cache at least once \\ \hline
-4. & If metadata present for a block,  & If metadata present for a block, \\
-   & the content is explicitly fetched & implicit caching hints are used to \\
-   & from content-cache and sent       & merely request a different (duplicate) \\
-   & upstream                          & block and the request forwarded \\
-   &                                   & downstream \\ \hline
+1. & Newly added and explicitly         & Caching hints used to implicitly manipulate \\
+   & maintained content-based cache     & existing location-addressed cache (block-cache) \\
+   &                                    & as a content-deduplicated cache \\ \hline
+2. & Request trapped downstream of      & Request trapped upstream of existing\\ 
+   & existing block-cache and upstream  & block-cache \\
+   & of newly added content-cache       & \\ \hline
+3. & If metadata present for a block,   & If metadata present, the block's content is \\
+   & the block's content is known to be & known to have been fetched into cache \\
+   & present within content-cache       & at least once before \\ \hline
+4. & If metadata present for a block,   & If metadata present for a block, implicit \\
+   & the content is explicitly fetched  & caching hints are used to merely request \\
+   & from content-cache and sent        & a different (duplicate) block and the \\
+   & upstream                           & request forwarded downstream \\ \hline
 \end{tabular}
 %\vspace{-0.15in}
 \end{table}
