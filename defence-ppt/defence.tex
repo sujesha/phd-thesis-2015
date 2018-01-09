@@ -157,25 +157,26 @@
 %http://tex.stackexchange.com/questions/46987/centered-frame-title-in-beamer
 \setbeamertemplate{frametitle}[default][center]
 
-%https://tex.stackexchange.com/questions/377777/why-do-my-beamer-blocks-without-title-still-have-a-background
-\setbeamertemplate{block begin}
-{
-  \par\vskip\medskipamount%
-  \IfStrEq{\insertblocktitle}{}{}{
-      \begin{beamercolorbox}[colsep*=.75ex]{block title}
-        \usebeamerfont*{block title}\insertblocktitle%
-      \end{beamercolorbox}%
-  }
-  {\parskip0pt\par}%
-  \ifbeamercolorempty[bg]{block title}
-  {}
-  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
-  \usebeamerfont{block body}%
-  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
-    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
-}
-
 \makeatother
+
+%https://tex.stackexchange.com/questions/377777/why-do-my-beamer-blocks-without-title-still-have-a-background
+%\usepackage{xstring}
+%\setbeamertemplate{block begin}
+%{
+%  \par\vskip\medskipamount%
+%  \IfStrEq{\insertblocktitle}{}{}{
+%      \begin{beamercolorbox}[colsep*=.75ex]{block title}
+%        \usebeamerfont*{block title}\insertblocktitle%
+%      \end{beamercolorbox}%
+%  }
+%  {\parskip0pt\par}%
+%  \ifbeamercolorempty[bg]{block title}
+%  {}
+%  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+%  \usebeamerfont{block body}%
+%  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
+%    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+%}
 
 \begin{document}
 % 	\title[Relation-aware Resource Provisioning and Management for Virtualized Services]{Relation-aware Resource Provisioning and Management for Virtualized Services}
@@ -526,10 +527,10 @@
 % \vspace{-0.2in}
 \begin{tikzpicture}
 \node[text height=2cm, text width=2cm, draw, rectangle] (a) at (9,10) {};
-\node[text height=2cm, rectangle,color=purple] (b) at (9,10) {VM1};
+\node[text height=2cm, rectangle,color=blue] (b) at (9,10) {VM1};
 \node[text height=2cm, rectangle] (c) at (6,10) {};
 \node[text height=2cm, text width=2cm, draw, rectangle] (d) at (14,10) {};
-\node[text height=2cm, rectangle,color=purple] (e) at (14,10) {VM2};
+\node[text height=2cm, rectangle,color=blue] (e) at (14,10) {VM2};
 \node[text height=2cm, rectangle] (f) at (17,10) {};
 \node[text height=2cm, color=purple, rectangle] at (9,11) {Web tier};
 \node[text height=2cm, color=purple, rectangle] at (14,11) {Database tier};
@@ -541,9 +542,11 @@
 
 \begin{scope}
      \pgfsetlinewidth{2pt}
-\draw[<->,color=blue] (a) -- (c) node[midway,above] {Req/Res} node[midway,below] {Immutable};
+\draw[<->,color=purple] (a) -- (c) node[midway,above] {Req/Res};
+\draw[<->,color=blue] (a) -- (c) node[midway,below] {Immutable};
 \draw[<->,color=blue] (d) -- (f) node[midway,below] {Immutable};
-\draw[<->,color=blue] (a) -- (d) node[midway,above] {DB query} node[midway,below] {Mutable n/w};
+\draw[<->,color=purple] (a) -- (d) node[midway,above] {DB query};
+\draw[<->,color=blue] (a) -- (d) node[midway,below] {Mutable n/w};
 % \draw[->,color=blue] (b) -- (d);
 % \draw[->,color=blue] (c) -- (d);
 % \draw[->,color=blue] (d) -- (e);
