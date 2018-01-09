@@ -163,7 +163,7 @@
 % 	\title[Relation-aware Resource Provisioning and Management for Virtualized Services]{Relation-aware Resource Provisioning and Management for Virtualized Services}
 	\title{Resource Provisioning and Usage Optimization in Virtualized Environments}
 	\author[Sujesha Sudevalayam]{Sujesha Sudevalayam}
-	\date[January 13th, 2015]{January 13th, 2015 \\ Pre-synopsis Presentation}
+	\date[January 12th, 2018]{January 12th, 2018 \\ Defense Presentation}
 	\institute[IIT Bombay]{Department of Computer Science and Engineering \\ Indian Institute of Technology Bombay \\ \{sujesha\}@cse.iitb.ac.in}
 
 	\subject{Subject}
@@ -426,7 +426,7 @@
 
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \begin{frame}
-	\frametitle{Content Outline---Part I}
+	\frametitle{Content Outline (Part I)}
 	    \begin{block}{Affinity-aware CPU usage estimation in \textit{migratory} VM scenarios}
 	    \begin{enumerate}
 	     \item \textcolor{magenta}{Profiling study} of Xen network virtualization to 
@@ -987,7 +987,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
 %       \subsection{Part II}
     \begin{frame}
-	\frametitle{Content Outline---Part II}
+	\frametitle{Content Outline (Part II)}
 	    \begin{block}{Part II. Host cache usage optimization for virtualized services}
 	      \begin{enumerate}
 	      \item \textcolor{magenta}{Analysis of existing work (IODEDUP)} to show inconsistent performance
@@ -1121,7 +1121,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     %%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
         \section{Analyzing existing work : IODEDUP}
         \begin{frame}
-            \frametitle{Existing\footnote[frame]{Other related work for I/O deduplication \& reduction discussed in report.} I/O deduplication technique: IODEDUP \footnote[frame]{\textit{I/O Deduplication: Utilizing Content Similarity to Improve I/O Performance}}}
+            \frametitle{Existing\footnote[frame]{Other related work for I/O deduplication \& reduction discussed in thesis.} I/O deduplication technique: IODEDUP \footnote[frame]{\textit{I/O Deduplication: Utilizing Content Similarity to Improve I/O Performance}}}
 
         %%%%%%%%% TOP-HALF %%%%%%%%%%%
        \vspace{-0.2in}
@@ -1170,9 +1170,8 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
                 \begin{exampleblock}{Our contribution}
                     \begin{itemize}
 %                     \scriptsize
-                    \item Perform \textit{study of cache
-                    effectiveness} for IODEDUP
-                    system, using a custom simulator
+                    \item Perform \textit{study of cache effectiveness} 
+			for IODEDUP system, using a custom simulator
                     \end{itemize}
                 \end{exampleblock}
             }
@@ -1228,7 +1227,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         %I/O reduction is affected.
         %1. using a cache, even block-based reduces I/O
         %2. using a cache in content-dedup fashion reduces more I/O
-        %3. deduplicating the content in a cache after I/O is done, reduces I/O toobut to a lesser extent.
+        %3. deduplicating the content in a cache after I/O is done, reduces I/O too but to a lesser extent.
 
         \begin{alertblock}{Issues}
             \begin{enumerate}
@@ -1238,25 +1237,19 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
             \end{enumerate}
         \end{alertblock}
 
-        \begin{block}{Obvious solution}
+        \begin{block}{Naive solution}
         \begin{itemize}
             \item Operate host cache in fully-deduplicated fashion, such
             that only data not present in cache will be fetched from disk
-%             thus eliminating the need for separate memory deduplication
-%             as well.
         \end{itemize}
         \end{block}
-%     \end{frame}
 
-% 
 %     %%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
-%     \begin{frame}
-%         \frametitle{Achieving an approximate-to-Oracle solution}
-        \begin{alertblock}{Challenges in implementing obvious solution}
+        \begin{alertblock}{Challenges in implementing naive solution}
             \begin{enumerate}
-                \item Requires change to cache data structures and/or implementation to enable storing of content-based metadata
-                \item Requires metadata updates for every cache insertion
-                \item Requires invasive monitoring and metadata updates for every eviction from cache
+                \item Needs change to cache datastructures and/or algorithms
+                \item Needs metadata updates per cache insertion
+                \item Needs invasive monitoring \& metadata updates per cache eviction
             \end{enumerate}
         \end{alertblock}
 
@@ -1567,7 +1560,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 	 \end{enumerate}
 	\end{block}
 
-	\begin{block}{Relevant characteristics for I/O traces\footnote[frame]{\textit{webvm} and \textit{homes} trace characterization presented in report.}}
+	\begin{block}{Relevant characteristics for I/O traces\footnote[frame]{\textit{webvm} and \textit{homes} trace characterization presented in thesis.}}
 % 	 \begin{itemize}
 	    \textcolor{magenta}{Block accessed distribution} \& \textcolor{magenta}{Jump distances}---\textit{spatial locality} \\
 	    \textcolor{magenta}{Run lengths} \& \textcolor{magenta}{Block reuse distances}---\textit{temporal locality}
