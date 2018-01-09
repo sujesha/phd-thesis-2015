@@ -681,7 +681,7 @@ could result in incorrect CPU usage estimation
         \vspace{-0.1in}
         \begin{varblock}[12.0cm]{}
 %       Migration for QoS
-        \textcolor{magenta}{Benchmarking setup:} 4 VMs on 4 PMs---dispersed and colocated scenarios
+        \textcolor{black}{Benchmarking setup:} 4 VMs on 4 PMs---dispersed and colocated scenarios
 %         \textcolor{magenta}{Workloads:} Immutable n/w traffic, CPU and disk read/write
         \end{varblock}
         
@@ -692,13 +692,13 @@ could result in incorrect CPU usage estimation
 % \noindent\makebox[\textwidth]{% 
 \begin{tabular}{|c|c|c|} \hline
 \textbf{Immutable} & \multicolumn{2}{|c|}{\textbf{\% CPU utilization}} \\ \cline{2-3} \cline{2-3}
-\textbf{Rx} & \textbf{Dispersed case} & \textbf{Colocated case} \\
-(Mbps) & $VM_1,VM_2, \sum Dom0_i$ & $VM_1,VM_2,Dom0$ \\ \hline
+\textbf{Rx (Mbps)} & \textbf{Dispersed case} & \textbf{Colocated case} \\
+($<VM_1, VM_2>$) & $VM_1,VM_2, \sum Dom0_i$ & $VM_1,VM_2,Dom0$ \\ \hline
 % $<$20, 10$>$ & 3, 2, 12 & 3, 2, ~8 \\ \hline
 % $<$20, 30$>$ & 4, 5, 14 & 3, 5, 11 \\ \hline
-$<$20, 50$>$ & 4, 7, 18 & 4, 7, 14 \\ \hline
+$<$20, 50$>$ & 4, 7, \textcolor{darkpurple}{\textbf{18}} & 4, 7, \textcolor{darkpurple}{\textbf{14}} \\ \hline
 % $<$20, 70$>$ & 4, 9, 21 & 4, 9, 17 \\ \hline
-$<$40, 10$>$ & 6, 2, 15 & 6, 2, 11 \\ \hline
+$<$40, 10$>$ & \textcolor{magenta}{6, 2}, 15 & \textcolor{magenta}{6, 2}, 11 \\ \hline
 % $<$40, 30$>$ & 7, 5, 18 & 7, 5, 15 \\ \hline
 % $<$40, 50$>$ & 7, 7, 21 & 7, 7, 18 \\ \hline
 $<$60, 10$>$ & 8, 2, 18 & 8, 2, 14 \\ \hline
@@ -711,8 +711,8 @@ $<$60, 10$>$ & 8, 2, 18 & 8, 2, 14 \\ \hline
     \begin{block}{Observations}% \& Summary of benchmarking}
 	\begin{enumerate}
 	 \item \textcolor{magenta}{No change in DomU CPU} usage between colocated and dispersed
-	 \item Dom0 CPU usage change of \textcolor{magenta}{4\% for extra Dom0 instance (constant)}
-	 \item \textcolor{magenta}{Similar observations for other workloads}---CPU and disk read/write
+	 \item Dom0 CPU usage change of \textcolor{darkpurple}{4\% for extra Dom0 instance (constant)}
+	 \item \textcolor{black}{Similar observations for other workloads}---CPU and disk read/write
 	\end{enumerate}
 
      
