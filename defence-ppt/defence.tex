@@ -636,7 +636,7 @@ could result in incorrect CPU usage estimation
     \frame{
         \frametitle{Benchmarking: Effect of colocation on CPU usage for \textit{Mutable} N/w traffic}
 
-        \vspace{-0.15in}
+        \vspace{-0.1in}
         \begin{varblock}[12.0cm]{}
 %       Migration for QoS
         \textcolor{magenta}{Benchmarking setup:} 2 VMs on 2 PMs---dispersed and colocated scenarios
@@ -657,11 +657,12 @@ could result in incorrect CPU usage estimation
             \includegraphics[scale=0.65]{arescue-figures/aff-benchmark/dom0-cpu-vs-affine-curve.eps} \\
             (c) Dom0 CPU util for Rx/Tx %(summation versus co-located)
             \column{0.55\textwidth}
-            \begin{exampleblock}{Observations}
+            \begin{exampleblock}{}
 \begin{small}
+		\textbf{Observations}
              \begin{itemize}
               \item \textbf{DomU}: Rx increase from 20-90 Mbps =>decrease of 2-8\% CPU util
-            \item \textbf{Dom0}: Increase from 20 to 90 Mbps =>decrease from 9-25\% CPU util %(summation of dispersed versus colocated)
+            \item \textbf{Dom0}: Increase from 20-90 Mbps =>decrease of 9-25\% CPU util %(summation of dispersed versus colocated)
              \end{itemize}
 \end{small}
 % \setbeamerfont{item}{size=\default}
