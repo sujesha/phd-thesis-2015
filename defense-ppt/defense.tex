@@ -161,7 +161,7 @@
 
 \begin{document}
 % 	\title[Relation-aware Resource Provisioning and Management for Virtualized Services]{Relation-aware Resource Provisioning and Management for Virtualized Services}
-	\title{Resource Provisioning and Usage Optimization in Virtualized Environments}
+	\title{Towards Improved Provisioning and Utilization of Resources in Virtualized Environments}
 	\author[Sujesha Sudevalayam]{Sujesha Sudevalayam}
 	\date[January 12th, 2018]{January 12th, 2018 \\ Defense Presentation}
 	\institute[IIT Bombay]{Department of Computer Science and Engineering \\ Indian Institute of Technology Bombay \\ \{sujesha\}@cse.iitb.ac.in}
@@ -310,7 +310,6 @@
     \subsection{Virtualized Resources}
     \begin{frame}
 	\frametitle{Thesis Scope}
-% 	\vspace{-0.5in}
 	\begin{block}{Two types of resources in virtualized environment}
 	 \begin{enumerate}
 	  \item Resources allocated to virtual machines
@@ -319,11 +318,7 @@
 
 	\end{block}
 
-% %         \begin{columns}
-% %             \column{0.45\textwidth}
                 \begin{figure}%[t]
-%                 \centering
-%                 \vspace{-0.2in}
                 \includegraphics[scale=0.45]{presyn-figures/resource-types.pdf} %\\
                 \end{figure}	
 
@@ -369,55 +364,74 @@
 
     \end{frame}
 
-    
-%Add thesis scope in previous slide itself    
-%     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
-%       \subsection{Thesis Scope}
-%     \begin{frame}
-% 	\begin{block}{Thesis Scope}
-% 	 sdfsd
-% 	\end{block}
-% 
-%     \end{frame}
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
+    \section{Thesis Contributions and Challenges within}
+    \begin{frame}
+        \frametitle{Thesis Contributions and Deliverables}
+
+        \vspace{-1.4in}
+        \begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
+                \begin{itemize}
+                \item \textit{Initial Attempt:} Regression model to predict ``total'' CPU requirement
+                \item \textit{Challenge:} Maximum error 6\% absolute CPU
+                \item \textit{How Overcame:} Predict ``differential'' CPU usage---Max error 2\%
+               \end{itemize}
+        \end{block}
+
+        %\begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
+        %\end{block}
+
+        %\begin{exampleblock}{Tools and Deliverables}
+        %\end{exampleblock}
+    \end{frame}
 
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \section{Thesis Contributions and Challenges within}
     \begin{frame}
-	\frametitle{Top 3 Contributions}
-	
-% 	\scriptsize
-      \vspace{-0.2in}
-      \begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
-	        \begin{itemize}
-	        \item \textit{Initial Attempt:} Linear model 
-% 	        based on multiple resource usage profiles 
-	        to predict ``total'' CPU requirement
-	        \item \textit{Challenge:} Maximum error 5-6\% absolute CPU
-	        \item \textit{How Overcame:} Predict ``differential'' CPU usage---Max error 1-2\% 
-% 	        \item \textit{Final Outcome:}
-	       \end{itemize}
-      \end{block}
-      \begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
-	    \begin{itemize}
-	        \item \textit{Initial Attempt:} Performing variable-sized deduplication
-	        \item \textit{Challenge:} Real-world trace available only for fixed-size, not variable
-	        \item \textit{How Overcame:} Show value of caching hints in fixed-size dedup
-% 	        \item \textit{Final Outcome:}
-	    \end{itemize}
-      \end{block}
-      \begin{block}{Contribution 3: I/O trace characterization for deduplication}
-	 \begin{itemize}
-	        \item \textit{Initial Attempt:} I/O tracing toolkit but no production tracing
-	        \item \textit{Challenge:} Need real workloads/realistic traces for characterization
-	        \item \textit{How Overcame:} Extensive dataset %\& literature 
-		    survey to make the \textit{case} that need to generate 
-		    realistic I/O traces with content representation
-	 \end{itemize}
+	\frametitle{Thesis Contributions and Deliverables}
 
-	\end{block}
+    	\begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
+    	\end{block}
 
+    	\begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
+	\begin{itemize}
+      	  	\item \textit{Initial Attempt:} Performing variable-sized deduplication
+	        \item \textit{Challenge 1:} Real-world I/O trace available only for fixed-size
+	        \item \textit{Alternative:} Show value of caching hints in fixed-size dedup
+	        \item \textit{Challenge 2:} Real system not amenable to repeatability \& instrumentation
+	        \item \textit{Alternative:} Build custom simulator for evaluation
+	        \item \textit{Challenge 3:} More traces needed for evaluation
+	        \item \textit{Alternative:} Build I/O tracing kit
+	        \item \textit{Challenge 4:} Unable to deploy I/O tracing tool on department servers
+	        \item \textit{Alternative:} Survey and make case for trace generation
+    		\end{itemize}
+    	\end{block}
+      
+	%\begin{exampleblock}{Tools and Deliverables}
+	%\end{exampleblock}
     \end{frame}
-% 
+
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
+    \section{Thesis Contributions and Challenges within}
+    \begin{frame}
+        \frametitle{Thesis Contributions and Deliverables}
+
+        \vspace{-0.7in}
+        \begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
+        \end{block}
+
+        \begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
+        \end{block}
+
+        \begin{exampleblock}{Tools and Deliverables}
+          \begin{enumerate}
+                \item \texttt{WLoadGen:} A load generator for CPU, disk \& network loads
+                \item \texttt{SimReplay}: A simulator for analyzing host cache effectiveness
+                \item \texttt{preadwritedump}: A kernel module for I/O request tracing
+          \end{enumerate}
+        \end{exampleblock}
+    \end{frame}
+
 %     %%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
 %     %http://compgroups.net/comp.text.tex/chapters-in-beamer/1911862
 %     \part{Affinity-aware Modeling of CPU Usage for Provisioning Virtualized Applications}
@@ -434,19 +448,14 @@
 		  and \textit{inter-PM} network traffic
 	     \item \textcolor{magenta}{Benchmarking} of CPU usage for various workloads
 		  in colocated and dispersed scenarios (demonstrated to be linear)	     
-	     \item Pair-wise linear regression model to \textcolor{magenta}{predict total} CPU when network traffic 
-		  changes nature between intra-PM and inter-PM
-	     \item Pair-wise linear regression model to \textcolor{magenta}{predict differential} CPU usage 
+	     \item Pair-wise linear regression model to \textcolor{magenta}{predict total} CPU 
+			when network traffic changes nature between intra-PM and inter-PM
+	     \item Pair-wise linear regression model to \textcolor{magenta}{predict differential} CPU 
+			usage 
 	     \item Application of pair-wise models to predict for \textcolor{magenta}{multi-VM scenarios}
 	    \end{enumerate}
 	    \end{block}
 
-	   \begin{exampleblock}{Tools and deliverables}
-	  \begin{itemize}
-	   \item \texttt{WLoadGen:} A load generator for CPU, disk \& network loads
-	  \end{itemize}
-	  \end{exampleblock}
-	  
     \end{frame}
 
 %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
@@ -990,24 +999,17 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 	\frametitle{Content Outline (Part II)}
 	    \begin{block}{Part II. Host cache usage optimization for virtualized services}
 	      \begin{enumerate}
-	      \item \textcolor{magenta}{Analysis of existing work (IODEDUP)} to show inconsistent performance
+	      \item \textcolor{magenta}{Analysis of existing work (IODEDUP)} to 
+				show inconsistent performance
 	       \item \textcolor{magenta}{Redirection} of I/O requests from within the virtual machines
-	       \item To implicitly manipulate host cache in \textcolor{magenta}{content-deduplicated} fashion
+	       \item To implicitly manipulate host cache 
+			in \textcolor{magenta}{content-deduplicated} fashion
 	       \item Using \textcolor{magenta}{implicit caching hints}
 	       \item Evaluation using public dataset available online%~\cite{iodedup-online}
 	       \item \textcolor{magenta}{Case for generation} of realistic I/O deduplication benchmarks
 	      \end{enumerate}
 	    \end{block}
 	
-	\vspace{0.2in}
-	\begin{exampleblock}{Tools and Deliverables}
-	  \begin{enumerate}
-% 	   \item \texttt{WLoadGen:} A load generator for CPU, disk \& network loads
-	   \item \texttt{SimReplay}: A simulator for analyzing host cache effectiveness
-	   \item \texttt{preadwritedump}: A kernel module for I/O request tracing
-	  \end{enumerate}
-
-	\end{exampleblock}
     \end{frame}	
     
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
