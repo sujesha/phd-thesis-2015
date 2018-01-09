@@ -1230,7 +1230,8 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
             \end{enumerate}
         \end{block}
 
-        \begin{block}{Conclusion: \textcolor{red}{Inconsistence} in achievable cache effectiveness}
+        \begin{block}{Conclusion} 
+		\textcolor{red}{Inconsistency} in achievable cache effectiveness
 %            \scriptsize
 %           Depending upon content-cache sizing, the read/write request-mix
 %           and the amount of duplicate content, host cache efficiency under
@@ -1256,7 +1257,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 
         \begin{alertblock}{Issues}
             \begin{enumerate}
-                \item In IODEDUP system~\cite{iodedup} has cache inclusiveness problem
+                \item IODEDUP system~\cite{iodedup} has cache inclusiveness problem
                 \item Memory deduplication~\cite{satori} works after data is already fetched
                     from disk
             \end{enumerate}
@@ -1265,7 +1266,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         \begin{block}{Naive solution}
         \begin{itemize}
             \item Operate host cache in fully-deduplicated fashion, such
-            that only data not present in cache will be fetched from disk
+            that only data not present in cache will ever be fetched from disk
         \end{itemize}
         \end{block}
 
@@ -1614,14 +1615,14 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 	      \begin{figure}
 		\includegraphics[scale=0.36]{tracechar-figures/21-day/webvm-block-read-appended-21-prob-40perc.pdf}
 		\vspace{-0.15in}
-		\caption{Block access distribution}
+		\caption{(a) Block access distribution}
 	      \end{figure}
             \end{column}
             \begin{column}{0.5\textwidth}
 	      \begin{figure}
 		\includegraphics[scale=0.36]{tracechar-figures/21-day/webvm-reuse-dist-distrib-readonly-appended-21-loglog.pdf}
 		\vspace{-0.15in}
-		\caption{Block reuse distribution}		
+		\caption{(c) Block reuse distribution}		
 	      \end{figure}             
             \end{column}
 	\end{columns}
@@ -1632,14 +1633,14 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 	      \begin{figure}
 		\includegraphics[scale=0.36]{tracechar-figures/21-day/webvm-dedup-block-read-appended-21-prob-40perc.pdf}
 		\vspace{-0.15in}
-		\caption{Duplicate block access distrib}		
+		\caption{(b) Duplicate block distrib}		
 	      \end{figure}             
             \end{column}
             \begin{column}{0.5\textwidth}
 	      \begin{figure}
 		\includegraphics[scale=0.36]{tracechar-figures/21-day/webvm-reuse-dist-distrib-dedup-readonly-appended-21-loglog.pdf}
 		\vspace{-0.15in}
-		\caption{Content reuse distribution}		
+		\caption{(d) Content reuse distribution}		
 	      \end{figure}             
             \end{column}
 	\end{columns}     
