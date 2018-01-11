@@ -182,7 +182,7 @@
 % 	\title[Relation-aware Resource Provisioning and Management for Virtualized Services]{Relation-aware Resource Provisioning and Management for Virtualized Services}
 	\title{Towards Improved Provisioning and Utilization of Resources in Virtualized Environments}
 	\author[Sujesha Sudevalayam]{Sujesha Sudevalayam}
-	\date[January 12th, 2018]{January 12th, 2018 \\ Defence Presentation}
+	\date[January 12th, 2018]{January 12th, 2018 \\ PhD Defence Presentation}
 	\institute[IIT Bombay]{Department of Computer Science and Engineering \\ Indian Institute of Technology Bombay \\ \{sujesha\}@cse.iitb.ac.in}
 
 	\subject{Subject}
@@ -200,10 +200,10 @@
 	
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \section{Introduction}
-      \subsection{Pay-per-Use Service Model}
+      \subsection{Computing-as-a-Service: The New Norm}
     \begin{frame}
 %       \frametitle{* as a Service}
-        \frametitle{Pay-Per-Use Service Model}
+        \frametitle{Computing-as-a-Service: The New Norm}
          \begin{columns}
             \column{0.33\textwidth}
                 \begin{tabular}{c}
@@ -240,7 +240,10 @@
 %           \path [decorate,decoration={text along path, text={Resource Abstraction}}] (3,-6.3) to[bend right] (7,-4);%(0.5,-6) -- (7,-4.5);
             \node[coordinate] (a) at (2,-6) {};
             \node[coordinate] (b) at (7,-6) {};
-            \node[rectangle,color=blue] (c) at (0.7,-6) {Virtualization};
+            \node[rectangle,color=blue] (c) at (0.7,-5) {Virtualization};
+            \node[rectangle,color=blue] (c) at (0.7,-5.5) {Containers};
+            \node[rectangle,color=blue] (c) at (0.5,-6) {Serverless Computing};
+            \node[rectangle,color=blue] (c) at (0.5,-6.5) {Edge Computing};
             \begin{scope}
                 \pgfsetlinewidth{2pt}
                 \draw[->,color=blue] (b) -- (a) node[midway,above,black] {Enabling technology};
