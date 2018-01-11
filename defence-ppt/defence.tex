@@ -1,4 +1,4 @@
-\documentclass[english,xcolor=table]{beamer}
+\documentclass[english,xcolor=table,t]{beamer}
 \usepackage{mathptmx}
 \usepackage[T1]{fontenc}
 \usepackage{color}
@@ -107,7 +107,7 @@
 %\usetheme{Szeged}
 
 % color-themes
-%\usecolortheme{beaver}
+%\usecolortheme{crane}
 %\usecolortheme{
 %       albatross | beaver | beetle |
 %       crane | default | dolphin |
@@ -242,8 +242,8 @@
             \node[coordinate] (b) at (7,-6) {};
             \node[rectangle,color=blue] (c) at (0.7,-5) {Virtualization};
             \node[rectangle,color=blue] (c) at (0.7,-5.5) {Containers};
-            \node[rectangle,color=blue] (c) at (0.5,-6) {Serverless Computing};
-            \node[rectangle,color=blue] (c) at (0.5,-6.5) {Edge Computing};
+            \node[rectangle,color=blue] (c) at (0.5,-6) {Edge Computing};
+            \node[rectangle,color=blue] (c) at (0.5,-6.5) {Serverless Computing};
             \begin{scope}
                 \pgfsetlinewidth{2pt}
                 \draw[->,color=blue] (b) -- (a) node[midway,above,black] {Enabling technology};
@@ -327,17 +327,136 @@
 % 		\end{itemize}
 % 	      \end{block}
 % 	\end{frame}
-    
-    %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%    
+
+% Puru asked to change this a bit    
+%    %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%    
+%    \subsection{Virtualized Resources}
+%    \begin{frame}
+%	\frametitle{Resources Under Consideration}
+%
+%                \begin{figure}%[t]
+%                \includegraphics[scale=0.45]{presyn-figures/resource-types.pdf} %\\
+%                \end{figure}	
+%
+%        \only<2->{
+%        \begin{tikzpicture}[overlay]
+%        \node[rectangle,color=purple] at (1.75,5.25) {Thesis};
+%        \node[rectangle,color=purple] at (1.05,4.75) {Component \#1};
+%
+%        \begin{scope}
+%        \pgfsetlinewidth{1pt}
+%            \node[coordinate] (a) at (2.25, 5) {};
+%            \node[coordinate] (b) at (6.25, 4) {};
+%            \node[coordinate] (c) at (4.35, 3.95) {};
+%            \node[coordinate] (d) at (3.95, 2.1) {};
+%
+%        \pgfsetlinewidth{2pt}
+%            \draw[->,style=dotted,color=purple] (a) -- (b);
+%            \draw[->,style=dotted,color=purple] (a) -- (c);
+%            \draw[->,style=dotted,color=purple] (a) -- (d);
+%
+%        \end{scope}
+%        \end{tikzpicture}                
+%                
+%        \begin{tikzpicture}[overlay]
+%        \node[rectangle,color=blue] at (10.75,5.25) {Thesis};
+%        \node[rectangle,color=blue] at (10.95,4.75) {Component \#2};
+%
+%        \begin{scope}
+%        \pgfsetlinewidth{1pt}
+%            \node[coordinate] (p) at (10.25, 4.5) {};
+%            \node[coordinate] (q) at (8, 4.3) {};
+%            \node[coordinate] (r) at (5.25, 2.5) {};
+%            \node[coordinate] (s) at (8.25, 2.4) {};
+%
+%        \pgfsetlinewidth{2pt}
+%            \draw[->,style=dotted,color=blue] (p) -- (q);
+%            \draw[->,style=dotted,color=blue] (p) -- (r);
+%            \draw[->,style=dotted,color=blue] (p) -- (s);
+%
+%        \end{scope}
+%        \end{tikzpicture}
+%        }
+%
+%    \end{frame}
+
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
+    \section{Thesis Contributions}
+    \begin{frame}
+        \frametitle{Thesis Contributions}
+
+        %\vspace{-1.4in}
+        \begin{block}{1. Network-affinity aware CPU Usage Estimation}
+	\textcolor{magenta}{Prediction of virtualized CPU usage for \emph{inter-PM} and \emph{intra-PM}
+	network communication between VMs}
+	\vspace{0.2in}
+	\begin{itemize}
+	\scriptsize
+    		\item \textit{Affinity-aware Modeling of CPU Usage for Provisioning Virtualized Applications}. Proceedings of the 4th International Conference on Cloud Computing (CLOUD), 2011. Sujesha Sudevalayam and Purushottam Kulkarni.
+    		\item \textit{Affinity-aware Modeling of CPU Usage with Communicating Virtual Machines}. Journal of Systems and Software (JSS), 2013. Sujesha Sudevalayam, Purushottam Kulkarni.
+	\end{itemize}
+
+        \end{block}
+
+        %\begin{block}{Contribution 2. VM Disk I/O Reduction by Host-cache Manipulation}
+        %\end{block}
+
+        %\begin{exampleblock}{Tools and Deliverables}
+        %\end{exampleblock}
+    \end{frame}
+
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
+    \section{Thesis Contributions}
+    \begin{frame}
+	\frametitle{Thesis Contributions}
+
+    	\begin{block}{1. Network-affinity aware CPU Usage Estimation}
+    	\end{block}
+
+    	\begin{block}{2. VM Disk I/O Reduction by Host-cache Manipulation}
+	\textcolor{magenta}{Reduction of disk I/O by exploiting content similarity within and across virtual machines}
+	\vspace{0.2in}	
+	
+	\begin{itemize}
+	\scriptsize
+		\item \textit{DRIVE: Using Implicit Caching Hints to achieve Disk I/O Reduction in Virtualized Environments}. Proceedings of the 21st International Conference on High Performance Computing (HiPC), 2014. Sujesha Sudevalayam, Purushottam Kulkarni, Rahul Balani and Akshat Verma.
+	\end{itemize}
+
+    	\end{block}
+      
+	%\begin{exampleblock}{Tools and Deliverables}
+	%\end{exampleblock}
+    \end{frame}
+
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
+    \section{Thesis Contributions}
+    \begin{frame}
+        \frametitle{Thesis Contributions}
+
+        %\vspace{-0.7in}
+        \begin{block}{1. Network-affinity aware CPU Usage Estimation}
+        \end{block}
+
+        \begin{block}{2. VM Disk I/O Reduction by Host-cache Manipulation}
+        \end{block}
+
+        \begin{block}{Tools and Deliverables}
+          \begin{enumerate}
+                \item \texttt{WLoadGen:} A load generator for CPU, disk \& network loads
+                \item \texttt{SimReplay}: A simulator for analyzing host cache effectiveness
+                \item \texttt{preadwritedump}: A kernel module for I/O request tracing
+          \end{enumerate}
+        \end{block}
+    \end{frame}
+
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \subsection{Virtualized Resources}
     \begin{frame}
-	\frametitle{Resources Considered for Optimization}
-
-	\end{block}
+        \frametitle{Resources Under Consideration}
 
                 \begin{figure}%[t]
-                \includegraphics[scale=0.45]{presyn-figures/resource-types.pdf} %\\
-                \end{figure}	
+                \includegraphics[scale=0.55]{presyn-figures/resource-types.pdf} %\\
+                \end{figure}
 
         \only<2->{
         \begin{tikzpicture}[overlay]
@@ -347,18 +466,18 @@
         \begin{scope}
         \pgfsetlinewidth{1pt}
             \node[coordinate] (a) at (2.25, 5) {};
-            \node[coordinate] (b) at (6.25, 4) {};
-            \node[coordinate] (c) at (4.35, 3.95) {};
+            \node[coordinate] (b) at (6.25, 5) {};
+            \node[coordinate] (c) at (3.65, 0.45) {};
             \node[coordinate] (d) at (3.95, 2.1) {};
 
         \pgfsetlinewidth{2pt}
-            \draw[->,style=dotted,color=purple] (a) -- (b);
-            \draw[->,style=dotted,color=purple] (a) -- (c);
-            \draw[->,style=dotted,color=purple] (a) -- (d);
+            \draw[-,style=dotted,color=purple] (a) -- (b);
+            \draw[-,style=dotted,color=purple] (b) -- (c);
+            \draw[-,style=dotted,color=purple] (c) -- (a);
 
         \end{scope}
-        \end{tikzpicture}                
-                
+        \end{tikzpicture}
+
         \begin{tikzpicture}[overlay]
         \node[rectangle,color=blue] at (10.75,5.25) {Thesis};
         \node[rectangle,color=blue] at (10.95,4.75) {Component \#2};
@@ -366,14 +485,15 @@
         \begin{scope}
         \pgfsetlinewidth{1pt}
             \node[coordinate] (p) at (10.25, 4.5) {};
-            \node[coordinate] (q) at (8, 4.3) {};
-            \node[coordinate] (r) at (5.25, 2.5) {};
-            \node[coordinate] (s) at (8.25, 2.4) {};
+            \node[coordinate] (q) at (7.5, 5.5) {};
+            \node[coordinate] (r) at (5.7, 1.1) {};
+            \node[coordinate] (s) at (8.55, 1.0) {};
 
         \pgfsetlinewidth{2pt}
-            \draw[->,style=dotted,color=blue] (p) -- (q);
-            \draw[->,style=dotted,color=blue] (p) -- (r);
-            \draw[->,style=dotted,color=blue] (p) -- (s);
+            \draw[-,style=dotted,color=blue] (p) -- (q);
+            \draw[-,style=dotted,color=blue] (q) -- (r);
+            \draw[-,style=dotted,color=blue] (r) -- (s);
+            \draw[-,style=dotted,color=blue] (s) -- (p);
 
         \end{scope}
         \end{tikzpicture}
@@ -384,56 +504,21 @@
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \section{Thesis Contributions}
     \begin{frame}
-        \frametitle{Thesis Contributions and Deliverables}
+        \frametitle{Thesis Contributions}
 
-        \vspace{-1.4in}
-        \begin{block}{1: Network-affinity aware CPU Usage Estimation}
+	\setbeamercolor{block title}{bg=darkpurple}
+        \begin{block}{1. Network-affinity aware CPU Usage Estimation}
 	Prediction of virtualized CPU usage for \emph{inter-PM} and \emph{intra-PM}
 	network communication between VMs
         \end{block}
 
-        %\begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
-        %\end{block}
+	\setbeamercolor{block title}{bg=title.bg}
+        \begin{block}{2. VM Disk I/O Reduction by Host-cache Manipulation}
+        Reduction of disk I/O by exploiting content similarity within and across virtual machines
+        \end{block}
 
         %\begin{exampleblock}{Tools and Deliverables}
         %\end{exampleblock}
-    \end{frame}
-
-    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
-    \section{Thesis Contributions and Challenges within}
-    \begin{frame}
-	\frametitle{Thesis Contributions and Deliverables}
-
-    	\begin{block}{1: Network-affinity aware CPU Usage Estimation}
-    	\end{block}
-
-    	\begin{block}{2: VM Disk I/O Reduction by Host-cache Manipulation}
-	Reduction of disk I/O by exploiting content similarity within and across VMs
-    	\end{block}
-      
-	%\begin{exampleblock}{Tools and Deliverables}
-	%\end{exampleblock}
-    \end{frame}
-
-    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
-    \section{Thesis Contributions and Challenges within}
-    \begin{frame}
-        \frametitle{Thesis Contributions and Deliverables}
-
-        \vspace{-0.7in}
-        \begin{block}{1: Network-affinity aware CPU Usage Estimation}
-        \end{block}
-
-        \begin{block}{2: VM Disk I/O Reduction by Host-cache Manipulation}
-        \end{block}
-
-        \begin{exampleblock}{Tools and Deliverables}
-          \begin{enumerate}
-                \item \texttt{WLoadGen:} A load generator for CPU, disk \& network loads
-                \item \texttt{SimReplay}: A simulator for analyzing host cache effectiveness
-                \item \texttt{preadwritedump}: A kernel module for I/O request tracing
-          \end{enumerate}
-        \end{exampleblock}
     \end{frame}
 
 %     %%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
@@ -444,14 +529,13 @@
 
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \begin{frame}
-	\frametitle{Content Outline (Part I)}
-	    \begin{block}{Affinity-aware CPU usage estimation in \textit{migratory} VM scenarios}
+	\frametitle{Network-affinity aware CPU Usage Estimation}
+	    \begin{block}{}
 	    \begin{enumerate}
-	     \item \textcolor{magenta}{Profiling study} of Xen network virtualization to 
-		  show the different flow paths for \textit{intra-PM} 
-		  and \textit{inter-PM} network traffic
-	     \item \textcolor{magenta}{Benchmarking} of CPU usage for various workloads
-		  in colocated and dispersed scenarios (demonstrated to be linear)	     
+	     \item \textcolor{magenta}{Event profiling study} showing difference between \textit{intra-PM} 
+		  and \textit{inter-PM} network code paths
+	     \item \textcolor{magenta}{Benchmarking} of CPU usage
+		  in colocated and dispersed scenarios for a VM pair	     
 	     \item Pair-wise linear regression model to \textcolor{magenta}{predict total} CPU 
 			when network traffic changes nature between intra-PM and inter-PM
 	     \item Pair-wise linear regression model to \textcolor{magenta}{predict differential} CPU 
@@ -467,9 +551,9 @@
     \begin{frame}%[shrink]
     \frametitle{Migration-Enabled Resource/Performance Management}
         \vspace{-0.15in}
-        \begin{varblock}[8.5cm]{}
+        \begin{varblock}[11.0cm]{}
 %       Migration for consolidation
-        \textcolor{magenta}{Consolidate/colocate} VMs for Resource Efficiency
+        \textcolor{magenta}{Colocate} VMs for Resource Efficiency => \emph{intra-PM} network traffic
         \end{varblock}
 
         \begin{figure}%[t]
@@ -479,9 +563,9 @@
         \end{figure}
 
         \vspace{-0.15in}
-        \begin{varblock}[6.5cm]{}
+        \begin{varblock}[9.0cm]{}
 %       Migration for QoS
-        \textcolor{magenta}{De-consolidate/disperse} VMs for QoS
+        \textcolor{magenta}{Disperse} VMs for QoS => \emph{inter-PM} network traffic
         \end{varblock}
 
         \begin{figure}%[t]
@@ -509,21 +593,21 @@
         %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \frame{
         \frametitle{Mutable and Immutable Network traffic for \textit{Migratory} VMs}
-% \vspace{-0.2in}
+ \vspace{-0.2in}
 \begin{tikzpicture}
-\node[text height=2cm, text width=2cm, draw, rectangle] (a) at (9,10) {};
-\node[text height=2cm, rectangle,color=blue] (b) at (9,10) {VM1};
-\node[text height=2cm, rectangle] (c) at (6,10) {};
-\node[text height=2cm, text width=2cm, draw, rectangle] (d) at (14,10) {};
-\node[text height=2cm, rectangle,color=blue] (e) at (14,10) {VM2};
-\node[text height=2cm, rectangle] (f) at (17,10) {};
-\node[text height=2cm, color=purple, rectangle] at (9,11) {Web tier};
-\node[text height=2cm, color=purple, rectangle] at (14,11) {Database tier};
-\node[text height=2cm, color=blue, rectangle] (x) at (7,10) {n/w};
-\node[text height=2cm, color=blue, rectangle] (x2) at (16,10) {n/w};
-\node[text height=2cm, color=blue, rectangle] (y) at (7,9.5) {traffic};
-\node[text height=2cm, color=blue, rectangle] (y2) at (16,9.5) {traffic};
-\node[text height=2cm, color=blue, rectangle] (z) at (11.5,10) {traffic};
+\node[text height=2cm, text width=2cm, draw, rectangle] (a) at (9,15) {};
+\node[text height=2cm, rectangle,color=blue] (b) at (9,15) {VM1};
+\node[text height=2cm, rectangle] (c) at (6,15) {};
+\node[text height=2cm, text width=2cm, draw, rectangle] (d) at (14,15) {};
+\node[text height=2cm, rectangle,color=blue] (e) at (14,15) {VM2};
+\node[text height=2cm, rectangle] (f) at (17,15) {};
+\node[text height=2cm, color=purple, rectangle] at (9,16) {Web tier};
+\node[text height=2cm, color=purple, rectangle] at (14,16) {Database tier};
+\node[text height=2cm, color=blue, rectangle] (x) at (7,15) {n/w};
+\node[text height=2cm, color=blue, rectangle] (x2) at (16,15) {n/w};
+\node[text height=2cm, color=blue, rectangle] (y) at (7,14.5) {traffic};
+\node[text height=2cm, color=blue, rectangle] (y2) at (16,14.5) {traffic};
+\node[text height=2cm, color=blue, rectangle] (z) at (11.5,15) {traffic};
 
 \begin{scope}
      \pgfsetlinewidth{2pt}
@@ -542,13 +626,11 @@
 \end{tikzpicture}
 % \end{block}
 \vspace{0.1in}
-\begin{block}{Mutable n/w traffic}
- Network traffic between VMs whose relative 
-    placement may \textcolor{magenta}{\textit{change between colocated 
-    and dispersed}}, due to server consolidation strategies
+\begin{block}{Definition of Mutable n/w traffic}
+ 	For a VM pair, network traffic whose nature may 
+    	\textcolor{magenta}{\textit{change between inter-PM and intra-PM}}
 \end{block}
 
-\vspace{-0.1in}
 \begin{block}{Our hypothesis}
 Mutable network traffic has \textcolor{magenta}{different CPU overheads} in 
 colocated and dispersed scenarios => ignoring affinity effects 
@@ -560,7 +642,7 @@ could result in incorrect CPU usage estimation
 %   %%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \begin{frame}
         \frametitle{Communicating VMs (Xen-view)}
-%\vspace{-0.1in}
+\vspace{-0.1in}
         \begin{columns}
             \column{0.85\textwidth}
                 \begin{figure}%[t]
@@ -617,9 +699,9 @@ could result in incorrect CPU usage estimation
 
             
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
-    \subsection{Benchmarking: Effect of colocation on CPU usage for Mutable N/w traffic}
+    \subsection{Effect of colocation on CPU usage for Mutable N/w traffic}
     \frame{
-        \frametitle{Benchmarking: Effect of colocation on CPU usage for \textit{Mutable} N/w traffic}
+        \frametitle{Effect of colocation on CPU usage for \textit{Mutable} N/w traffic}
 
         \vspace{-0.1in}
         \begin{varblock}[12.0cm]{}
@@ -634,34 +716,27 @@ could result in incorrect CPU usage estimation
             \includegraphics[scale=0.65]{arescue-figures/aff-benchmark/domU-cpu-vs-affine-rx-curve.eps} \\
             (a) Receiving DomU CPU util
             \column{0.55\textwidth}
-            \includegraphics[scale=0.65]{arescue-figures/aff-benchmark/domU-cpu-vs-affine-tx-curve.eps} \\
-            (b) Transmitting DomU CPU util
-        \end{columns}
-        \begin{columns}
-            \column{0.5\textwidth}
+            %\includegraphics[scale=0.65]{arescue-figures/aff-benchmark/domU-cpu-vs-affine-tx-curve.eps} \\
+            %(b) Transmitting DomU CPU util
             \includegraphics[scale=0.65]{arescue-figures/aff-benchmark/dom0-cpu-vs-affine-curve.eps} \\
-            (c) Dom0 CPU util for Rx/Tx %(summation versus co-located)
-            \column{0.55\textwidth}
-            \begin{exampleblock}{}
-\begin{small}
-		\textbf{Observations}
+            (b) Dom0 CPU util for Rx/Tx %(summation versus co-located)
+        \end{columns}
+
+            \begin{exampleblock}{Observations}
              \begin{itemize}
               \item \textbf{DomU}: Rx increase from 20-90 Mbps =>decrease of 2-8\% CPU util
             \item \textbf{Dom0}: Increase from 20-90 Mbps =>decrease of 9-25\% CPU util %(summation of dispersed versus colocated)
              \end{itemize}
-\end{small}
 % \setbeamerfont{item}{size=\default}
-
             \end{exampleblock}
 
-        \end{columns}
     }
     
     
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
-    \subsection{Benchmarking: Effect of colocation on CPU usage for Immutable N/w traffic, CPU and disk loads}
+    \subsection{Effect of colocation on CPU usage for Immutable N/w traffic, CPU and disk loads}
     \frame{
-        \frametitle{Benchmarking: Effect of colocation on CPU usage for Immutable n/w traffic, CPU and disk loads}
+        \frametitle{Effect of colocation on CPU usage for Immutable n/w traffic, CPU and disk loads}
 
         \vspace{-0.1in}
         \begin{varblock}[12.0cm]{}
@@ -906,7 +981,7 @@ $<$60, 10$>$ & 8, 2, 18 & 8, 2, 14 \\ \hline
     %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \begin{frame}{}
 	\frametitle{Evaluation of Differential CPU Prediction Models}
-	\vspace{-0.28in}
+	\vspace{-0.48in}
         \begin{columns}
             \begin{column}{0.5\textwidth}
 	      \begin{figure}
@@ -952,11 +1027,28 @@ $<$60, 10$>$ & 8, 2, 18 & 8, 2, 14 \\ \hline
   \begin{frame}
     \frametitle{Applying Pair-wise Models to Multi-VM Scenarios}
     \vspace{-0.3in}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
 	      \begin{figure}
-		\includegraphics[scale=0.4]{jss-figures/multi-hop.jpg}
+		\includegraphics[scale=0.45]{defence-figures/combined_transition.pdf}
 	      \end{figure}       
+            \end{column}
+            \begin{column}{0.4\textwidth}
+		\begin{block}{Two-step prediction for combined transition}
+		\begin{enumerate}
+			\item Predict using \textit{dispersion model}
+			\item Predict using \textit{colocation model} on previous prediction
+		\end{enumerate}
+		\end{block}
+
+		\begin{block}{}
+			Evaluated for multi-hop transitions
+		\end{block}
+            \end{column}
+        \end{columns}
 	      
-\vspace{-0.25in}	      
+\vspace{-0.15in}	      
+\scriptsize
 \begin{table}[t]
 \centering
 \caption{Maximum error in Dom0 CPU utilization prediction}
@@ -978,7 +1070,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 
     %%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \begin{frame}
-	\frametitle{Summary of Part I}
+	\frametitle{Summary and Conclusions}
 
         \begin{itemize}
 %        \item CPU requirement of communicating VMs can change upon VM migration.
@@ -990,34 +1082,62 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 
         \item \textbf{Simple linear model shown to predict ``differential'' CPU requirement from mutable n/w traffic profiles}
         \begin{itemize}
-            \item \textcolor{purple}{Synthetic workloads:} Max error within 1.5\% absolute CPU utilization for both DomU and Dom0 models
-            \item \textcolor{purple}{RUBiS benchmark application:} Max error within 1.5\% for Web and DB tiers, and Dom0
+            \item \textcolor{purple}{Synthetic and RUBiS workloads:} Max error within 1.5\% absolute CPU utilization for both DomU and Dom0 models
+            %\item \textcolor{purple}{RUBiS benchmark application:} Max error within 1.5\% for Web and DB tiers, and Dom0
             \item \textcolor{purple}{Multi-VM scenario:} Max error within 2\% for all transitions
         \end{itemize}
         \end{itemize}
       
+	\begin{exampleblock}{Publications}
+	\begin{itemize}
+	\scriptsize
+    		\item \textit{Affinity-aware Modeling of CPU Usage for Provisioning Virtualized Applications}. Proceedings of the 4th International Conference on Cloud Computing (CLOUD), 2011. Sujesha Sudevalayam and Purushottam Kulkarni.
+    		\item \textit{Affinity-aware Modeling of CPU Usage with Communicating Virtual Machines}. Journal of Systems and Software (JSS), 2013. Sujesha Sudevalayam, Purushottam Kulkarni.
+	\end{itemize}
+	\end{exampleblock}
 	
     \end{frame}
 
+    %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
+    \section{Thesis Contributions and Challenges within}
+    \begin{frame}
+        \frametitle{Thesis Contributions}
+
+        \begin{block}{1. Network-affinity aware CPU Usage Estimation}
+        Prediction of virtualized CPU usage for \emph{inter-PM} and \emph{intra-PM}
+        network communication between VMs
+        \end{block}
+
+        \setbeamercolor{block title}{bg=darkpurple}
+        \begin{block}{2. VM Disk I/O Reduction by Host-cache Manipulation}
+        Reduction of disk I/O by exploiting content similarity within and across virtual machines
+        \end{block}
+
+        %\begin{exampleblock}{Tools and Deliverables}
+        %\end{exampleblock}
+    \end{frame}
 
      
     %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
 %       \subsection{Part II}
     \begin{frame}
-	\frametitle{Content Outline (Part II)}
-	    \begin{block}{Part II. Host cache usage optimization for virtualized services}
+	\frametitle{VM Disk I/O Reduction by Host-cache Manipulation}
+	    \begin{block}{}
 	      \begin{enumerate}
 	      \item \textcolor{magenta}{Analysis of existing work (IODEDUP)} to 
 				show inconsistent performance
-	       \item \textcolor{magenta}{Redirection} of I/O requests from within the virtual machines
-	       \item To implicitly manipulate host cache 
+	       \item \textcolor{magenta}{Redirection} of I/O requests from within VMs 
+			and implicitly manipulate host-cache 
 			in \textcolor{magenta}{content-deduplicated} fashion
-	       \item Using \textcolor{magenta}{implicit caching hints}
 	       \item Evaluation using public dataset available online%~\cite{iodedup-online}
 	       \item \textcolor{magenta}{Case for generation} of realistic I/O deduplication benchmarks
 	      \end{enumerate}
 	    \end{block}
-	
+
+	\begin{exampleblock}{Publication}	
+	\scriptsize
+	\textit{DRIVE: Using Implicit Caching Hints to achieve Disk I/O Reduction in Virtualized Environments}. Proceedings of the 21st International Conference on High Performance Computing (HiPC), 2014. Sujesha Sudevalayam, Purushottam Kulkarni, Rahul Balani and Akshat Verma.
+	\end{exampleblock}
     \end{frame}	
     
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
