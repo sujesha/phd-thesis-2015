@@ -331,12 +331,7 @@
     %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%    
     \subsection{Virtualized Resources}
     \begin{frame}
-	\frametitle{Thesis Scope}
-	\begin{block}{Two types of resources in virtualized environment}
-	 \begin{enumerate}
-	  \item Resources allocated to virtual machines
-	  \item Resources available to host for virtualization operation \& overheads
-	 \end{enumerate}
+	\frametitle{Resources Considered for Optimization}
 
 	\end{block}
 
@@ -387,17 +382,14 @@
     \end{frame}
 
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
-    \section{Thesis Contributions and Challenges within}
+    \section{Thesis Contributions}
     \begin{frame}
         \frametitle{Thesis Contributions and Deliverables}
 
         \vspace{-1.4in}
-        \begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
-                \begin{itemize}
-                \item \textit{Initial Attempt:} Regression model to predict ``total'' CPU requirement
-                \item \textit{Challenge:} Maximum error 6\% absolute CPU
-                \item \textit{How Overcame:} Predict ``differential'' CPU usage---Max error 2\%
-               \end{itemize}
+        \begin{block}{1: Network-affinity aware CPU Usage Estimation}
+	Prediction of virtualized CPU usage for \emph{inter-PM} and \emph{intra-PM}
+	network communication between VMs
         \end{block}
 
         %\begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
@@ -412,21 +404,11 @@
     \begin{frame}
 	\frametitle{Thesis Contributions and Deliverables}
 
-    	\begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
+    	\begin{block}{1: Network-affinity aware CPU Usage Estimation}
     	\end{block}
 
-    	\begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
-	\begin{itemize}
-      	  	\item \textit{Initial Attempt:} Performing variable-sized deduplication
-	        \item \textit{Challenge 1:} Real-world I/O trace available only for fixed-size
-	        \item \textit{Alternative:} Show value of caching hints in fixed-size dedup
-	        \item \textit{Challenge 2:} Real system not amenable to repeatability \& instrumentation
-	        \item \textit{Alternative:} Build custom simulator for evaluation
-	        \item \textit{Challenge 3:} More traces needed for evaluation
-	        \item \textit{Alternative:} Build I/O tracing kit
-	        \item \textit{Challenge 4:} Unable to deploy I/O tracing tool on department servers
-	        \item \textit{Alternative:} Survey and make case for trace generation
-    		\end{itemize}
+    	\begin{block}{2: VM Disk I/O Reduction by Host-cache Manipulation}
+	Reduction of disk I/O by exploiting content similarity within and across VMs
     	\end{block}
       
 	%\begin{exampleblock}{Tools and Deliverables}
@@ -439,10 +421,10 @@
         \frametitle{Thesis Contributions and Deliverables}
 
         \vspace{-0.7in}
-        \begin{block}{Contribution 1: Network-affinity aware CPU Usage Estimation}
+        \begin{block}{1: Network-affinity aware CPU Usage Estimation}
         \end{block}
 
-        \begin{block}{Contribution 2: VM Disk I/O Reduction by Host-cache Manipulation}
+        \begin{block}{2: VM Disk I/O Reduction by Host-cache Manipulation}
         \end{block}
 
         \begin{exampleblock}{Tools and Deliverables}
