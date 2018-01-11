@@ -1134,15 +1134,12 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 	      \end{enumerate}
 	    \end{block}
 
-	\begin{exampleblock}{Publication}	
-	\scriptsize
-	\textit{DRIVE: Using Implicit Caching Hints to achieve Disk I/O Reduction in Virtualized Environments}. Proceedings of the 21st International Conference on High Performance Computing (HiPC), 2014. Sujesha Sudevalayam, Purushottam Kulkarni, Rahul Balani and Akshat Verma.
-	\end{exampleblock}
     \end{frame}	
     
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \frame[shrink]{
         \frametitle{Effect of Data Similarity on Host-cache Effectiveness}
+		  \vspace{-0.1in}
         \begin{columns}
             \column{0.4\textwidth}
 		  \vspace{-0.1in}
@@ -1155,7 +1152,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
                 \end{figure}
                 
                 \begin{block}{Sources of data similarity}
-		    Similar operating systems, libraries, binaries, file copies, etc.
+		    Similar operating systems, libraries, binaries, file copies
                 \end{block}
 
             \column{0.55\textwidth}
@@ -1171,7 +1168,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
                 \begin{alertblock}{Two orthogonal solutions}
                     \begin{enumerate}
 %                     \scriptsize
-                    \item \textcolor{blue}{I/O deduplication} (IODEDUP\cite{iodedup}) : but causes \textcolor{red}{cache inclusiveness problem}
+                    \item \textcolor{blue}{I/O deduplication} (IODEDUP\cite{iodedup}) : but \textcolor{red}{cache inclusiveness problem}
 %                     to eliminate duplicate requests
                     \item \textcolor{blue}{Memory deduplication} (Satori\cite{satori}) : dedupes \textcolor{red}{after} data is fetched
 % 			      to improve
@@ -1198,7 +1195,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         \frametitle{Traces\footnote[frame]{Workload traces borrowed from the IODEDUP paper~\cite{iodedup}. Traces available online at \cite{iodedup-online} and SNIA} used for evaluation: Similarity study}
 
         %%%%%%%%% TOP-HALF %%%%%%%%%%%
-        \vspace{-0.2in}
+        \vspace{-0.3in}
         \begin{columns}
             \column{1.00\textwidth}
         \begin{figure}[t]
@@ -1391,99 +1388,31 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     \section{Our system to achieve I/O reduction : DRIVE}
 %   \subsection{System Requirements}
     \frame[shrink]{
+    \frametitle{DRIVE: Using implicit caching hints to achieve
+        \underline{d}isk I/O \underline{r}eduction \underline{i}n
+        \underline{v}irtualized \underline{e}nvironments}
     
-            \begin{block}{Our Approach}
+        \begin{block}{Our Approach}
         \begin{itemize}
             \item Augment the virtual disk driver to \textbf{\textcolor{magenta}{use implicit caching hints}}
             to achieve an approximately fully-deduplicated host cache
         \end{itemize}
         \end{block}
-    
-    \frametitle{DRIVE: Using implicit caching hints to achieve
-        \underline{d}isk I/O \underline{r}eduction \underline{i}n
-        \underline{v}irtualized \underline{e}nvironments}
 
-        \only<1->{
-        \begin{block}{System Requirements for DRIVE}
-%             \textbf{Chunking, hashing, indexing}
-        \begin{enumerate}
-            \item Intercept block read \textit{request} path for
-                \textcolor{magenta}{metadata lookup} and I/O redirection, if present
-            \item Intercept block read \textit{return} path for
-                \textcolor{magenta}{metadata update}, if not previously present
-            \item Intercept block write \textit{request} path for
-                \textcolor{magenta}{metadata invalidation}
-%            \item (Optionally) Intercept block write \textit{return}
-%                path for metadata update.
-            \item Maintain \textcolor{magenta}{implicit caching hints} within metadata
-                to aid efficient I/O redirection.
-        \end{enumerate}
+	\begin{block}{I/O deduplication using I/O redirection}{}
         \end{block}
-        }
-% 
-%         \only<2>{
-%             \begin{exampleblock}{Basic difference between DRIVE and IODEDUP}
-%             IODEDUP: Services requests using a content-based cache
-% 
-%             DRIVE: Redirects the I/O requests to duplicate block addresses
-%             \end{exampleblock}
-%         }
     }
+    
+
     %Talk: Next, we present the design and implementation of the DRIVE
         % sytem. But before presenting the design, we first present a view
         % placement of the DRIVE module in the virtualization architecture,
         % i.e., at which point does it perform read request interception
         % and redirection.
         
-    %%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
-  \subsection{DRIVE System Design \& Implementation}
-    \begin{frame}
-    \frametitle{Block request interception-point for DRIVE}
-
-       \vspace{-0.25in}
-        \setbeamerfont{caption name}{size=\tiny}
-        \setbeamerfont{caption}{size=\tiny}
-        \begin{figure}
-            \subfloat[KVM split-driver architecture]{\includegraphics[scale=0.4]{confided-figures/main/kvm-disk-io.pdf}} \hfill
-            \subfloat[Xen split-driver architecture]{\includegraphics[scale=0.4]{confided-figures/main/xen-disk-io.pdf}}
-%           \caption{Split-driver architecture for virtual block devices.}
-        \end{figure}
-        
-        \begin{tikzpicture}[overlay]
-            \node[coordinate] (a) at (1.9,3.8) {};
-            \node[coordinate] (b) at (5.2,4) {};
-            \node[coordinate] (c) at (6.6,4) {};
-            \node[coordinate] (d) at (9.6,3.2) {};
-
-            \begin{scope}
-                \pgfsetlinewidth{2pt}
-                \draw[<-,style=dotted,color=purple] (a) -- (b);
-                \draw[->,style=dotted,color=purple] (c) -- (d); %node[midway,right] {45\%};
-		\node[rectangle,color=purple] at (6,4.25) {Interception};
-		\node[rectangle,color=purple] at (6,3.75) {point};
-            \end{scope}
-        \end{tikzpicture}             
-
-       \vspace{-0.1in}
-        \begin{block}{\scriptsize Interception within VM's front-end driver}
-            \scriptsize
-            \begin{itemize}
-                \item \textcolor{magenta}{De-coupling} of the front-end and back-end
-                    drivers enables simple I/O redirection
-                \item Results in \textcolor{magenta}{implicit} manipulation of
-                    host-cache as a
-                    content-deduplicated cache
-                \item Exploits individual workload's \textcolor{magenta}{content
-                    self-similarity}, useful irrespective of co-hosted VMs
-                \item Implementation within generic \texttt{virtio} drivers 
-                    \textcolor{magenta}{obviates dependence} on VMM \& guest OS
-            \end{itemize}
-        \end{block}
-    \end{frame}
-        
     %%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
     \begin{frame}
-    \frametitle{DRIVE metadata store: semantics and usage}
+    \frametitle{Obtaining and using implicit hints for I/O redirection}
 
         %%%%%%%%% TOP-HALF %%%%%%%%%%%
       \vspace{-0.15in}
@@ -1537,8 +1466,8 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         
         %%%%%%%%% BOTTOM-HALF %%%%%%%%%%%
         \only<2->{
-        \begin{block}{Obtaining and using hints for I/O redirection}
-            \scriptsize
+        \begin{block}{Core idea}
+	\scriptsize
             \begin{enumerate}
                 \item When a block is fetched, it is ``known'' to be \textcolor{magenta}{cached}
                 \item Above is noted in metadata, \textcolor{magenta}{marked as \textit{leader}}
@@ -1548,7 +1477,87 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         }
 
     \end{frame}
-    
+
+    %%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
+    \section{Our system to achieve I/O reduction : DRIVE}
+%   \subsection{System Requirements}
+    \frame[shrink]{
+    \frametitle{DRIVE: Using implicit caching hints to achieve
+        \underline{d}isk I/O \underline{r}eduction \underline{i}n
+        \underline{v}irtualized \underline{e}nvironments}
+
+        \only<1->{
+        \begin{block}{System Requirements for DRIVE}
+%             \textbf{Chunking, hashing, indexing}
+        \begin{enumerate}
+            \item Intercept block read \textit{request} path for
+                \textcolor{magenta}{metadata lookup} and I/O redirection, if present
+            \item Intercept block read \textit{return} path for
+                \textcolor{magenta}{metadata update}, if not previously present
+            \item Intercept block write \textit{request} path for
+                \textcolor{magenta}{metadata invalidation}
+%            \item (Optionally) Intercept block write \textit{return}
+%                path for metadata update.
+            \item Maintain \textcolor{magenta}{implicit caching hints} within metadata
+                to aid efficient I/O redirection.
+        \end{enumerate}
+        \end{block}
+        }
+
+         \only<2>{
+             \begin{exampleblock}{Basic difference between DRIVE and IODEDUP}
+             IODEDUP: Services requests using a content-based cache
+
+             DRIVE: Redirects I/O requests to duplicate block addresses, to implicitly manipulate host-cache
+             \end{exampleblock}
+         }
+    }
+   
+    %%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
+  \subsection{DRIVE System Design \& Implementation}
+    \begin{frame}
+    \frametitle{Block request interception-point for DRIVE}
+
+       \vspace{-0.25in}
+        \setbeamerfont{caption name}{size=\tiny}
+        \setbeamerfont{caption}{size=\tiny}
+        \begin{figure}
+            \subfloat[KVM split-driver architecture]{\includegraphics[scale=0.4]{confided-figures/main/kvm-disk-io.pdf}} \hfill
+            \subfloat[Xen split-driver architecture]{\includegraphics[scale=0.4]{confided-figures/main/xen-disk-io.pdf}}
+%           \caption{Split-driver architecture for virtual block devices.}
+        \end{figure}
+
+        \begin{tikzpicture}[overlay]
+            \node[coordinate] (a) at (1.9,3.8) {};
+            \node[coordinate] (b) at (5.2,4) {};
+            \node[coordinate] (c) at (6.6,4) {};
+            \node[coordinate] (d) at (9.6,3.2) {};
+
+            \begin{scope}
+                \pgfsetlinewidth{2pt}
+                \draw[<-,style=dotted,color=purple] (a) -- (b);
+                \draw[->,style=dotted,color=purple] (c) -- (d); %node[midway,right] {45\%};
+                \node[rectangle,color=purple] at (6,4.25) {Interception};
+                \node[rectangle,color=purple] at (6,3.75) {point};
+            \end{scope}
+        \end{tikzpicture}
+
+       \vspace{-0.1in}
+        \begin{block}{\scriptsize Interception within VM's front-end driver}
+            \scriptsize
+            \begin{itemize}
+                \item \textcolor{magenta}{De-coupling} of the front-end and back-end
+                    drivers enables simple I/O redirection
+                \item Results in \textcolor{magenta}{implicit} manipulation of
+                    host-cache as a
+                    content-deduplicated cache
+                \item Exploits individual workload's \textcolor{magenta}{content
+                    self-similarity}, useful irrespective of co-hosted VMs
+                \item Implementation within generic \texttt{virtio} drivers
+                    \textcolor{magenta}{obviates dependence} on VMM \& guest OS
+            \end{itemize}
+        \end{block}
+    \end{frame} 
     
     %%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
     \begin{frame}
@@ -1590,7 +1599,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     \begin{frame}
     \frametitle{Identifying similarity in multiple virtual machines}
 
-        \vspace{-0.2in}
+        \vspace{-0.3in}
         \begin{columns}
             \column{0.6\textwidth}
                 \begin{figure}
@@ -1714,7 +1723,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     %%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \begin{frame}{}
 	\frametitle{Content-defined characterization of \textit{webvm} trace}
-	\vspace{-0.23in}
+	\vspace{-0.40in}
         \begin{columns}
             \begin{column}{0.5\textwidth}
 	      \begin{figure}
@@ -1771,21 +1780,22 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         \begin{itemize}
 %             \scriptsize
             \item In this component, we addressed I/O reduction via deduplication
-                \vspace{0.1in}
             \item We analyzed existing work (IODEDUP) and showed that its
                 performance is inconsistent depending on the read/write request-mix
                 of the workload.
-                \vspace{0.1in}
             \item We presented design \& implementation of our DRIVE system
-                \vspace{0.1in}
             \item Simulation evaluation shows promise---achieves 97\% content
                 deduplication of the host cache.
-            \item We concluded with a survey of publicly available datasets, as
-		  well as benchmark generation literature, to make the case that
+            \item We concluded with a survey of publicly available datasets, and
+		  benchmark generation literature, to make the case that
 		  future work towards I/O deduplication benchmarks is necessary
         \end{itemize}
         \end{exampleblock}
 
+	\begin{exampleblock}{Publication}	
+	\scriptsize
+	\textit{DRIVE: Using Implicit Caching Hints to achieve Disk I/O Reduction in Virtualized Environments}. Proceedings of the 21st International Conference on High Performance Computing (HiPC), 2014. Sujesha Sudevalayam, Purushottam Kulkarni, Rahul Balani and Akshat Verma.
+	\end{exampleblock}
 % 
 %     \vspace{0.3in}
 %     \begin{exampleblock}{}
