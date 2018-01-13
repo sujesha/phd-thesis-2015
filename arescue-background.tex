@@ -5,21 +5,37 @@ Section~\ref{sec:litreviewchap-io-virtualization}), and supplements it
 with an event profiling study of network virtualization in Xen.
 
 \subsection{Recalling the basics of network I/O virtualization}
-As mentioned in Chapter~\ref{chap:thesis-litreview}, Xen
-virtualization technology has the concept of a split-driver
-architecture to deal with network I/O virtualization\textemdash{}consisting of
-\texttt{frontend} and \texttt{backend} drivers. Of these, the 
+As discussed in Chapter~\ref{chap:thesis-litreview}, network I/O 
+virtualization technologies are:
+\begin{enumerate}
+\item Para-virtualization based driver domain I/O model,
+\item Emulation-based direct I/O model and
+\item Virtio-based split-driver I/O model
+\end{enumerate}
+Note that, both the driver domain I/O model and the virtio model 
+have the concept of a split-driver, with the difference
+that virtio can be used even in para-virtualization setups, eg Xen.
+A split-driver architecture consists of
+\texttt{frontend} and \texttt{backend} drivers, of which the 
 \texttt{backend} driver is responsible to communicate with 
 native network drivers and get the I/O performed on behalf of 
 virtual machines. 
 
-In case of VMs that are colocated on a single PM, the native driver 
+An in-depth survey of various shared-memory optimizations
+for inter-virtual-machine (i.e. intra-PM) communication
+is presented in \cite{shared-mem-optimizations}---and it
+presents optimizations in both the para-virtualization
+and emulation-based-virtualization setups.
+In all above cases, for network communication between VMs 
+colocated on a single PM, the native driver 
 does not need to be invoked at all whereas
 if VMs are hosted on different PMs, physical network
-communication is essential. This difference manifests as different
+communication is essential. 
+This difference manifests as different
 CPU overheads for the VMs and the physical hosts 
 concerned. In this section, 
-we present an event profiling study of CPU overheads in both scenarios.
+we present an event profiling study of CPU overheads in both scenarios,
+in the Xen paravirtualization setup.
 
 \subsection{Profiling study of network I/O virtualization}
 % Xen uses an inter-domain shared memory mechanism to share data between

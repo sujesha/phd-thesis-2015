@@ -14,24 +14,29 @@ a brief background on I/O virtualization techniques, towards
 setting up the background for work done in this thesis.
 
 \subsection{Network I/O virtualization}
+Hypervisor technology can be broadly classified into two types: 
+(i) Type I hypervisor---those that run directly on the hardware (eg Xen) and, 
+(ii) Type II hypervisor---those that run hosted on an existing operating system (eg KVM).
 
 
 \begin{figure}[t]
 \centering
 % \includegraphics[height=1.75in]{jss-figures/xenarch.eps}
-\hspace{-0.2in} \subfloat[Xen's driver domain model]{\includegraphics[scale=1]{jss-figures/xenarch.eps}} ~~~~~~~~~~~~~~~~~~~~
-\subfloat[KVM's direct I/O model]{\includegraphics[scale=1]{jss-figures/kvmarch.eps}}
-\caption{Different I/O virtualization architectures\textemdash{}Xen and KVM}
+\hspace{-0.2in} \subfloat[Driver domain I/O model]{\includegraphics[scale=1]{jss-figures/xenarch.eps}} ~~~~~~~~~~~~~~~~~~~~
+\subfloat[Direct I/O model]{\includegraphics[scale=1]{jss-figures/kvmarch.eps}}
+\caption{Different I/O virtualization architectures}%\textemdash{}}
 \label{fig:xen-vs-kvm}
 \end{figure}
 
-Xen~\cite{xen-art-of-virtualization} is a 
-para-virtualization\index{Para-virtualization} 
-based technology while KVM~\cite{kvm} is 
-full-virtualization based\index{Full-virtualization}.
-\nomenclature{KVM:}{Kernel Virtual Machine}\index{KVM}
+%Xen~\cite{xen-art-of-virtualization} is a 
+%para-virtualization\index{Para-virtualization} 
+%based technology while KVM~\cite{kvm} is emulation based.
+%\nomenclature{KVM:}{Kernel Virtual Machine}\index{KVM}
+Xen~\cite{xen-art-of-virtualization} supports both full virtualization and 
+para-virtualization---former using hardware-assisted virtualization technology
+and latter using a privileged domain to arbitrate VM I/O operations.
 Fig.~\ref{fig:xen-vs-kvm}(a) shows the Xen\index{Xen} 
-virtualization architecture depicting 
+para-virtualization architecture depicting 
 Dom0\nomenclature{Dom0:}{Domain zero in Xen (driver domain)}\index{Dom0}\textemdash{}which 
 is the privileged management/driver domain, and 
 DomUs\nomenclature{DomU:}{User Domain in Xen (guest domain)}\index{DomU}\textemdash{}which 
@@ -49,32 +54,48 @@ drivers, in DomU and Dom0 respectively,
 coordinate the data exchange between the domains,
 and the native driver in Dom0 coordinates exchange with
 the physical network interface. 
+
 %The above procedure is followed
 %for both network operations as well as network-assisted disk I/O operations.
-
 The I/O architecture used by Xen\index{Xen} with para-virtualization 
-is referred to as the Driver domain I/O model. 
-On the other hand, KVM\index{KVM}\cite{kvm-whitepaper} 
-is an example of hardware-assisted virtualization (also full-virtualization),
-and uses another model for I/O, wherein virtual machines are run as 
-processes on the host and I/O
-processing is done by the QEMU~\cite{qemu}\index{QEMU} emulator in userspace.
-In this architecture, there is no separate driver domain to handle 
+is known as the Driver domain I/O model. 
+When the NIC receives a packet, it throws an interrupt that is caught by
+the Xen hypervisor. The hypervisor removes the packet and forwards it
+to the software bridge, which in turn, de-multiplexes the packet 
+and delivers it to the backend of the appropriate VM. The backend
+raises a hypercall for page remapping, after which the packet is 
+delivered to the target VM. Similar process in reverse is applied
+for a packet to be transmitted.
+
+KVM~\cite{kvm} also supports both full virtualization and
+para-virtualization---former wherein I/O
+processing is done by the QEMU~\cite{qemu}\index{QEMU} emulator in 
+userspace\index{KVM}\cite{kvm-whitepaper}
+and latter using virtio framework~\cite{virtio}.
+In emulated I/O architecture, there is no separate driver domain to handle 
 privileged instructions, hence it is called 
 the Direct I/O model~\cite{net-fairness-visa-2010}.
 % performs dynamic binary translation of all guest
 %instructions and executes them directly on the physical host hardware.
 %This is called the Direct I/O model~\cite{net-fairness-visa-2010} and has no 
 %separate
-%driver domain to handle privileged instructions. 
+%driver domain to handle privileged instructions.
+KVM/QEMU operates network I/O using TAP devices---a Linux kernel feature
+that allows to create virtual network interfaces. When a packet is received,
+the host NIC driver forwards it to the virtual bridge which de-multiplexes
+and forwards it to the TAP device corresponding to the destination VM. 
+When the TAP device receives data, it wakes up the QEMU process which
+copies the data first into the VNIC buffer from where it gets copied 
+into virtual device of the VM. Then QEMU process notifies kernel module
+about the data, which in turn, sends interrupts to guest OS about data arrival.
 
-Due to arbitration of DomU's I/O access by Dom0,
-network activity of guest VMs results in additional
-CPU utilization at Dom0. However, since dispersed VMs communicate
+Due to arbitration of DomU's I/O access by either the hypervisor or a
+privileged domain, network activity of guest VMs results in additional
+CPU utilization. However, since dispersed VMs communicate
 by accessing the physical network interface as opposed to colocated VMs
 that communicate ``locally'', network communication between
 colocated and dispersed VMs results in different CPU overheads.
-In the first component of our thesis, we study the Dom0 CPU overheads
+In the first component of our thesis, we study the CPU overheads
 with colocation and dispersion of virtual machines and
 build resource estimation models based on these findings.
 \\
@@ -83,14 +104,14 @@ In the above description, both Xen and KVM technologies are shown to
 have different I/O architectures, and the first component of our 
 thesis deals with both architectures to demonstrate the difference
 in CPU overheads for communicating VMs.
-However, subsequently in 2008, 
-an I/O processing framework known as \texttt{virtio}\index{Virtio} was 
-proposed in~\cite{virtio}, which is a generic, modular and pluggable 
+However, the \texttt{virtio}\index{Virtio} framework 
+is a generic, modular and pluggable 
 platform that can be used transparently with 
-any hypervisor. The motivation of this framework was to
+any hypervisor. The motivation for this framework was to
 make hypervisor development
 independent from the development of virtualization-based 
-I/O drivers~\cite{virtio}.
+I/O drivers~\cite{virtio}. Also, it provides better performance
+because it reduces the number of data copies and context switches.
 This new framework shaped the design of our disk I/O redirection system
 in the second component of this thesis, as explained next.
 
