@@ -222,6 +222,7 @@
         \column{0.6\textwidth}
 
         \column{0.4\textwidth}
+	\vspace{-0.2in}
         \begin{block}{}
             \begin{itemize}
             \item Software as a Service
@@ -452,7 +453,7 @@
     %%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%
     \subsection{Virtualized Resources}
     \begin{frame}
-        \frametitle{Resources Under Consideration}
+        \frametitle{Resources Under Consideration In Virtualized Environment}
 
                 \begin{figure}%[t]
                 \includegraphics[scale=0.55]{presyn-figures/resource-types.pdf} %\\
@@ -726,6 +727,7 @@ could result in incorrect CPU usage estimation
              \begin{itemize}
               \item \textbf{DomU}: Rx increase from 20-90 Mbps =>decrease of 2-8\% CPU util
             \item \textbf{Dom0}: Increase from 20-90 Mbps =>decrease of 9-25\% CPU util %(summation of dispersed versus colocated)
+		\item Linear correlation between network and CPU usage
              \end{itemize}
 % \setbeamerfont{item}{size=\default}
             \end{exampleblock}
@@ -856,7 +858,7 @@ $<$60, 10$>$ & 8, 2, 18 & 8, 2, 14 \\ \hline
         \end{tikzpicture}
         
         \begin{exampleblock}{Core Idea}
-	    Since correlation of CPU usage with all other resources usage is linear, build \textcolor{magenta}{linear prediction models}
+		Build \textcolor{magenta}{linear prediction models} since correlation of CPU usage with all other resources usage is linear
         \end{exampleblock}
 
 
@@ -882,7 +884,7 @@ $<$60, 10$>$ & 8, 2, 18 & 8, 2, 14 \\ \hline
          \begin{itemize}
           \item \textbf{CPU} metrics: user, system, iowait
           \item \textbf{Disk} metrics: read blocks/second, write blocks/second
-           \item \textbf{Mutable and immutable} network metrics: Rx and Tx Kbps
+           \item \textbf{Mutable and immutable} network metrics: Rx and Tx Kbps, packets/sec
          \end{itemize}
         \end{block}
 
@@ -1195,7 +1197,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
         \frametitle{Traces\footnote[frame]{Workload traces borrowed from the IODEDUP paper~\cite{iodedup}. Traces available online at \cite{iodedup-online} and SNIA} used for evaluation: Similarity study}
 
         %%%%%%%%% TOP-HALF %%%%%%%%%%%
-        \vspace{-0.3in}
+        \vspace{-0.5in}
         \begin{columns}
             \column{1.00\textwidth}
         \begin{figure}[t]
@@ -1312,7 +1314,7 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     \frametitle{Study of cache effectiveness for IODEDUP}
 
         %%%%%%%%% TOP-HALF %%%%%%%%%%%
-        \vspace{-0.1in}
+        \vspace{-0.2in}
         \begin{figure}
         \includegraphics[scale=0.57]{confided-figures/sweetspot-512MB/sweetspot-512MB.pdf}
         \vspace{-0.6in}
@@ -1387,21 +1389,28 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
     %%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
     \section{Our system to achieve I/O reduction : DRIVE}
 %   \subsection{System Requirements}
-    \frame[shrink]{
+    \begin{frame}
     \frametitle{DRIVE: Using implicit caching hints to achieve
         \underline{d}isk I/O \underline{r}eduction \underline{i}n
         \underline{v}irtualized \underline{e}nvironments}
     
-        \begin{block}{Our Approach}
-        \begin{itemize}
-            \item Augment the virtual disk driver to \textbf{\textcolor{magenta}{use implicit caching hints}}
+            \textbf{Our approach}: Augment the virtual disk driver to \textbf{\textcolor{magenta}{use implicit caching hints}}
             to achieve an approximately fully-deduplicated host cache
-        \end{itemize}
-        \end{block}
+        %\begin{block}{Our Approach}
+        %\begin{itemize}
+        %    \item Augment the virtual disk driver to \textbf{\textcolor{magenta}{use implicit caching hints}}
+        %    to achieve an approximately fully-deduplicated host cache
+        %\end{itemize}
+        %\end{block}
 
-	\begin{block}{I/O deduplication using I/O redirection}{}
-        \end{block}
-    }
+	\vspace{-0.2in}
+	\begin{figure}
+                    \includegraphics[scale=0.4]{defence-figures/drive-core-idea.pdf}
+%                     \vspace{-0.25in}
+                    \caption{I/O redirection based on content similarity}
+                \end{figure}
+	\end{frame}
+
     
 
     %Talk: Next, we present the design and implementation of the DRIVE
@@ -1814,6 +1823,13 @@ Transition (iii) & - & 0.51 & 0.43  \\ \hline
 \bibliographystyle{unsrt}
 \tiny\bibliography{defence}
     \end{frame}
+
+\begin{frame}
+\begin{center}
+		Thank you!
+		Questions?
+\end{center}
+\end{frame}
 
 %     %%%%%%%%%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%%%
 %     \frame{
