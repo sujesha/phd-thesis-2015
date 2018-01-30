@@ -6,9 +6,9 @@ service providers (like Amazon EC2~\cite{ec2}) can facilitate better
 performance isolation, security, quicker deployment 
 and elastic resource provisioning.
 Due to above benefits of virtualization,
-many hosting centers have transitioned from providing
-Hardware as a Service (HaaS) to
-Infrastructure as a Service (IaaS) instead.
+many hosting centers have transitioned to providing
+Infrastructure as a Service (IaaS) rather than
+Hardware as a Service (HaaS).
 The primary difference between HaaS and IaaS is that the
 former involves use or leasing of physical
 hardware/machine whereas the latter involves
@@ -63,7 +63,8 @@ to \textit{network affinity}, and propose models to
 estimate the changed CPU utilization.
 Specifically, we perform network benchmarking, which 
 demonstrates effects of network affinity on CPU usage when VMs 
-are colocated versus dispersed. Next, we develop VM \textit{pair-wise} models
+are colocated versus dispersed. Next, we develop \textit{pair-wise} models
+(i.e., models based on metrics of a pair of VMs)
 that can estimate the ``colocated'' CPU usage, on being 
 input their individual dispersed-case resource usages.
 We also build similar models to estimate the ``dispersed'' CPU
