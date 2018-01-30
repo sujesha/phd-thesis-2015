@@ -11,4 +11,4 @@ mkdir tmp
 pdfseparate thesis.pdf -f 3 -l $num_pages tmp/separated-abstract-onwards%03d.pdf
 cd tmp ; pdfunite `ls | sort` separated-abstract-onwards.pdf ; cd ..
 
-pdfunite separated-title-page.pdf sujesha-thesis-blank-page.pdf sujesha-thesis-dedication.pdf sujesha-thesis-blank-page.pdf sujesha-thesis-approval.pdf sujesha-thesis-blank-page.pdf sujesha-thesis-declaration-signed.pdf sujesha-thesis-blank-page.pdf tmp/separated-abstract-onwards.pdf thesis-for-bind.pdf
+pdfunite separated-title-page.pdf sujesha-thesis-blank-page.pdf sujesha-thesis-dedication.pdf sujesha-thesis-blank-page.pdf sujesha-thesis-approval-signed-dated.pdf sujesha-thesis-blank-page.pdf sujesha-thesis-declaration-signed-dated.pdf sujesha-thesis-blank-page.pdf tmp/separated-abstract-onwards.pdf thesis-to-bind.pdf
