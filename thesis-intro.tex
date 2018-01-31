@@ -120,21 +120,21 @@ administration of the different tiers. Additionally, due to
 elastic potential of resource allocation to virtual machines,
 differentiated hosting on virtual machines can help avoid resource
 wastage on under-utilized physical machines.
+
+
 When applications are instantiated in a virtual
 environment, the following major factors affect their 
 performance\textemdash{}available network capacity, disk access bandwidth
 and virtualization overheads. 
-
-
-When multiple virtual machines\index{Virtual machine} 
-are placed on a single physical machine\index{Physical machine},
-they compete for resources like CPU, memory, network and disk I/O
+Multiple virtual machines\index{Virtual machine} 
+colocated on a single physical machine\index{Physical machine},
+compete for resources like CPU, memory, network and disk I/O
 and interact in many conflicting ways. 
 % Hence, given a set of physical
 % machines, a bin-packing problem would need to be formulated to determine
 % which subset of virtual machines need to be placed/co-hosted/consolidated
 % on each physical machine, to obtain an optimal placement mapping.
-In any virtualized environment, the resources available can 
+In a virtualized environment, the resources available can 
 be broadly categorized into two.
 
 \paragraph{I. Resources allocated to the virtual machines.}
@@ -170,9 +170,9 @@ state our contributions.
 
 \paragraph{1. Affinity-aware Modeling of CPU usage for Virtualized Applications.}
 The first component of this thesis deals with managing the network 
-resource usage of virtual machines and estimating the resulting CPU 
+usage of virtual machines and estimating the resulting CPU 
 requirement on both the virtual machine\index{Virtual machine} 
-and its host system.
+and its host physical machine.
 Since different tiers of an application require network
 communication with each other, placing communicating virtual
 machines on the same physical machine\index{Physical machine} 
@@ -180,10 +180,10 @@ would reduce physical network
 usage. We define the presence of network traffic between a pair
 of VMs as their \textit{network affinity}\index{Network affinity}, 
 and state that the
-nature of this network traffic is \textit{mutable}\index{Mutable} 
+nature of this network traffic is \textit{mutable}\index{mutable} 
 (i.e., changing) based on
 whether the VMs are colocated\index{Colocated} or 
-dispersed\index{Dispersed}. In other words, the
+dispersed\index{Dispersed}. Specifically, the
 nature of the network traffic between a pair of VMs
 can change between being
 intra-PM\index{Intra-PM} and inter-PM\index{Inter-PM} 
@@ -231,7 +231,7 @@ predict for multi-VM scenarios as well.
 \paragraph{2. Using Implicit Caching Hints for {D}isk I/O {R}eduction in Virtualized Environments.}\index{DRIVE}
 This component deals with managing the cache resource
 usage on a virtualized host machine so as to improve the disk access performance 
-of the virtual machines.
+of virtual machines.
 Due to increased permeation of virtualization-based systems, there is a lot of 
 inherent content similarity in systems like email servers, web servers 
 and file servers. All this data resides on disk and is fetched by corresponding
@@ -246,11 +246,11 @@ storage virtualization engine of the device to manage the underlying
 location-addressed cache like a \textit{content-deduplicated} cache.
 
 We build a disk read-access optimization called DRIVE, that
-identifies content similarity across multiple blocks, and performs
-hint-based read I/O redirection to improve cache effectiveness,
+identifies content similarity across multiple blocks in the disk I/O stream, 
+and performs hint-based read I/O redirection to improve cache effectiveness,
 thus reducing the number of disk reads further.
 % than other systems.
-A metadata store is maintained based on the virtual machine's disk
+A metadata store is maintained based on the VM's disk
 accesses and implicit caching hints are collected
 for future read I/O redirection\index{I/O redirection}.
 The read I/O redirection is performed from within the virtual
@@ -291,8 +291,8 @@ The rest of this thesis is organized as follows.
 Chapter~\ref{chap:thesis-litreview} presents brief background 
 to cover the scope of this thesis.
 In Chapter~\ref{chap:thesis-arescue}, we present our work
-related to building affinity-aware CPU estimation\index{Estimation} models 
-for migrating VMs and their hosts. In Chapter~\ref{chap:thesis-drive},
+related to building network affinity-aware CPU estimation\index{Estimation} models 
+for migratory VMs and their host PMs. In Chapter~\ref{chap:thesis-drive},
 we present our I/O reduction system called DRIVE\index{DRIVE} which
 improves the efficiency of host cache using deduplication-based
 I/O redirection. For further evaluation of DRIVE, we 
