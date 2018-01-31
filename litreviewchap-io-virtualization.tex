@@ -58,7 +58,7 @@ the physical network interface.
 %The above procedure is followed
 %for both network operations as well as network-assisted disk I/O operations.
 The I/O architecture used by Xen\index{Xen} with para-virtualization 
-is known as the Driver domain I/O model. 
+is known as Driver domain I/O model. 
 When the NIC receives a packet, it throws an interrupt that is caught by
 the Xen hypervisor. The hypervisor removes the packet and forwards it
 to the software bridge, which in turn, de-multiplexes the packet 
@@ -69,12 +69,12 @@ for a packet to be transmitted.
 
 KVM~\cite{kvm} also supports both full virtualization and
 para-virtualization---former wherein I/O
-processing is done by the QEMU~\cite{qemu}\index{QEMU} emulator in 
+processing is done by QEMU~\cite{qemu}\index{QEMU} emulator in 
 userspace\index{KVM}\cite{kvm-whitepaper}
 and latter using virtio framework~\cite{virtio}.
 In emulated I/O architecture, there is no separate driver domain to handle 
 privileged instructions, hence it is called 
-the Direct I/O model~\cite{net-fairness-visa-2010}.
+Direct I/O model~\cite{net-fairness-visa-2010}.
 % performs dynamic binary translation of all guest
 %instructions and executes them directly on the physical host hardware.
 %This is called the Direct I/O model~\cite{net-fairness-visa-2010} and has no 
@@ -84,8 +84,8 @@ KVM/QEMU operates network I/O using TAP devices---a Linux kernel feature
 that allows to create virtual network interfaces. When a packet is received,
 the host NIC driver forwards it to the virtual bridge which de-multiplexes
 and forwards it to the TAP device corresponding to the destination VM. 
-When the TAP device receives data, it wakes up the QEMU process which
-copies the data first into the VNIC buffer from where it gets copied 
+When TAP device receives data, it wakes up the QEMU process which
+copies the data first into VNIC buffer from where it gets copied 
 into virtual device of the VM. Then QEMU process notifies kernel module
 about the data, which in turn, sends interrupts to guest OS about data arrival.
 
@@ -97,7 +97,7 @@ that communicate ``locally'', network communication between
 colocated and dispersed VMs results in different CPU overheads.
 In the first component of our thesis, we study the CPU overheads
 with colocation and dispersion of virtual machines and
-build resource estimation models based on these findings.
+build CPU resource estimation models based on these findings.
 \\
 \\
 In the above description, both Xen and KVM technologies are shown to 
@@ -152,7 +152,7 @@ storage volumes~\cite{lvm} on the physical machine.
 %    \vspace{-0.2in}
 \end{figure}
 
-Irrespective of the type of storage used, the access to virtual disk is
+Irrespective of the type of storage used, access to virtual disk is
 performed via virtual block drivers within the VM. 
 % In this sub-section, we 
 % present background related to the paravirtualized virtual disk drivers,

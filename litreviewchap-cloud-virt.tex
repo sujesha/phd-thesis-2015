@@ -42,14 +42,13 @@ Virtualization allows accomodation of varying load-levels by
 on-demand resource allocation~\cite{xen-art-of-virtualization-revisited}
 and also helps reduce application downtime~\cite{google-live-migration}. 
 Due to above benefits of virtualization, 
-many hosting centers have moved from providing Hardware as a 
-Service (HaaS)\nomenclature{HaaS:}{Hardware as a Service}\index{HaaS}
-to Infrastructure as a 
-Service (IaaS)\nomenclature{IaaS:}{Infrastructure as a 
-Service}\index{IaaS} instead~\cite{ec2, azure}. 
+many hosting centers have moved to providing 
+Infrastructure as a Service (IaaS)\nomenclature{IaaS:}{Infrastructure as a 
+Service}\index{IaaS}~\cite{ec2, azure} instead of
+Hardware as a Service (HaaS)\nomenclature{HaaS:}{Hardware as a Service}\index{HaaS}.
 The primary difference between HaaS and IaaS is that the 
 former involves use or leasing of physical
-hardware/machine whereas the latter involves 
+hardware/machines whereas the latter involves 
 leasing of virtual resources/machines\index{Virtual machine}.
 
 
@@ -85,7 +84,7 @@ because there is a perceived high-level guarantee that neither
 one will encroach on the resource
 requirements of the other, 
 thus providing approximate resource isolation.
-However, resource isolation guarantees can be provided only with kernel 
+However, guarantees of resource isolation can be provided only with kernel 
 changes and/or real-time operating systems~\cite{enforcing-isolation}.
 
 A user who invests in hosting services would prefer to get hard guarantees
@@ -125,7 +124,7 @@ the \textit{host OS}\index{Host OS}.
 
 Example instantiations of
 virtualization-based solutions are, (i) users/clients hosting their
-applications on a remote dataCenter\index{Datacenter} 
+applications on a remote datacenter\index{Datacenter} 
 and negotiating for service level agreements\index{SLA}
 %(henceforth referred to as a \textit{Public Cloud}).
 and (ii) enterprises hosting applications and services on a
@@ -181,7 +180,7 @@ this technique, the guest
 OS can run unmodified within the virtual machine. This is made 
 possible by the use of Binary translation and
 Direct execution techniques~\cite{vmware-paravirtualization}. 
-\textit{Binary translation} refers to the ``on-the-fly substitution'' 
+\textit{Binary translation} refers to ``on-the-fly substitution'' 
 of traditional guest OS instructions with a virtual sequence of 
 instructions and, \textit{Direct execution}
 strategy is adopted for executing user-level code. So the
