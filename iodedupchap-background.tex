@@ -11,7 +11,7 @@ better cache management
 (insertion and eviction) policies~\cite{outperforming-LRU}, 
 and content-based deduplication techniques.
 Prior work~\cite{cooperative, VMAR, capo} to achieve I/O reduction in 
-virtualized data centers focusses on content-based deduplication techniques.
+virtualized data centers focuses on content-based deduplication techniques.
 SeaCache\cite{cooperative} deploys a de-duplication
 system on the shared storage server in a virtualized data center, and
 designs efficient cache eviction algorithms to aggregate distributed
@@ -28,7 +28,7 @@ map dynamically, implies that many
 %VMs are not captured on-the-fly,
 % for deduplication, hence 
 deduplication opportunities may be lost in a long-running application.
-Capo\cite{capo} expoits the fact that all VMs are instantiated
+Capo\cite{capo} exploits the fact that all VMs are instantiated
 from a relatively small number of ``golden images'' and generates a bitmap,
 which is then used to eliminate duplicate read requests. However, it
 can not detect duplicate requests for data outside of golden images,

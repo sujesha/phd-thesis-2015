@@ -352,7 +352,7 @@ Fig.~\ref{fig:sweetspot}(b) shows the cache hit ratio for write-only
 request traces. Disk accesses with Vanilla block-cache has
 a higher number of cache hits than IODEDUP\index{IODEDUP} split-cache. 
 This is due to varying content being written repeatedly to the same
-locations by journalling processes.
+locations by journaling processes.
 For example, non-identical content written to the same block location
 intermittently,
 results in cache-hit in the vanilla block-cache (due to block number match)
@@ -405,7 +405,7 @@ ratio}\index{Cache hit ratio} and
 is that even though the cache
 experiences churn due to both read and write requests, the former metric
 captures all cache-hits whereas the latter captures the cache-hits
-occuring on account of read requests only.
+occurring on account of read requests only.
 %Trivially, both metrics 
 %are equivalent for a read-only trace, and a write-only trace contains no 
 %read requests needing aversion. Thus, we study this metric especially

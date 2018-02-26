@@ -45,7 +45,7 @@ and duplicate I/O problems,
 %\noindent\makebox[\textwidth]{% 
 \begin{tabular}{|l|c|c|c|c|c|c|c|} \hline
 	\textbf{Trace} & \textbf{Num of} & \textbf{Num of} & \textbf{Max} & \textbf{Max} & \textbf{\%blks} & \textbf{\%content} & \textbf{Write} \\
-	 \textbf{Name} & \textbf{read} & \textbf{write} & \textbf{share} & \textbf{occur} & \textbf{having} & \textbf{occuring} & \textbf{intensivity} \\
+	 \textbf{Name} & \textbf{read} & \textbf{write} & \textbf{share} & \textbf{occur} & \textbf{having} & \textbf{occurring} & \textbf{intensivity} \\
 			   \textbf{} & \textbf{requests} & \textbf{requests} & \textbf{factor} & \textbf{factor} & \textbf{2 copies} & \textbf{twice} & \textbf{factor}  \\ \hline
 	\textit{homes} & 4,052,176 & 17,110,222 & 5904 & 5905 & 5 & 10 & 4.2 \\ \hline
 	 \textit{mail} & 2,375,409 & 18,007,471 & 57015 & 57015 & 5 & 6 & 7.6 \\ \hline
@@ -157,7 +157,7 @@ The \textbf{system requirements} of an efficient I/O reduction system:
 %\item Data-structures to store metadata for similar blocks.
 \item Maintaining implicit caching hints within metadata to aid future I/O redirection.
 \item Interception of block read request path for metadata lookup and I/O redirection, if present.
-\item Interception of block read return path for metdata update, if not previously present.
+\item Interception of block read return path for metadata update, if not previously present.
 \item Interception of block write request path for metadata invalidation.
 \end{enumerate}
 

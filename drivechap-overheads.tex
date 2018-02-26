@@ -202,7 +202,7 @@ whereas a \texttt{cacheR} can happen after a \texttt{metadatahit}.
 In case of IODEDUP, a \texttt{cacheR} can be
 due to hit in block-cache, i.e., \texttt{blockhit} or
 due to hit in content-cache, i.e., \texttt{contenthit},
-and a \texttt{diskR} may be inevitable inspite of a \texttt{metadatahit}, if
+and a \texttt{diskR} may be inevitable in spite of a \texttt{metadatahit}, if
 a \texttt{contentmiss} occurs.
 The highlighted components are the overhead components, i.e. they are extra
 components present in either DRIVE or IODEDUP and are not present in Vanilla
@@ -218,7 +218,7 @@ and may subsequently result in a \texttt{blockhit} or \texttt{blockmiss}.
 Table~\ref{tab:readpath-list-menu} lists the components involved in the
 read path in case of MeNU. Here, a \texttt{cacheR} can occur in
 two ways: (i)~\texttt{metadatahit} followed by \texttt{blockhit} and
-(ii)~\texttt{metadatamiss} followed by \texttt{blockhit}, and parallelly
+(ii)~\texttt{metadatamiss} followed by \texttt{blockhit}, and similarly
 for \texttt{diskR} as well.
 
 
@@ -381,7 +381,7 @@ For the purpose of this thesis, the aspect of metadata space
 management is not within thesis scope (it is future work), and
 metadata space management has not been discussed in 
 IODEDUP paper~\cite{iodedup} either.
-So, for comparision between IODEDUP and DRIVE system using the 
+So, for comparison between IODEDUP and DRIVE system using the 
 available traces~\cite{iodedup-online}, we assume
 that metadata storage space is sufficient to store all metadata
 for these traces.
@@ -412,7 +412,7 @@ cache, and a request for block B could be satisfied due to deduplication,
 that is a benefit of having relevant metadata. We define the former case
 as a \texttt{self-hit} and the latter as a \texttt{dedup-hit}, and claim
 that only the number of \texttt{dedup-hits} determines the benefit of 
-gathering similarity-based metatadata. %in both IODEDUP and DRIVE systems.
+gathering similarity-based metadata. %in both IODEDUP and DRIVE systems.
 
 \underline{Number of read requests encountering metadata hits:}
 In DRIVE, every block-cache lookup (and disk fetch, if required) happens

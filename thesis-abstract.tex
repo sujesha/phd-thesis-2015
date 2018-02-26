@@ -43,7 +43,7 @@ of optimizing the performance of virtualized applications.
 \\
 The first problem of this thesis deals with managing the network 
 usage of VMs and estimating CPU 
-requirement on both the VM and its host PM.
+requirement on both VM and its host PM.
 Since different tiers of an application require mutual network
 communication, \textit{colocation} of communicating VMs
 on the same PM reduces physical network 
@@ -69,9 +69,9 @@ that can estimate the ``colocated'' CPU usage, on being
 input their individual dispersed-case resource usages.
 We also build similar models to estimate the ``dispersed'' CPU
 usage based on the individual colocated-case resource usages.
-For the ``colocation'' and ``dispersion'' models, we first 
-built models that predicted the total CPU usage
-upon migration\textemdash{}these CPU models use all resource (CPU, disk, mutable
+
+Initially, we built models that predicted the total CPU usage
+upon migration\textemdash{}these CPU models used all resource (CPU, disk, mutable
 and immutable network) usage profiles as their input. However, these models
 had an error of around 4-6\%. So, next we built enhanced models
 to predict only the difference in CPU usage\textemdash{}these
