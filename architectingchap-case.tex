@@ -34,17 +34,17 @@ case-for-nas-benchmarks, jump-based-synthetic, distiller} as well as storage ded
 evaluation~\cite{generating-datasets}, but none in the area of I/O deduplication. 
 
 Basically, 
-the I/O trace characterization and benchmark generation efforts 
-focus on the request inter-arrival times as well as the spatial
-and temporal locality of the access traces whereas the storage
+I/O trace characterization and benchmark generation efforts 
+focus on request inter-arrival times as well as spatial
+and temporal locality of accesses whereas storage
 deduplication benchmark generation effort focuses on modeling
 the content duplication across temporal snapshots of the same
-dataset. On the other hand, the requirement for I/O deduplication
+dataset. Meanwhile, the requirement for I/O deduplication
 benchmarks is a merging of the above two types of work, such 
 that both the spatial/temporal locality aspects as well as
 the duplicate content aspect be characterized and captured 
 in the benchmark realistically. In the rest of this section,
-we describe the existing work in realistic benchmark generation
+we describe existing work in realistic benchmark generation
 under each of the categories of (i)~Storage I/O, 
 (ii)~Network I/O activity, 
 (iii)~File system metadata,
@@ -55,7 +55,7 @@ and
 
 
 \subsection{Generating realistic storage I/O performance benchmarks}
-The generation of realistic I/O performance benchmarks
+Generation of realistic I/O performance benchmarks
 has received considerable attention in recent literature~\cite{storagecharacterization, storagemodeling,
 storagereplay, flexi-replay, decoupling-dc-studies,
 jump-based-synthetic, distiller}. 
@@ -65,7 +65,7 @@ with each state representing one-quarter of the
 block address range (called logical block number range or LBN range) 
 and each transition representing
 the probability of transitioning from one LBN range to another. The idea
-is that due to the spatial nature of the workload, most of the
+is that due to spatial nature of the workload, most
 transitions would stay within the same state and the probabilities
 of transitioning out of one state to another would be quite low. 
 Thus, a request stream is perceived as a state machine 
@@ -101,7 +101,7 @@ Markov model such that each of the above states is further divided
 into 4 finer granularity states. For example, the LBN range
 0-25\% from Fig.~\ref{fig:storagecharacterization} is broken
 into 4 sub-ranges like 0-6.25\%, 6.25-12.5\%, 12.5-18.75\% 
-and 18.75-25\%. Pictorially, the hierarchical Markov looks as
+and 18.75-25\%. Pictorially, the hierarchical Markov model looks as
 depicted in Fig.~\ref{fig:decoupling-dc-studies}, although
 the inner states have not been marked with all the LBN sub-ranges therein.
 
@@ -173,7 +173,7 @@ patterns or network traffic across sets of machines.
 \end{figure}
 
 The second model developed in \cite{echo} is a hierarchical Markov
-chain model which captures the network activity patterns for
+chain model which captures network activity patterns for
 individual servers, across servers within a rack, as well as
 across racks within a group of racks. Fig.~\ref{fig:echo} is 
 a lifted reproduction from \cite{echo} of the schematic of
@@ -183,7 +183,7 @@ the level of detail in the model can be adjusted according to the
 requirements of each application.
 
 \subsection{Generating realistic file system benchmarks}
-Similar to the quest in \cite{distiller} regarding the key properties 
+Similar to the quest in \cite{distiller} regarding key properties 
 of a given workload, the work in \cite{impressions} is motivated by
 the key properties needed to realistically represent a file system
 image. The claim therein, is that, depending on the workload to
@@ -247,24 +247,23 @@ access hotspots in write requests\textemdash{}access hotspot implies that
 a few blocks will be accessed multiple times while other blocks may 
 only be accessed once each. 
 If the request is a write request, the
-content generator generates the random content to be written to 
+content generator generates random content to be written to 
 the specified block, based on an input distribution of 
 duplicates.
 A tool called DEDISgen is also
 presented~\cite{dedis}, which can be used to compute the cumulative
 distributions of block accesses for a real filesystem such that 
 this distribution can be used as an input to DEDISbench for generating
-the realistic benchmarks for storage deduplication.
+realistic benchmarks for storage deduplication.
 
 Since our requirement is to evaluate read I/O deduplication techniques,
 and not storage deduplication, hence to use DEDISbench, we would need
 to tweak it such that access hotspots are created for read accesses
 as well, and not just for write requests. 
-Moreover, the realistic nature of not only the content in the 
-filesystem (i.e., on storage) but also the content in the 
-read I/O (i.e., in I/O traces)
+Moreover, the realistic nature of not only the filesystem content (i.e., on storage) 
+but also read I/O content (i.e., in I/O traces)
 needs to be captured. Specifically, DEDISbench uses the duplicate
-distribution to guide the content generation for write requests.
+distribution to guide content generation for write requests.
 We need the read access hotspots to also be similarly guided by
 a duplicate distribution of content present in real I/O 
 traces\textemdash{}basically

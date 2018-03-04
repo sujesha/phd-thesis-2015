@@ -141,8 +141,8 @@ On the other hand, an advantage of runtime metadata updates is that,
 metadata needs to be stored only for those blocks that are in the workload,
 hence saving space, as compared to an a-priori scan that will build metadata
 of the entire disk space. We choose to build metadata at runtime in the
-DRIVE system because in most workloads, only a small fraction of the 
-entire file-system is actually accessed from the disk~\cite{iodedup}.
+DRIVE system because most workloads access only a small fraction of the 
+entire filesystem from disk~\cite{iodedup}.
 
 Metadata is to be built/updated for every new block of content, to ensure that
 it is up-to-date for customized VMs and long-running applications.
@@ -150,7 +150,7 @@ In case of read and write requests, block content is encountered in two ways:
 (i)~every block of data written to cache for later flushing to disk,
 (ii)~every read request for an as yet unseen block (and hence) fetched
 from disk. 
-In the case of read requests, we compare the 
+In case of read requests, we compare the 
 content fingerprint\index{Content fingerprint}
 with existing fingerprints to determine
 whether it is ``new'' content or ``duplicate'' of previously seen content,

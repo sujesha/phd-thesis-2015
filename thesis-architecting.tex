@@ -72,8 +72,9 @@ For example, these benchmarks may generate randomized content~\cite{postmark}
 or heavily duplicate content~\cite{rubis}
 or even write zeros~\cite{zeros}, in some cases. 
 For our purposes, usage of benchmarks that write randomized content
-will result in very low duplicates in the workload, whereas those that heavily 
-generate duplicate content or simply write zeros will overestimate the benefit of deduplication.
+will result in very low duplicates in the workload, whereas those that
+generate heavily duplicate content or simply write zeros will overestimate 
+the benefit of deduplication.
 Hence we posit that, existing public benchmarks, though purported 
 to be ``realistic'' are not realistic in terms of content generated
 for the I/O and hence are not useful for evaluation of I/O deduplication techniques.

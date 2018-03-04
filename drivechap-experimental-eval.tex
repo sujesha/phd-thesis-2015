@@ -17,7 +17,7 @@ the workloads repeatable which would not be entirely possible in a real
 system. Moreover, a simulator would allow us to do extensive instrumentation 
 for obtaining various statistics as well as debugging.
 
-The trace data set used for evaluation consists of
+The trace dataset used for evaluation consists of
 disk read and write request traces over 21 days from three production systems
 at FIU Computer Science Department:
 (i)~\textit{webvm}, traces from two virtualized web-servers hosting webmail
@@ -25,7 +25,7 @@ proxy and course management system, (ii)~\textit{mail}, traces from an
 email server, and (iii)~\textit{homes}, traces from a file server.
 These are the same traces that were
 used earlier in the evaluation of IODEDUP system (in Section~\ref{sec:thesis-iodedup}).
-From the above, we consider the entire available \textit{webvm}
+We consider the entire available \textit{webvm}
 and \textit{homes} trace, and one day's trace for \textit{mail} workload,
 for our evaluation. 
 The primary components of every record in the trace file are:-
@@ -179,15 +179,15 @@ We claim that the DRIVE system
 effectively manipulates the host page-cache as a content-deduplicated
 cache. We define 
 \textit{content deduplication factor} as the ratio of number of unique
-content blocks to the total number of blocks in cache. Thus, higher the
-content deduplication factor, better is the efficiency of the cache.
+content blocks to the total number of blocks in cache. Thus, higher
+content deduplication factor implies better cache efficiency.
 Fig.~\ref{fig:contentdedup-factor-timeseries} shows the variation in
-content deduplication factor, as each request of the \textit{webvm}
-trace is replayed. It can be seen that the DRIVE system achieves
-significantly higher content deduplication factor than both the 
+content deduplication factor, as each request of \textit{webvm}
+trace is replayed. It can be seen that DRIVE system achieves
+significantly higher content deduplication factor than both 
 Vanilla and IODEDUP systems. Note that, 100\% content deduplication 
 of page cache can not be achieved because of the compulsory misses
-incurred during cache-warmup, as well as the cache dirtying due to 
+incurred during cache-warmup, as well as cache dirtying due to 
 write requests. However, DRIVE attains a high 
 content deduplication factor of up to 97\%, and this is the reason for 
 the significant performance improvement achieved by DRIVE.
@@ -238,7 +238,7 @@ the significant performance improvement achieved by DRIVE.
 To simulate the scenario of multi-VM workloads being executed on a
 virtualized host, we aggregated the two three-week long traces of
 \textit{homes} and \textit{webvm} workloads in timestamp order. We 
-performed a read/write replay of the aggregate trace and compare
+performed a read/write replay of the aggregate trace and compared
 cache-hit ratios, disk reads reduced and read response latencies for
 Vanilla, DRIVE and IODEDUP. 
 
@@ -258,7 +258,7 @@ Vanilla, DRIVE and IODEDUP.
 \end{table}
 
 The performance metrics are tabulated in 
-Table~\ref{tab:aggregate-hw} and show that although the cache-hit ratios
+Table~\ref{tab:aggregate-hw} and show that although cache-hit ratios
 are comparable in all three schemes (DRIVE is highest nevertheless),
 there is a huge margin in percentage of disk reads reduced. DRIVE system
 averts 18\% disk reads as compared to 1.6\% of Vanilla and 4.3\% of IODEDUP.
@@ -266,7 +266,7 @@ Decrease in number of disk reads results in a lower average
 read response latency, with 6.5ms for DRIVE as compared to
 7.9ms and 7.7ms for Vanilla and IODEDUP, respectively.
 Fig.~\ref{fig:aggregate-hw-time-series} plots the read response throughput
-per hour, assuming continuous replay of read requests in the aggregated trace.
+per hour, assuming continuous replay of read requests of the aggregated trace.
 We can see that DRIVE produces more number of responses per hour in the 4th,
 5th, 6th hours and so on, hence resulting in an earlier completion than
 Vanilla or IODEDUP replays. Notably, in hour 13, DRIVE finishes almost
@@ -284,7 +284,7 @@ double the number of read requests as Vanilla and IODEDUP.
 \subsection{Evaluating impact of write-intensivity factor}
 The presence of write requests
 demands continuous metadata updates and also causes cache churn, which
-results in lowered cache hit performance for read requests. Hence, 
+can result in lowered cache hit performance for read requests. Hence, 
 it is important to study effectiveness of cache manipulation with
 write-intensive workloads as well. 
 

@@ -222,7 +222,7 @@ colocated CPU usage as lower than dispersed. For example,
 for the segment size of 30KB at 80Mbps network utilization,
 CPU utilization is 8\% for dispersed and 4.8\% for colocated,
 thus indicating a drop of approximately 3\% absolute CPU
-when transitioning into colocated. On the other other hand,
+when transitioning into colocated. On the other hand,
 for the segment size of 1KB at 85Mbps, CPU utilization
 is 29\% for dispersed and 35\% for the colocated scenario,
 which indicates a 6\% increase while moving into colocated placement.
@@ -362,7 +362,7 @@ network packets from ``dispersed'' (i.e. hosted on different PMs) transmitters.
 The table shows CPU usage of VMs in
 dispersed and colocated cases for Dom0 and DomU.
 The left most column shows tuples of the form $<x,y>$ where
-$x$ is the the receive rate at VM1 and $y$ is the receive
+$x$ is the receive rate at VM1 and $y$ is the receive
 rate at VM2. The second column shows the CPU utilization of 
 VM1, VM2 and the summation of the CPU utilization of the two 
 Dom0 instances in dispersed scenario. The third column shows
@@ -379,7 +379,7 @@ levels in the dispersed case.
 Similar observation was made for other workloads\textemdash{}immutable
 transmit traffic, CPU workloads, disk read and disk write workloads. 
 The Dom0 utilization of 4\% is the same as its utilization
-under idle load, hence the above observation implies that for all
+under idle load, which implies that for all
 other workloads except mutable traffic, colocation results in saving
 the CPU overhead related to an extra Dom0 instance.
 %More detailed results can be found in the related technical report 

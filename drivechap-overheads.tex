@@ -5,34 +5,34 @@ to manipulate the underlying location-addressed cache as a content-addressed cac
 The quantitative results presented were based on the number of cache hits 
 measured in our custom simulator, and the average disk access and memory 
 access times were input variables. The CPU overheads due to metadata 
-lookup and metadata update operations is analyzed qualitatively in 
-Section \ref{sec:drivechap-cpuoverhead}, and indicated that they were 
+lookup and metadata update operations is analyzed \textit{qualitatively} 
+in Section \ref{sec:drivechap-cpuoverhead}, and indicated that they were 
 constant or O(1). 
-First, we present quantification of the CPU overheads and an
-in-depth comparative study of the CPU overheads incurred by DRIVE and
+In this section, first we present \textit{quantification} of CPU overheads and an
+in-depth comparative study of CPU overheads incurred by DRIVE and
 IODEDUP systems. Later, we present a comparative study of the cost
 and benefits of maintaining metadata stores in DRIVE versus IODEDUP.
 
 \subsection{CPU overheads in DRIVE versus IODEDUP}
-Although the DRIVE system succeeds in improving both the cache-hit ratio
-as well as the number of disk reads averted, it also introduces CPU overhead
-during the metadata lookup required for every read request. The IODEDUP system
+Although the DRIVE system succeeds in improving cache-hit ratio
+as well as averts more number of disk reads, it does introduce CPU overhead
+due to the metadata lookup step required for every read request. The IODEDUP system
 also incurs similar overheads, but since the content-cache and associated
 metadata are positioned downstream of the block-cache in case of IODEDUP,
-therefore CPU overheads are incurred only for those read requests that are not
-already satisfied by the block-cache. This implies that whereas IODEDUP
+CPU overheads are incurred only for those read requests that are not
+already satisfied by block-cache. This implies that whereas IODEDUP
 incurs CPU overhead only for a subset of the read requests, DRIVE incurs
 similar overheads for entire set of read requests.
 On the other hand, notice that IODEDUP overhead includes content-cache
-manipulation (insertion, lookup, eviction) as well, apart from metadata
+manipulation (insertion, lookup, eviction) as well, in addition to metadata
 manipulation which is common to both DRIVE and IODEDUP.
 
 Similar conditions exist in case of write requests as well. Although the
 aim of I/O Deduplication is to optimize only read request performance and
 not write, metadata update is still performed for every write request. In
 case the cache is a write-through cache, both DRIVE and IODEDUP can
-perform metadata update inline in the write-path itself, since its impact
-on write performance would be indistinguishable. However, if the cache is
+perform metadata update inline in the write-path, since its impact
+on write performance would be negligible. However, if the cache is
 a write-back cache, IODEDUP performs metadata update only for those blocks
 that are flushed from block-cache to disk, whereas DRIVE performs it
 for every write request. Similar to case of read requests, IODEDUP overhead
@@ -71,7 +71,7 @@ performance.
 The various simulation timing parameters used for the evaluation are presented
 in Table~\ref{tab:simul-params}. The parameters include disk read
 time, disk write time, block-cache lookup time and block-cache update time
-which are the default parameters in the Vanilla system. The CPU overheads are
+which are the default parameters in Vanilla system. The CPU overheads are
 the ones highlighted in gray like metadata lookup time, metadata invalidate time,
 metadata update time, content-cache lookup time and content-cache update time.
 The values for disk and cache lookup/update timings are retrieved 
@@ -117,7 +117,7 @@ due to metadata update (order of nanoseconds) is insignificant
 relative to disk write latencies (order of milliseconds). Hence, in
 case of a write-through cache, the impact of I/O deduplication overheads
 on user perceived response for write requests would
-be indistinguishable. However, in case of a \textit{write-back} cache,
+be negligible. However, in case of a \textit{write-back} cache,
 user perceived write-performance is dictated by the length of the
 write-path till the cache, hence write-path overhead needs to be kept
 as low as possible. Note that this concern does not apply to IODEDUP since
@@ -359,7 +359,7 @@ available for caching, hence, we need to analyze the cost
 and benefit of using a metadata store. 
 
 In the previous section, we demonstrated that DRIVE system is able
-to achieve better performance than Vanilla system, with the use of the
+to achieve better performance than Vanilla system, using a metadata store
 metadata store and simple hint-based I/O redirection. Thus, the benefit
 of the metadata store is justified in that case.
 The IODEDUP system also uses a metadata store, and performs I/O

@@ -54,17 +54,17 @@ being that advanced caching algorithms need to maintain information about
 evicted pages as well---not just the pages in cache---and it is not 
 desirable in general to incur the associated CPU and memory overheads. 
 
-Potentially due to the above inertia against completely replacing the 
+Potentially due to above inertia against completely replacing the 
 linux block-cache with a content-cache, the implementation in \cite{iodedup} 
 resorts to using a content-cache downstream from the block-cache, i.e. it 
 uses both caches (refer Figure 5 in \cite{iodedup}
 shown here as Fig.~\ref{fig:iodedup-arch}). 
 Moreover, having both caches allows to exploit both 
 aspects---content deduplication via content-based caching and locality 
-via location-addressed caching. In our work, we carry forward the same 
+via location-based caching. In our work, we carry forward the same 
 approach and suggest that in such an implementation, it would be 
 necessary to find the sweet-spot to figure out how to size the two 
-caches. Without sizing to find the sweet-spot, the performance can 
+caches. Without sizing to find the sweet-spot, performance can 
 vary drastically for different types of workloads, as our evaluations
 demonstrate.
 
@@ -247,7 +247,7 @@ accessed by any workloads. Thus, we compute \textit{occurrence factor} as an ind
 of identical content access in the workloads.
 The difference between sharing factor and occurrence factor is that, 
 when a single block address occurs multiple times in the trace, it is counted as 
-only one when computing the ``sharing'' factor of that block’s content whereas 
+only one when computing the ``sharing'' factor of that block's content whereas 
 every occurrence contributes to the ``occurrence'' factor of that content. 
 
 
@@ -384,10 +384,10 @@ different optimal setting for content-cache size---
 90\% (900MB) for read-only,
 10\% (100 MB) for write-only, and
 10\% (100 MB) for read/write.
-These settings result in the highest cache hit
+These settings result in highest cache hit
 ratios for the three workloads using IODEDUP system. Since real
 workloads would be read/write workloads, we consider 10\% (100 MB) as
-the sweetspot setting for the rest of the evaluation in this thesis.
+the sweetspot for rest of the evaluation in this thesis.
 
 \subsection{Comparison of number of disk reads averted}
 Next, let us take
@@ -404,7 +404,7 @@ ratio}\index{Cache hit ratio} and
 \textit{disk reads averted}\index{Disk reads averted} 
 is that even though the cache
 experiences churn due to both read and write requests, the former metric
-captures all cache-hits whereas the latter captures the cache-hits
+captures all cache-hits whereas the latter captures cache-hits
 occurring on account of read requests only.
 %Trivially, both metrics 
 %are equivalent for a read-only trace, and a write-only trace contains no 

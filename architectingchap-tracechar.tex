@@ -1,8 +1,8 @@
 In Section~\ref{sec:similarity-study}, we presented a brief study
 of content similarity in the IODEDUP traces available online 
 at \cite{iodedup-online}, by presenting 
-metrics like the ``sharing'' factor and the content ``occurrence'' factor
-in the traces. In this section, we perform a more detailed study
+metrics like ``sharing'' factor and content ``occurrence'' factor
+for the traces. In this section, we perform a thorough study
 to capture more characteristics of the workload
 which can be used for synthetic generation of realistic
 benchmarks, in future.
@@ -219,7 +219,7 @@ In general, run length refers to the length of a sequential run. In the
 context of I/O traces, \textit{run length} refers to the length of 
 a sequence of blocks being requested. For example, if the block accesses
 occur as shown in Fig.~\ref{fig:runlength-example}, the first sequence
-of block accesses results in a run length of 2, the second sequence has
+of block accesses results in a run length of 3, the second sequence has
 a run length of 5, and the third sequence has a run length of 1. 
 
 \begin{figure}
@@ -231,7 +231,7 @@ a run length of 5, and the third sequence has a run length of 1.
 
 For \textit{webvm} trace characterization, we present its run length
 distribution, i.e., a distribution of the different length sequences
-in the trace. This metric will indicate whether the requests in the
+in the trace. This metric will indicate whether requests in the
 trace have the sequentiality property, or whether they are essentially
 random access. It may be noted that if there are many huge files being
 accessed or read from the file system, it will cause bigger run lengths

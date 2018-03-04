@@ -188,7 +188,7 @@ nature of the network traffic between a pair of VMs
 can change between being
 intra-PM\index{Intra-PM} and inter-PM\index{Inter-PM} 
 depending on whether the VMs are hosted
-on the same physical machine or on different physical machines.
+on the same physical machine or on different physical machines, respectively.
 We explore the effect of \textit{mutable}
 network traffic on CPU usage of colocated and dispersed VMs. More
 specifically, the question is, \textit{is the CPU utilization of mutually
@@ -271,18 +271,18 @@ tools, their motivation, requirements specification, design and
 implementation are discussed in the Appendix chapters.
 \begin{enumerate}
 	\item \texttt{LoadGen}: This is a multi-threaded workload generator, 
-		that can be used to generate various types of worklaods like
+		that can be used to generate various types of workloads like
 		CPU, disk, network and mixed workloads at pre-specified levels.
 		For details, refer to Appendix Chapter~\ref{chap:thesis-loadgen}.
 	\item \texttt{SimReplay}: This is a custom cache simulator, with 
-		extensions to look into content similarity while operating 
+		extensions to track content similarity while operating 
 		the cache. For details, refer to Appendix 
 		Chapter~\ref{chap:thesis-simreplay}.
 	\item \texttt{Preadwritedump}: This is an I/O trace logging and
 		collection toolkit, consisting of different tools to perform
 		I/O tracing in the Linux kernel and for collecting the logs
-		from the kernel datastructures and writing 
-		into the persistent filesystem. For details, refer to Appendix 
+		from kernel datastructures and writing 
+		into persistent filesystem. For details, refer to Appendix 
         Chapter~\ref{chap:thesis-tracing}.
 \end{enumerate}
 

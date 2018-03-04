@@ -211,10 +211,10 @@ them, are presented in Section \ref{sec:simreplay-simdisk}.
 
 \subsection{Vanilla execution logic}
 As mentioned earlier, Vanilla invocation of the simulator implies that
-the I/O execution replay for the requests is performed as would happen
-in a standard linux host. Thus, for every write request, the content of
-the block is written into the cache, and flushed to (simulated) storage. 
-Moreover, for every read request, the block address is looked up in the
+the I/O execution replay for requests is performed as would happen
+in a standard linux host. Thus, for every write request, content of
+the block is written into cache, and flushed to (simulated) storage. 
+Moreover, for every read request, the block address is looked up in 
 block-cache and returned, if cache hit. In case of a cache miss for a
 read request, the block is read from storage.
 

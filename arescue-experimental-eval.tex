@@ -19,7 +19,7 @@ The results showed that well-fitting models
 were built, with less than 1\% to 2\% error for all workloads. However, the real test
 is whether the models are able to successfully
 predict the average CPU usage well, when applied to unseen data.
-We present model evaluation on both synthetic data-sets and benchmark
+We present model evaluation on both synthetic datasets and benchmark
 application data in this section.
 
 
@@ -102,13 +102,13 @@ application data in this section.
 
 
 
-\subsection{Model evaluation with synthetic data-sets}
+\subsection{Model evaluation with synthetic datasets}
 In this sub-section, we present our findings when the generated
 models were applied to ``unseen'' datasets. 
 By unseen, we mean that these datasets are not a part of the
 input set for model creation.
 The setup used for evaluation with synthetic\index{Synthetic benchmarks} 
-data-sets is the same 
+datasets is the same 
 as the one that was presented in Section \ref{sec:arescue-setup}, 
 for the benchmarking experiments.
 We present the evaluation of the two approaches separately\textemdash{}predicting
@@ -132,13 +132,13 @@ The training data input for the models was generated
 by generating resource utilization at pre-defined discrete 
 levels, however, the derived models
 need to be applied to ``unseen'' resource usage profiles
-in order to judge their adequacy. For this reason, the
-CPU workload for testing consists of $100$ randomly
-picked values in the range $1\%$
-to $100\%$, the mutable\index{Mutable} and immutable\index{Immutable} 
+in order to judge their adequacy. Hence, we used
+$100$ randomly picked values in the range $1\%$
+to $100\%$ for CPU workload. Similarly, the 
+mutable\index{Mutable} and immutable\index{Immutable} 
 Rx/Tx test workloads
-are chosen randomly from the range 10 Mbps to 90 Mbps, the
-disk read/write rates are randomly chosen from the range
+were chosen randomly from range 10 Mbps to 90 Mbps, the
+disk read/write rates were randomly chosen from range
 0 to 1280 blocks/second, and the combinational workloads 
 had randomly chosen values for each parameter (CPU, mutable
 network traffic, immutable network traffic,
@@ -160,7 +160,7 @@ be found in the technical report at \cite{affine-modeling-tech-report}.
 In case of Dom0 models\index{Dom0 model}, 
 since the savings due to co-location
 is significant (as concluded from the benchmarking results), an
-accuracy with 3\%error might suffice for a good prediction. However, in
+accuracy with 3\% error might suffice for a good prediction. However, in
 case of DomU models\index{DomU model}, 
 the savings themselves being marginally 
 lower (between 0 to 10\%), a 3\% error could imply higher 
@@ -294,10 +294,10 @@ usage prediction is less than $2\%$ for both Dom0 and DomU models.
 % in prediction was $3\%$ and $4\%$ for Dom0 and DomU models respectively.
 Similar graphs were plotted for \emph{dispersion} model as well and
 maximum error is within 2\% absolute CPU utilization.
-Thus, prediction accuracies for both Dom0 and DomU models are equally high.
-indicating that the models
-can be successfully applied to an application without training on that
-specific application's resource utilization profiles themselves.
+Thus, prediction accuracies for both Dom0 and DomU models are equally 
+high, indicating that the models
+can be successfully applied to an application without direct training on that
+specific application's resource utilization profiles.
 
 \begin{table}[t]
 	\centering
